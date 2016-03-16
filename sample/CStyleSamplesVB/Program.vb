@@ -31,7 +31,7 @@ Imports OpenCvSharp.CPlusPlus
         '''
         ''' The majority of the sample of below, 
         ''' It's the one that was rewritten in C # style borrowed from a sample of Japanese version of OpenCV reference samples and comes with OpenCV.               
-        '''
+        ''' </summary>
         ''' <remarks>Please uncomment some samples optionally.</remarks>
         <STAThread> _
         Shared Sub Main()
