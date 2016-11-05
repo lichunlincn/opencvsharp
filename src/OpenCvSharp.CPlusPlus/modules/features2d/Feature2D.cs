@@ -14,7 +14,7 @@ namespace OpenCvSharp.CPlusPlus
         /// </summary>
         private Ptr<Feature2D> detectorPtr;
 
-        internal virtual IntPtr PtrObj => detectorPtr.CvPtr;
+        internal override IntPtr PtrObj => detectorPtr.CvPtr;
 
         /// <summary>
         /// 
