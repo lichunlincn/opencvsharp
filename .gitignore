@@ -111,3 +111,5 @@ UpgradeLog*.XML
 Help JP
 Help EN
 /src/*.opendb
+*.BAK
+/src/OpenCvSharp2.VC.db

@@ -7,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
+using System.Windows.Media.Imaging;
 using OpenCvSharp.Blob;
 using OpenCvSharp.CPlusPlus;
 using OpenCvSharp.CPlusPlus.Gpu;
@@ -14,6 +16,7 @@ using OpenCvSharp.Extensions;
 using Point = OpenCvSharp.CPlusPlus.Point;
 using Rect = OpenCvSharp.CPlusPlus.Rect;
 using Size = OpenCvSharp.CPlusPlus.Size;
+using Window = OpenCvSharp.CPlusPlus.Window;
 
 namespace OpenCvSharp.Sandbox
 {
@@ -51,7 +54,9 @@ namespace OpenCvSharp.Sandbox
             PolygonTest(img, points);
             //*/
 
-            CvLoadTest();
+            ConvertToBitmapSourceTest();
+
+            //CvLoadTest();
 
             //CaptureTest();
 
@@ -59,6 +64,33 @@ namespace OpenCvSharp.Sandbox
             //Stitching(mats);
             //Track();
             //Run();
+        }
+
+        private static void ConvertToBitmapSourceTest()
+        {
+            BitmapSource bs;
+
+            // OpenCVによる画像処理 (Threshold)
+            using (var src = new IplImage("data/lenna.png", LoadMode.GrayScale))
+            using (var dst = new IplImage(src.Size, BitDepth.U8, 1))
+            {
+                src.Smooth(src, SmoothType.Gaussian, 5);
+                src.Threshold(dst, 0, 255, ThresholdType.Otsu);
+                bs = BitmapSourceConverter.ToBitmapSource(dst.ToBitmap());
+            }
+
+            // WPFのWindowに表示してみる
+            var image = new System.Windows.Controls.Image { Source = bs };
+            var window = new System.Windows.Window
+            {
+                Title = "from IplImage to BitmapSource",
+                Width = bs.PixelWidth,
+                Height = bs.PixelHeight,
+                Content = image
+            };
+
+            var app = new Application();
+            app.Run(window);
         }
 
         private static void CvLoadTest()

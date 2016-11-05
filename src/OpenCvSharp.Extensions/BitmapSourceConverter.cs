@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Interop;
+using System.Windows.Threading;
 using OpenCvSharp.CPlusPlus;
+using PixelFormat = System.Windows.Media.PixelFormat;
 
 namespace OpenCvSharp.Extensions
 {
@@ -20,14 +22,6 @@ namespace OpenCvSharp.Extensions
 #endif
     public static class BitmapSourceConverter
     {
-        /// <summary>
-        /// Delete a GDI object
-        /// </summary>
-        /// <param name="hObject">The poniter to the GDI object to be deleted</param>
-        /// <returns></returns>
-        [DllImport("gdi32")]
-        private static extern int DeleteObject(IntPtr hObject);
-
 #if LANG_JP
         /// <summary>
         /// MatをBitmapSourceに変換する. 
@@ -89,6 +83,7 @@ namespace OpenCvSharp.Extensions
         /// Converts System.Drawing.Bitmap to BitmapSource.
         /// </summary>
         /// <param name="src">Input System.Drawing.Bitmap</param>
+        /// <remarks>http://www.codeproject.com/Articles/104929/Bitmap-to-BitmapSource</remarks>
         /// <returns>BitmapSource</returns>
 #endif
         public static BitmapSource ToBitmapSource(this Bitmap src)
@@ -96,24 +91,59 @@ namespace OpenCvSharp.Extensions
             if (src == null)
                 throw new ArgumentNullException(nameof(src));
 
-            IntPtr hBitmap = IntPtr.Zero;
-            try
+            if (Application.Current?.Dispatcher == null)
             {
-                hBitmap = src.GetHbitmap();
-                BitmapSource bs = Imaging.CreateBitmapSourceFromHBitmap(
-                    hBitmap,
-                    IntPtr.Zero,
-                    Int32Rect.Empty,
-                    BitmapSizeOptions.FromEmptyOptions());
-                return bs;
-            }
-            finally
-            {
-                if (hBitmap != IntPtr.Zero)
+                using (var memoryStream = new MemoryStream())
                 {
-                    DeleteObject(hBitmap);
+                    src.Save(memoryStream, ImageFormat.Png);
+                    return CreateBitmapSourceFromBitmap(memoryStream);
                 }
             }
+
+            try
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    // You need to specify the image format to fill the stream. 
+                    // I'm assuming it is PNG
+                    src.Save(memoryStream, ImageFormat.Png);
+                    memoryStream.Seek(0, SeekOrigin.Begin);
+
+                    // Make sure to create the bitmap in the UI thread
+                    if (IsInvokeRequired())
+                        return (BitmapSource)Application.Current.Dispatcher.Invoke(
+                            new Func<Stream, BitmapSource>(CreateBitmapSourceFromBitmap),
+                            DispatcherPriority.Normal,
+                            memoryStream);
+
+                    return CreateBitmapSourceFromBitmap(memoryStream);
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        // http://www.codeproject.com/Articles/104929/Bitmap-to-BitmapSource
+        private static bool IsInvokeRequired()
+        {
+            return Dispatcher.CurrentDispatcher != Application.Current.Dispatcher; 
+        }
+
+        // http://www.codeproject.com/Articles/104929/Bitmap-to-BitmapSource
+        private static BitmapSource CreateBitmapSourceFromBitmap(Stream stream)
+        {
+            var bitmapDecoder = BitmapDecoder.Create(
+                stream,
+                BitmapCreateOptions.PreservePixelFormat,
+                BitmapCacheOption.OnLoad);
+
+            // This will disconnect the stream from the image completely...
+            var writable = new WriteableBitmap(bitmapDecoder.Frames.Single());
+            writable.Freeze();
+
+            return writable;
         }
 
         #region ToMat
