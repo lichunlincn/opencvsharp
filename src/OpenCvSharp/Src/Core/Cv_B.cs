@@ -30,11 +30,11 @@ namespace OpenCvSharp
         public static void BackProjectPCA(CvArr proj, CvArr avg, CvArr eigenvects, CvArr result)
         {
             if (proj == null)
-                throw new ArgumentNullException("proj");
+                throw new ArgumentNullException(nameof(proj));
             if (avg == null)
-                throw new ArgumentNullException("avg");
+                throw new ArgumentNullException(nameof(avg));
             if (eigenvects == null)
-                throw new ArgumentNullException("eigenvects");
+                throw new ArgumentNullException(nameof(eigenvects));
             
             NativeMethods.cvBackProjectPCA(proj.CvPtr, avg.CvPtr, eigenvects.CvPtr, result.CvPtr);
             KeepAlive(proj, avg, eigenvects, result);
@@ -97,7 +97,7 @@ namespace OpenCvSharp
         public static void BGCodeBookClearStale(CvBGCodeBookModel model, int staleThresh, CvRect roi, CvArr mask)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
 
             NativeMethods.cvBGCodeBookClearStale(model.CvPtr, staleThresh, roi, ToPtr(mask));
             KeepAlive(model, mask);
@@ -147,11 +147,11 @@ namespace OpenCvSharp
         public static int BGCodeBookDiff(CvBGCodeBookModel model, CvArr image, CvArr fgmask, CvRect roi)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (fgmask == null)
-                throw new ArgumentNullException("fgmask");
+                throw new ArgumentNullException(nameof(fgmask));
             try
             {
                 return NativeMethods.cvBGCodeBookDiff(model.CvPtr, image.CvPtr, fgmask.CvPtr, roi);
@@ -219,9 +219,9 @@ namespace OpenCvSharp
         public static void BGCodeBookUpdate(CvBGCodeBookModel model, CvArr image, CvRect roi, CvArr mask)
         {
             if (model == null)
-                throw new ArgumentNullException("model");
+                throw new ArgumentNullException(nameof(model));
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
 
             NativeMethods.cvBGCodeBookUpdate(model.CvPtr, image.CvPtr, roi, ToPtr(mask));
             KeepAlive(model, image, mask);
@@ -268,7 +268,7 @@ namespace OpenCvSharp
         public static CvRect BoundingRect(CvArr points, bool update)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             try
             {
                 return NativeMethods.cvBoundingRect(points.CvPtr, update);
@@ -294,7 +294,7 @@ namespace OpenCvSharp
         public static CvRect BoundingRect(IEnumerable<CvPoint> points)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             
             CvRect result;
             using (CvMemStorage storage = new CvMemStorage(0))

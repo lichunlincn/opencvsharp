@@ -90,9 +90,9 @@ namespace OpenCvSharp.CPlusPlus
             bool addLabels = false)
 		{
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -204,9 +204,9 @@ namespace OpenCvSharp.CPlusPlus
             bool updateData = false)
 		{
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
 
 			if(param == null)
 				param = new CvDTreeParams();
@@ -768,7 +768,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvDTreeTrainData");
             if (n == null)
-                throw new ArgumentNullException("n");
+                throw new ArgumentNullException(nameof(n));
 
             IntPtr p = NativeMethods.ml_CvDTreeTrainData_get_class_labels(ptr, n.CvPtr, labelsBuf);
             return new PointerAccessor1D_Int32(p);
@@ -796,7 +796,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvDTreeTrainData");
             if (n == null)
-                throw new ArgumentNullException("n");
+                throw new ArgumentNullException(nameof(n));
 
             IntPtr p = NativeMethods.ml_CvDTreeTrainData_get_ord_responses(ptr, n.CvPtr, valuesBuf, sampleIndicesBuf);
             return new PointerAccessor1D_Single(p);
@@ -822,7 +822,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvDTreeTrainData");
             if (n == null)
-                throw new ArgumentNullException("n");
+                throw new ArgumentNullException(nameof(n));
 
             IntPtr p = NativeMethods.ml_CvDTreeTrainData_get_cv_labels(ptr, n.CvPtr, labelsBuf);
             return new PointerAccessor1D_Int32(p);
@@ -850,7 +850,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvDTreeTrainData");
             if (n == null)
-                throw new ArgumentNullException("n");
+                throw new ArgumentNullException(nameof(n));
 
             IntPtr p = NativeMethods.ml_CvDTreeTrainData_get_cat_var_data(ptr, n.CvPtr, vi, catValuesBuf);
             return new PointerAccessor1D_Int32(p);
@@ -886,7 +886,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvDTreeTrainData");
             if (n == null)
-                throw new ArgumentNullException("n");
+                throw new ArgumentNullException(nameof(n));
 
             NativeMethods.ml_CvDTreeTrainData_get_ord_var_data(ptr, n.CvPtr, vi, ordValuesBuf, sortedIndicesBuf, ordValues, sortedIndices, sampleIndicesBuf);	
 		}
@@ -908,7 +908,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvDTreeTrainData"); 
 			if (n == null)
-			    throw new ArgumentNullException("n");
+			    throw new ArgumentNullException(nameof(n));
 
             return NativeMethods.ml_CvDTreeTrainData_get_child_buf_idx(ptr, n.CvPtr);
 		}

@@ -33,7 +33,7 @@ namespace OpenCvSharp
         public CvFeatureTree(CvMat desc)
         {
             if (desc == null)
-                throw new ArgumentNullException("desc");
+                throw new ArgumentNullException(nameof(desc));
             
             ptr = NativeMethods.cvCreateFeatureTree(desc.CvPtr);
             if (ptr == IntPtr.Zero)

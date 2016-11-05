@@ -35,7 +35,7 @@ namespace OpenCvSharp.CPlusPlus
         public static DescriptorMatcher Create(string descriptorMatcherType)
         {
             if (String.IsNullOrEmpty(descriptorMatcherType))
-                throw new ArgumentNullException("descriptorMatcherType");
+                throw new ArgumentNullException(nameof(descriptorMatcherType));
 
             switch (descriptorMatcherType)
             {
@@ -175,7 +175,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
 
             Mat[] descriptorsArray = EnumerableEx.ToArray(descriptors);
             if (descriptorsArray.Length == 0)
@@ -257,9 +257,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (queryDescriptors == null)
-                throw new ArgumentNullException("queryDescriptors");
+                throw new ArgumentNullException(nameof(queryDescriptors));
             if (trainDescriptors == null)
-                throw new ArgumentNullException("trainDescriptors");
+                throw new ArgumentNullException(nameof(trainDescriptors));
             using (var matchesVec = new VectorOfDMatch())
             {
                 NativeMethods.features2d_DescriptorMatcher_match1(
@@ -286,9 +286,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (queryDescriptors == null)
-                throw new ArgumentNullException("queryDescriptors");
+                throw new ArgumentNullException(nameof(queryDescriptors));
             if (trainDescriptors == null)
-                throw new ArgumentNullException("trainDescriptors");
+                throw new ArgumentNullException(nameof(trainDescriptors));
             using (var matchesVec = new VectorOfVectorDMatch())
             {
                 NativeMethods.features2d_DescriptorMatcher_knnMatch1(
@@ -313,9 +313,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (queryDescriptors == null)
-                throw new ArgumentNullException("queryDescriptors");
+                throw new ArgumentNullException(nameof(queryDescriptors));
             if (trainDescriptors == null)
-                throw new ArgumentNullException("trainDescriptors");
+                throw new ArgumentNullException(nameof(trainDescriptors));
             using (var matchesVec = new VectorOfVectorDMatch())
             {
                 NativeMethods.features2d_DescriptorMatcher_radiusMatch1(
@@ -335,7 +335,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (queryDescriptors == null)
-                throw new ArgumentNullException("queryDescriptors");
+                throw new ArgumentNullException(nameof(queryDescriptors));
 
             var masksPtrs = new IntPtr[0];
             if (masks != null)
@@ -366,7 +366,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (queryDescriptors == null)
-                throw new ArgumentNullException("queryDescriptors");
+                throw new ArgumentNullException(nameof(queryDescriptors));
 
             var masksPtrs = new IntPtr[0];
             if (masks != null)
@@ -396,7 +396,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (queryDescriptors == null)
-                throw new ArgumentNullException("queryDescriptors");
+                throw new ArgumentNullException(nameof(queryDescriptors));
 
             var masksPtrs = new IntPtr[0];
             if (masks != null)

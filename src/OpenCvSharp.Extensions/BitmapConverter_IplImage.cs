@@ -38,7 +38,7 @@ namespace OpenCvSharp.Extensions
         {
             if (src == null)
             {
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             }
             int w = src.Width;
             int h = src.Height;
@@ -78,11 +78,11 @@ namespace OpenCvSharp.Extensions
         public static unsafe void ToIplImage(this Bitmap src, IplImage dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (dst.IsDisposed)
-                throw new ArgumentException("The specified dst is disposed.", "dst");
+                throw new ArgumentException("The specified dst is disposed.", nameof(dst));
             if (dst.Depth != BitDepth.U8)
                 throw new NotSupportedException();
             if (src.Width != dst.Width || src.Height != dst.Height)
@@ -232,7 +232,7 @@ namespace OpenCvSharp.Extensions
         {
             if (bitmap == null)
             {
-                throw new ArgumentNullException("bitmap");
+                throw new ArgumentNullException(nameof(bitmap));
             }
             ToIplImage(bitmap, ipl);
         }
@@ -257,7 +257,7 @@ namespace OpenCvSharp.Extensions
         {
             if (src == null)
             {
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             }
             PixelFormat pf;
             switch (src.NChannels)
@@ -269,7 +269,7 @@ namespace OpenCvSharp.Extensions
                 case 4:
                     pf = PixelFormat.Format32bppArgb; break;
                 default:
-                    throw new ArgumentException("Number of channels must be 1, 3 or 4.", "src");
+                    throw new ArgumentException("Number of channels must be 1, 3 or 4.", nameof(src));
             }
             return ToBitmap(src, pf);
         }
@@ -292,7 +292,7 @@ namespace OpenCvSharp.Extensions
         {
             if (src == null)
             {
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             }
             if (src.Depth != BitDepth.U8)
             {
@@ -321,11 +321,11 @@ namespace OpenCvSharp.Extensions
         public static unsafe void ToBitmap(this IplImage src, Bitmap dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (src.IsDisposed)
-                throw new ArgumentException("The image is disposed.", "src");
+                throw new ArgumentException("The image is disposed.", nameof(src));
             //if (src.Depth != BitDepth.U8)
             //    throw new ArgumentOutOfRangeException("src");
             if (src.ROI.Width != dst.Width || src.ROI.Height != dst.Height)
@@ -484,9 +484,9 @@ namespace OpenCvSharp.Extensions
             }
 
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (hdc == IntPtr.Zero)
-                throw new ArgumentNullException("hdc");
+                throw new ArgumentNullException(nameof(hdc));
             if (img.Depth != BitDepth.U8)
                 throw new NotSupportedException();
 
@@ -546,9 +546,9 @@ namespace OpenCvSharp.Extensions
             }
 
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (hdc == IntPtr.Zero)
-                throw new ArgumentNullException("hdc");
+                throw new ArgumentNullException(nameof(hdc));
             if (img.Depth != BitDepth.U8)
                 throw new NotSupportedException();
 

@@ -118,7 +118,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (string.IsNullOrEmpty(filename))
-                throw new ArgumentNullException("filename");
+                throw new ArgumentNullException(nameof(filename));
 
             NativeMethods.ml_CvStatModel_save(ptr, filename, name);
         }
@@ -156,7 +156,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (string.IsNullOrEmpty(filename))
-                throw new ArgumentNullException("filename");
+                throw new ArgumentNullException(nameof(filename));
 
             NativeMethods.ml_CvStatModel_load(ptr, filename, name);
         }

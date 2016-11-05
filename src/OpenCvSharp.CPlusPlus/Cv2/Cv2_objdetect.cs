@@ -16,7 +16,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void GroupRectangles(IList<Rect> rectList, int groupThreshold, double eps = 0.2)
         {
             if (rectList == null) 
-                throw new ArgumentNullException("rectList");
+                throw new ArgumentNullException(nameof(rectList));
 
             using (var rectListVec = new VectorOfRect(rectList))
             {
@@ -35,7 +35,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void GroupRectangles(IList<Rect> rectList, out int[] weights, int groupThreshold, double eps = 0.2)
         {
             if (rectList == null)
-                throw new ArgumentNullException("rectList");
+                throw new ArgumentNullException(nameof(rectList));
 
             using (var rectListVec = new VectorOfRect(rectList))
             using (var weightsVec = new VectorOfInt32())
@@ -57,7 +57,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void GroupRectangles(IList<Rect> rectList, int groupThreshold, double eps, out int[] weights, out double[] levelWeights)
         {
             if (rectList == null)
-                throw new ArgumentNullException("rectList");
+                throw new ArgumentNullException(nameof(rectList));
 
             using (var rectListVec = new VectorOfRect(rectList))
             using (var weightsVec = new VectorOfInt32())
@@ -81,7 +81,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void GroupRectangles(IList<Rect> rectList, out int[] rejectLevels, out double[] levelWeights, int groupThreshold, double eps = 0.2)
         {
             if (rectList == null)
-                throw new ArgumentNullException("rectList");
+                throw new ArgumentNullException(nameof(rectList));
 
             using (var rectListVec = new VectorOfRect(rectList))
             using (var rejectLevelsVec = new VectorOfInt32())
@@ -106,7 +106,7 @@ namespace OpenCvSharp.CPlusPlus
             out double[] foundScales, double detectThreshold = 0.0, Size? winDetSize = null)
         {
             if (rectList == null)
-                throw new ArgumentNullException("rectList");
+                throw new ArgumentNullException(nameof(rectList));
 
             Size winDetSize0 = winDetSize.GetValueOrDefault(new Size(64, 128));
 

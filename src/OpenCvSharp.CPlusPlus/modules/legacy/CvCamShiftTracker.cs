@@ -246,7 +246,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvCamShiftTracker");
             if (curFrame == null)
-                throw new ArgumentNullException("curFrame");
+                throw new ArgumentNullException(nameof(curFrame));
             return NativeMethods.legacy_CvCamShiftTracker_track_object(ptr, curFrame.CvPtr) != 0;
         }
         /// <summary>
@@ -259,7 +259,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvCamShiftTracker");
             if (curFrame == null)
-                throw new ArgumentNullException("curFrame");
+                throw new ArgumentNullException(nameof(curFrame));
             return NativeMethods.legacy_CvCamShiftTracker_update_histogram(ptr, curFrame.CvPtr) != 0;
         }
         /// <summary>

@@ -620,7 +620,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfPoint FromArray(params Point[] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 
@@ -643,7 +643,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfPoint FromArray(Point[,] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 

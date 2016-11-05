@@ -65,9 +65,9 @@ namespace OpenCvSharp.Blob
         public void Render(IplImage imgSource, IplImage imgDest, RenderTracksMode mode, CvFont font)
         {
             if (imgSource == null)
-                throw new ArgumentNullException("imgSource");
+                throw new ArgumentNullException(nameof(imgSource));
             if (imgDest == null)
-                throw new ArgumentNullException("imgDest");
+                throw new ArgumentNullException(nameof(imgDest));
             if (imgDest.Depth != BitDepth.U8)
                 throw new ArgumentException("imgDest.Depth != U8");
             if (imgDest.NChannels != 3)

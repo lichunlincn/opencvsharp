@@ -288,9 +288,9 @@ namespace OpenCvSharp.CPlusPlus
         public override void Run(InputArray image, OutputArray fgmask, double learningRate = -1.0)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (fgmask == null)
-                throw new ArgumentNullException("fgmask");
+                throw new ArgumentNullException(nameof(fgmask));
             image.ThrowIfDisposed();
             fgmask.ThrowIfNotReady();
             NativeMethods.video_BackgroundSubtractorGMG_operator(ptr, image.CvPtr, fgmask.CvPtr, learningRate);

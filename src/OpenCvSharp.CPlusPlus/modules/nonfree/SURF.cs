@@ -306,7 +306,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfDisposed();
 
             using (VectorOfKeyPoint keypointsVec = new VectorOfKeyPoint())
@@ -340,7 +340,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfDisposed();
 
             using (VectorOfKeyPoint keypointsVec = new VectorOfKeyPoint())
@@ -378,9 +378,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
             img.ThrowIfDisposed();
             descriptors.ThrowIfNotReady();
 

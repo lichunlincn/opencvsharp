@@ -141,11 +141,11 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("StereoSGBM");
             if(left == null)
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             if(right == null)
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             if(disp == null)
-                throw new ArgumentNullException("disp");
+                throw new ArgumentNullException(nameof(disp));
             left.ThrowIfDisposed();
             right.ThrowIfDisposed();
             disp.ThrowIfNotReady();

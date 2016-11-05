@@ -144,7 +144,7 @@ namespace OpenCvSharp.CPlusPlus
         public KeyPoint[] Run(Mat image)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
 
             IntPtr keypoints;

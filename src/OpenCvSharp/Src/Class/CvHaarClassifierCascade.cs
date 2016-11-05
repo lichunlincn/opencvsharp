@@ -99,7 +99,7 @@ namespace OpenCvSharp
         public static CvHaarClassifierCascade FromDirectory(string directory, CvSize origWindowSize)
         {
             if (string.IsNullOrEmpty(directory))
-                throw new ArgumentNullException("directory");
+                throw new ArgumentNullException(nameof(directory));
             IntPtr result = NativeMethods.cvLoadHaarClassifierCascade(directory, origWindowSize);
             if (result == IntPtr.Zero)
                 return null;

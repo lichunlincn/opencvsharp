@@ -129,9 +129,9 @@ namespace OpenCvSharp.CPlusPlus
             CvRTParams param = null)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -186,7 +186,7 @@ namespace OpenCvSharp.CPlusPlus
         public bool Train(CvMLData data, CvRTParams param)
         {
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             if (param == null)
                 param = new CvRTParams();
 

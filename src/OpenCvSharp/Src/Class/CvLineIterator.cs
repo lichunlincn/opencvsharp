@@ -112,7 +112,7 @@ namespace OpenCvSharp
             : this()
         {
             if (image == null)            
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
 
             Initialize(image, pt1, pt2, connectivity, leftToRight);
         }

@@ -35,7 +35,7 @@ namespace OpenCvSharp
         public CvPOSITObject(CvPoint3D32f[] points)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             
             ptr = NativeMethods.cvCreatePOSITObject(points, points.Length);
             if (ptr == IntPtr.Zero)

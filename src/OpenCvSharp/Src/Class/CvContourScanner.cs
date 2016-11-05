@@ -137,9 +137,9 @@ namespace OpenCvSharp
         public CvContourScanner(CvArr image, CvMemStorage storage, int headerSize, ContourRetrieval mode, ContourChain method, CvPoint offset)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
             Initialize(image, storage, headerSize, mode, method, offset);
         }
 

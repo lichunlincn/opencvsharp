@@ -73,9 +73,9 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvAdaptiveSkinDetector");
             if (inputBgrImage == null)
-                throw new ArgumentNullException("inputBgrImage");
+                throw new ArgumentNullException(nameof(inputBgrImage));
             if (outputHueMask == null)
-                throw new ArgumentNullException("outputHueMask");
+                throw new ArgumentNullException(nameof(outputHueMask));
             inputBgrImage.ThrowIfDisposed();
             outputHueMask.ThrowIfDisposed();
             NativeMethods.contrib_CvAdaptiveSkinDetector_process(ptr, inputBgrImage.CvPtr, outputHueMask.CvPtr);

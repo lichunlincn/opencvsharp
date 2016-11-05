@@ -37,7 +37,7 @@ namespace OpenCvSharp
         public CvConDensation(IntPtr ptr)
         {
             if (ptr == IntPtr.Zero)
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             
             this.ptr = ptr;
         }
@@ -251,7 +251,7 @@ namespace OpenCvSharp
         {            
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
             int rows = SamplesNum, cols = DP;
             if (value.GetLength(0) != rows || value.GetLength(1) != cols)

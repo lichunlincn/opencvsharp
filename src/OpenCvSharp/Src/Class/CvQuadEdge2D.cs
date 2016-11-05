@@ -49,7 +49,7 @@ namespace OpenCvSharp
         {
             if (ptr == IntPtr.Zero)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             return new CvQuadEdge2D(ptr);
         }
@@ -70,7 +70,7 @@ namespace OpenCvSharp
         {
             if (ptr == IntPtr.Zero)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             return new CvQuadEdge2D(ptr);
         }
@@ -91,7 +91,7 @@ namespace OpenCvSharp
         {
             if (reader == null)
             {
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException(nameof(reader));
             }
             return new CvQuadEdge2D(reader.Ptr);
         }

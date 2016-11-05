@@ -39,7 +39,7 @@ namespace OpenCvSharp
         {
             if (moments == null)
             {
-                throw new ArgumentNullException("moments");
+                throw new ArgumentNullException(nameof(moments));
             }
             NativeMethods.cvGetHuMoments(moments, this);
         }

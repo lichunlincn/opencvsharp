@@ -141,11 +141,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (mask == null)
-                throw new ArgumentNullException("mask");
+                throw new ArgumentNullException(nameof(mask));
             if (keypoints == null)
-                throw new ArgumentNullException("keypoints");
+                throw new ArgumentNullException(nameof(keypoints));
 
             NativeMethods.gpu_ORB_GPU_operator1(ptr, image.CvPtr, mask.CvPtr, keypoints.CvPtr);
 
@@ -166,9 +166,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (mask == null)
-                throw new ArgumentNullException("mask");
+                throw new ArgumentNullException(nameof(mask));
 
             using (var keypointsVec = new VectorOfKeyPoint())
             {
@@ -193,13 +193,13 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (mask == null)
-                throw new ArgumentNullException("mask");
+                throw new ArgumentNullException(nameof(mask));
             if (keypoints == null)
-                throw new ArgumentNullException("keypoints");
+                throw new ArgumentNullException(nameof(keypoints));
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
 
             NativeMethods.gpu_ORB_GPU_operator3(ptr, image.CvPtr, mask.CvPtr, keypoints.CvPtr, descriptors.CvPtr);
 
@@ -222,11 +222,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (mask == null)
-                throw new ArgumentNullException("mask");
+                throw new ArgumentNullException(nameof(mask));
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
 
             using (var keypointsVec = new VectorOfKeyPoint())
             {
@@ -249,7 +249,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (dKeypoints == null)
-                throw new ArgumentNullException("dKeypoints");
+                throw new ArgumentNullException(nameof(dKeypoints));
 
             KeyPoint[] result;
             using (var keypoints = new VectorOfKeyPoint())
@@ -272,7 +272,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (hKeypoints == null)
-                throw new ArgumentNullException("hKeypoints");
+                throw new ArgumentNullException(nameof(hKeypoints));
 
             KeyPoint[] result;
             using (var keypoints = new VectorOfKeyPoint())

@@ -208,7 +208,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfDisposed();
 
             using (VectorOfKeyPoint keypointsVec = new VectorOfKeyPoint())
@@ -244,9 +244,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
             img.ThrowIfDisposed();
             descriptors.ThrowIfNotReady();
 
@@ -301,7 +301,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (baseMat == null)
-                throw new ArgumentNullException("baseMat");
+                throw new ArgumentNullException(nameof(baseMat));
             baseMat.ThrowIfDisposed();
 
             using (VectorOfMat pyrVec = new VectorOfMat())
@@ -320,7 +320,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (pyr == null)
-                throw new ArgumentNullException("pyr");
+                throw new ArgumentNullException(nameof(pyr));
 
             IntPtr[] pyrPtrs = EnumerableEx.SelectPtrs(pyr);
             using (VectorOfMat dogPyrVec = new VectorOfMat())
@@ -340,9 +340,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (gaussPyr == null)
-                throw new ArgumentNullException("gaussPyr");
+                throw new ArgumentNullException(nameof(gaussPyr));
             if (dogPyr == null)
-                throw new ArgumentNullException("dogPyr");
+                throw new ArgumentNullException(nameof(dogPyr));
 
             IntPtr[] gaussPyrPtrs = EnumerableEx.SelectPtrs(gaussPyr);
             IntPtr[] dogPyrPtrs = EnumerableEx.SelectPtrs(dogPyr);

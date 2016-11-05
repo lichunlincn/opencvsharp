@@ -24,11 +24,11 @@ namespace OpenCvSharp
         public static void AbsDiff(CvArr src1, CvArr src2, CvArr dst)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (src2 == null)
-                throw new ArgumentNullException("src2");
+                throw new ArgumentNullException(nameof(src2));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAbsDiff(src1.CvPtr, src2.CvPtr, dst.CvPtr);
             KeepAlive(src1, src2, dst);
         }
@@ -72,9 +72,9 @@ namespace OpenCvSharp
         public static void AbsDiffS(CvArr src, CvArr dst, CvScalar value)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAbsDiffS(src.CvPtr, dst.CvPtr, value);
 
             GC.KeepAlive(src);
@@ -117,9 +117,9 @@ namespace OpenCvSharp
         public static void Acc(CvArr image, CvArr sum, CvArr mask)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (sum == null)
-                throw new ArgumentNullException("sum");
+                throw new ArgumentNullException(nameof(sum));
             NativeMethods.cvAcc(image.CvPtr, sum.CvPtr, ToPtr(mask));
             
             GC.KeepAlive(image);
@@ -242,9 +242,9 @@ namespace OpenCvSharp
         public static void AdaptiveThreshold(CvArr src, CvArr dst, double maxValue, AdaptiveThresholdType adaptiveMethod, ThresholdType thresholdType, int blockSize, double param1)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             if (thresholdType != ThresholdType.Binary && thresholdType != ThresholdType.BinaryInv)
             {
@@ -298,11 +298,11 @@ namespace OpenCvSharp
         public static void Add(CvArr src1, CvArr src2, CvArr dst, CvArr mask)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (src2 == null)
-                throw new ArgumentNullException("src2");
+                throw new ArgumentNullException(nameof(src2));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAdd(src1.CvPtr, src2.CvPtr, dst.CvPtr, ToPtr(mask));
 
             GC.KeepAlive(src1);
@@ -353,9 +353,9 @@ namespace OpenCvSharp
         public static void AddS(CvArr src1, CvScalar value, CvArr dst, CvArr mask)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAddS(src1.CvPtr, value, dst.CvPtr, ToPtr(mask));
 
             GC.KeepAlive(src1);
@@ -384,11 +384,11 @@ namespace OpenCvSharp
         public static void AddText(CvArr img, string text, CvPoint location, CvFont font)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (text == null)
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             if (font == null)
-                throw new ArgumentNullException("font");
+                throw new ArgumentNullException(nameof(font));
 
             NativeMethods.cvAddText(img.CvPtr, text, location, font.CvPtr);
             GC.KeepAlive(img);
@@ -421,11 +421,11 @@ namespace OpenCvSharp
         public static void AddWeighted(CvArr src1, double alpha, CvArr src2, double beta, double gamma, CvArr dst)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (src2 == null)
-                throw new ArgumentNullException("src2");
+                throw new ArgumentNullException(nameof(src2));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAddWeighted(src1.CvPtr, alpha, src2.CvPtr, beta, gamma, dst.CvPtr);
 
             GC.KeepAlive(src1);
@@ -494,11 +494,11 @@ namespace OpenCvSharp
         public static void And(CvArr src1, CvArr src2, CvArr dst, CvArr mask)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (src2 == null)
-                throw new ArgumentNullException("src2");
+                throw new ArgumentNullException(nameof(src2));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAnd(src1.CvPtr, src2.CvPtr, dst.CvPtr, ToPtr(mask));
 
             GC.KeepAlive(src1);
@@ -550,9 +550,9 @@ namespace OpenCvSharp
         public static void AndS(CvArr src1, CvScalar value, CvArr dst, CvArr mask)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvAndS(src1.CvPtr, value, dst.CvPtr, ToPtr(mask));
             GC.KeepAlive(src1);
             GC.KeepAlive(dst);
@@ -674,9 +674,9 @@ namespace OpenCvSharp
         public static CvSeq<CvPoint> ApproxChains(CvChain srcSeq, CvMemStorage storage, ContourChain method, double parameter, int minimalPerimeter, bool recursive)
         {
             if (srcSeq == null)
-                throw new ArgumentNullException("srcSeq");
+                throw new ArgumentNullException(nameof(srcSeq));
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
             IntPtr resultPtr = NativeMethods.cvApproxChains(srcSeq.CvPtr, storage.CvPtr, method, parameter, minimalPerimeter, recursive);
             if (resultPtr == IntPtr.Zero)
                 return null;
@@ -742,7 +742,7 @@ namespace OpenCvSharp
         public static CvSeq<CvPoint> ApproxPoly(CvSeq<CvPoint> srcSeq, int headerSize, CvMemStorage storage, ApproxPolyMethod method, double parameter, bool parameter2)
         {
             if (srcSeq == null)
-                throw new ArgumentNullException("srcSeq");
+                throw new ArgumentNullException(nameof(srcSeq));
             
             IntPtr result = NativeMethods.cvApproxPoly(srcSeq.CvPtr, headerSize, ToPtr(storage), method, parameter, parameter2);
             if (result == IntPtr.Zero)
@@ -818,7 +818,7 @@ namespace OpenCvSharp
         public static double ArcLength(CvArr curve, CvSlice slice, int isClosed)
         {
             if (curve == null)
-                throw new ArgumentNullException("curve");
+                throw new ArgumentNullException(nameof(curve));
             
             double ret = NativeMethods.cvArcLength(curve.CvPtr, slice, isClosed);
             GC.KeepAlive(curve);
@@ -914,7 +914,7 @@ namespace OpenCvSharp
         public static CvScalar Avg(CvArr arr, CvArr mask)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             var ret = NativeMethods.cvAvg(arr.CvPtr, ToPtr(mask));
             KeepAlive(arr, mask);
             return ret;
@@ -960,7 +960,7 @@ namespace OpenCvSharp
         public static void AvgSdv(CvArr arr, out CvScalar mean, out CvScalar stdDev, CvArr mask)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             
             mean = new CvScalar();
             stdDev = new CvScalar();

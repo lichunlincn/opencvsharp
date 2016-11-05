@@ -1142,7 +1142,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException("HOGDescriptor");
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
 
             using (var flVec = new VectorOfPoint())
             {
@@ -1169,7 +1169,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException("HOGDescriptor");
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
 
             Size winStride0 = winStride.GetValueOrDefault(new Size());
             Size padding0 = padding.GetValueOrDefault(new Size());

@@ -61,7 +61,7 @@ namespace OpenCvSharp
         protected void Initialize(IntPtr p)
         {
             if (p == IntPtr.Zero)
-                throw new ArgumentNullException("p");
+                throw new ArgumentNullException(nameof(p));
             ptr = p;
         }
         #endregion

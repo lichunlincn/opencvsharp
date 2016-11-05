@@ -371,9 +371,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (frame == null)
-                throw new ArgumentNullException("frame");
+                throw new ArgumentNullException(nameof(frame));
             if (fgmask == null)
-                throw new ArgumentNullException("fgmask");
+                throw new ArgumentNullException(nameof(fgmask));
 
             stream = stream ?? Stream.Null;
 
@@ -396,7 +396,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (backgroundImage == null)
-                throw new ArgumentNullException("backgroundImage");
+                throw new ArgumentNullException(nameof(backgroundImage));
 
             stream = stream ?? Stream.Null;
 

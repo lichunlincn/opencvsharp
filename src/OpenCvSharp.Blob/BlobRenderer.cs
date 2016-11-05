@@ -41,13 +41,13 @@ namespace OpenCvSharp.Blob
             RenderBlobsMode mode, CvScalar color, double alpha)
         {
             if (labels == null)
-                throw new ArgumentNullException("labels");
+                throw new ArgumentNullException(nameof(labels));
             if (blob == null)
-                throw new ArgumentNullException("blob");
+                throw new ArgumentNullException(nameof(blob));
             if (imgSrc == null)
-                throw new ArgumentNullException("imgSrc");
+                throw new ArgumentNullException(nameof(imgSrc));
             if (imgDst == null)
-                throw new ArgumentNullException("imgDst");
+                throw new ArgumentNullException(nameof(imgDst));
             if (imgDst.Depth != BitDepth.U8 || imgDst.NChannels != 3)
                 throw new ArgumentException("'img' must be a 3-channel U8 image.");
 
@@ -128,11 +128,11 @@ namespace OpenCvSharp.Blob
         public static void PerformMany(CvBlobs blobs, IplImage imgSrc, IplImage imgDst, RenderBlobsMode mode, double alpha)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             if (imgSrc == null)
-                throw new ArgumentNullException("imgSrc");
+                throw new ArgumentNullException(nameof(imgSrc));
             if (imgDst == null)
-                throw new ArgumentNullException("imgDst");
+                throw new ArgumentNullException(nameof(imgDst));
             if (imgDst.Depth != BitDepth.U8 || imgDst.NChannels != 3)
                 throw new ArgumentException("'img' must be a 3-channel U8 image.");
 

@@ -620,7 +620,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfFloat FromArray(params float[] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 
@@ -643,7 +643,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfFloat FromArray(float[,] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 

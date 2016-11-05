@@ -128,9 +128,9 @@ namespace OpenCvSharp.CPlusPlus
             CvDTreeParams param)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -187,9 +187,9 @@ namespace OpenCvSharp.CPlusPlus
             CvDTreeParams param)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -226,9 +226,9 @@ namespace OpenCvSharp.CPlusPlus
 		public virtual bool Train(CvDTreeTrainData trainData, CvMat subsampleIdx)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (subsampleIdx == null)
-                throw new ArgumentNullException("subsampleIdx");
+                throw new ArgumentNullException(nameof(subsampleIdx));
 
             return NativeMethods.ml_CvDTree_train2(
                 ptr, trainData.CvPtr, subsampleIdx.CvPtr) != 0;
@@ -252,7 +252,7 @@ namespace OpenCvSharp.CPlusPlus
         public virtual bool Train(CvMLData trainData, CvDTreeParams param)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (param == null)
                 param = new CvDTreeParams();
             return NativeMethods.ml_CvDTree_train3(
@@ -285,7 +285,7 @@ namespace OpenCvSharp.CPlusPlus
             bool preprocessedInput = false)
 		{
 			if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             sample.ThrowIfDisposed();
 
             IntPtr result = NativeMethods.ml_CvDTree_predict_CvMat(
@@ -319,7 +319,7 @@ namespace OpenCvSharp.CPlusPlus
             bool preprocessedInput = false)
         {
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             sample.ThrowIfDisposed();
 
             IntPtr result = NativeMethods.ml_CvDTree_predict_Mat(
@@ -420,9 +420,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Read(CvFileStorage fs, CvFileNode node)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
 
             NativeMethods.ml_CvDTree_read(ptr, fs.CvPtr, node.CvPtr);
         }
@@ -444,11 +444,11 @@ namespace OpenCvSharp.CPlusPlus
 		public virtual void Read(CvFileStorage fs, CvFileNode node, CvDTreeTrainData data)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
 			if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
 
             NativeMethods.ml_CvDTree_read(ptr, fs.CvPtr, node.CvPtr, data.CvPtr);
         }
@@ -467,7 +467,7 @@ namespace OpenCvSharp.CPlusPlus
 		public virtual void Write(CvFileStorage fs)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             NativeMethods.ml_CvDTree_write(ptr, fs.CvPtr);
         }
 #if LANG_JP
@@ -486,9 +486,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Write(CvFileStorage fs, string name)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             NativeMethods.ml_CvDTree_write(ptr, fs.CvPtr, name);
         }
 

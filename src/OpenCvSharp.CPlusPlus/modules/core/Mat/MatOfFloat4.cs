@@ -622,7 +622,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfFloat4 FromArray(params Vec4f[] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 
@@ -645,7 +645,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfFloat4 FromArray(Vec4f[,] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 

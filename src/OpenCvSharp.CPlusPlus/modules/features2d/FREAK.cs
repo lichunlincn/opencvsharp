@@ -154,7 +154,7 @@ namespace OpenCvSharp.CPlusPlus
             double corrThresh = 0.7, bool verbose = true)
         {
             if (images == null)
-                throw new ArgumentNullException("images");
+                throw new ArgumentNullException(nameof(images));
 
             IntPtr[] imagesPtrs = EnumerableEx.SelectPtrs(images);
 

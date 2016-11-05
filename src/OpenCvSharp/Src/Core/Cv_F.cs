@@ -90,9 +90,9 @@ namespace OpenCvSharp
         public static void FillConvexPoly(CvArr img, CvPoint[] pts, CvScalar color, LineType lineType, int shift)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (pts == null)
-                throw new ArgumentNullException("pts");
+                throw new ArgumentNullException(nameof(pts));
             if (pts.Length == 0)
                 throw new ArgumentException();
             NativeMethods.cvFillConvexPoly(img.CvPtr, pts, pts.Length, color, lineType, shift);
@@ -162,9 +162,9 @@ namespace OpenCvSharp
         public static void FillPoly(CvArr img, CvPoint[][] pts, CvScalar color, LineType lineType, int shift)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (pts == null)
-                throw new ArgumentNullException("pts");
+                throw new ArgumentNullException(nameof(pts));
 
             // npts
             int contours = pts.Length;
@@ -227,11 +227,11 @@ namespace OpenCvSharp
         public static void Filter2D(CvArr src, CvArr dst, CvMat kernel, CvPoint anchor)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             NativeMethods.cvFilter2D(src.CvPtr, dst.CvPtr, kernel.CvPtr, anchor);
             KeepAlive(src, dst, kernel);
         }
@@ -307,7 +307,7 @@ namespace OpenCvSharp
         {
             if (image == null)
             {
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             }
 
             cornerCount = patternSize.Width * patternSize.Height;
@@ -451,9 +451,9 @@ namespace OpenCvSharp
         public static int FindContours(CvArr image, CvMemStorage storage, out CvSeq<CvPoint> firstContour, int headerSize, ContourRetrieval mode, ContourChain method, CvPoint offset)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 
             IntPtr firstContourPtr = IntPtr.Zero;
             int result = NativeMethods.cvFindContours(image.CvPtr, storage.CvPtr, ref firstContourPtr, headerSize, mode, method, offset);
@@ -494,9 +494,9 @@ namespace OpenCvSharp
         public static void FindCornerSubPix(CvArr image, CvPoint2D32f[] corners, int count, CvSize win, CvSize zeroZone, CvTermCriteria criteria)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
 
             NativeMethods.cvFindCornerSubPix(image.CvPtr, corners, count, win, zeroZone, criteria);
             KeepAlive(image);
@@ -532,7 +532,7 @@ namespace OpenCvSharp
              double parameter1, double parameter2, double parameter3, double parameter4)
         {
             if (contour == null)
-                throw new ArgumentNullException("contour");
+                throw new ArgumentNullException(nameof(contour));
 
             IntPtr result = NativeMethods.cvFindDominantPoints(contour.CvPtr, ToPtr(storage), method, parameter1, parameter2, parameter3, parameter4);
             KeepAlive(contour, storage);
@@ -596,15 +596,15 @@ namespace OpenCvSharp
         public static void FindExtrinsicCameraParams2(CvMat objectPoints, CvMat imagePoints, CvMat intrinsicMatrix, CvMat distortionCoeffs, CvMat rotationVector, CvMat translationVector, bool useExtrinsicGuess)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
             if (intrinsicMatrix == null)
-                throw new ArgumentNullException("intrinsicMatrix");
+                throw new ArgumentNullException(nameof(intrinsicMatrix));
             if (rotationVector == null)
-                throw new ArgumentNullException("rotationVector");
+                throw new ArgumentNullException(nameof(rotationVector));
             if (translationVector == null)
-                throw new ArgumentNullException("translationVector");
+                throw new ArgumentNullException(nameof(translationVector));
 
             NativeMethods.cvFindExtrinsicCameraParams2(
                 objectPoints.CvPtr, imagePoints.CvPtr, intrinsicMatrix.CvPtr, 
@@ -623,9 +623,9 @@ namespace OpenCvSharp
         public static CvSeq<CvFaceData> FindFace(IplImage image, CvMemStorage storage)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 
             IntPtr ptr = NativeMethods.cvFindFace(image.CvPtr, storage.CvPtr);
             KeepAlive(image, storage);
@@ -704,13 +704,13 @@ namespace OpenCvSharp
         public static void FindFeatures(CvFeatureTree tr, CvMat desc, CvMat results, CvMat dist, int k, int emax)
         {
             if (tr == null)
-                throw new ArgumentNullException("tr");
+                throw new ArgumentNullException(nameof(tr));
             if (desc == null)
-                throw new ArgumentNullException("desc");
+                throw new ArgumentNullException(nameof(desc));
             if (results == null)
-                throw new ArgumentNullException("results");
+                throw new ArgumentNullException(nameof(results));
             if (dist == null)
-                throw new ArgumentNullException("dist");
+                throw new ArgumentNullException(nameof(dist));
             NativeMethods.cvFindFeatures(tr.CvPtr, desc.CvPtr, results.CvPtr, dist.CvPtr, k, emax);
             KeepAlive(tr, desc, results, dist);
         }
@@ -738,13 +738,13 @@ namespace OpenCvSharp
         public static int FindFeaturesBoxed(CvFeatureTree tr, CvMat boundsMin, CvMat boundsMax, CvMat result)
         {
             if (tr == null)
-                throw new ArgumentNullException("tr");
+                throw new ArgumentNullException(nameof(tr));
             if (boundsMin == null)
-                throw new ArgumentNullException("boundsMin");
+                throw new ArgumentNullException(nameof(boundsMin));
             if (boundsMax == null)
-                throw new ArgumentNullException("boundsMax");
+                throw new ArgumentNullException(nameof(boundsMax));
             if (result == null)
-                throw new ArgumentNullException("result");
+                throw new ArgumentNullException(nameof(result));
             
             var ret = NativeMethods.cvFindFeaturesBoxed(tr.CvPtr, boundsMin.CvPtr, boundsMax.CvPtr, result.CvPtr);
             KeepAlive(tr, boundsMin, boundsMax, result);
@@ -852,11 +852,11 @@ namespace OpenCvSharp
         public static int FindFundamentalMat(CvMat points1, CvMat points2, CvMat fundamentalMatrix, FundamentalMatMethod method, double param1, double param2, CvMat status)
         {
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
             if (fundamentalMatrix == null)
-                throw new ArgumentNullException("fundamentalMatrix");
+                throw new ArgumentNullException(nameof(fundamentalMatrix));
 
             var ret = NativeMethods.cvFindFundamentalMat(
                     points1.CvPtr, points2.CvPtr, fundamentalMatrix.CvPtr, method, param1, param2, ToPtr(status));
@@ -886,7 +886,7 @@ namespace OpenCvSharp
         {
             if (graph == null)
             {
-                throw new ArgumentNullException("graph");
+                throw new ArgumentNullException(nameof(graph));
             }
             IntPtr result = NativeMethods.cvFindGraphEdge(graph.CvPtr, startIdx, endIdx);
             KeepAlive(graph);
@@ -938,11 +938,11 @@ namespace OpenCvSharp
         public static CvGraphEdge FindGraphEdgeByPtr(CvGraph graph, CvGraphVtx startVtx, CvGraphVtx endVtx)
         {
             if (graph == null)
-                throw new ArgumentNullException("graph");
+                throw new ArgumentNullException(nameof(graph));
             if (startVtx == null)
-                throw new ArgumentNullException("startVtx");
+                throw new ArgumentNullException(nameof(startVtx));
             if (endVtx == null)
-                throw new ArgumentNullException("endVtx");
+                throw new ArgumentNullException(nameof(endVtx));
             
             IntPtr result = NativeMethods.cvFindGraphEdgeByPtr(graph.CvPtr, startVtx.CvPtr, endVtx.CvPtr);
             KeepAlive(graph, startVtx, endVtx);
@@ -1069,11 +1069,11 @@ namespace OpenCvSharp
         public static int FindHomography(CvMat srcPoints, CvMat dstPoints, CvMat homography, HomographyMethod method, double ransacReprojThreshold, CvMat mask)
         {
             if (srcPoints == null)
-                throw new ArgumentNullException("srcPoints");
+                throw new ArgumentNullException(nameof(srcPoints));
             if (dstPoints == null)
-                throw new ArgumentNullException("dstPoints");
+                throw new ArgumentNullException(nameof(dstPoints));
             if (homography == null)
-                throw new ArgumentNullException("homography");
+                throw new ArgumentNullException(nameof(homography));
             var ret = NativeMethods.cvFindHomography(
                     srcPoints.CvPtr, dstPoints.CvPtr, homography.CvPtr, method, ransacReprojThreshold, ToPtr(mask));
             KeepAlive(srcPoints, dstPoints, homography, mask);
@@ -1101,7 +1101,7 @@ namespace OpenCvSharp
         {
             if (subdiv == null)
             {
-                throw new ArgumentNullException("subdiv");
+                throw new ArgumentNullException(nameof(subdiv));
             }
             IntPtr result = NativeMethods.cvFindNearestPoint2D(subdiv.CvPtr, pt);
             KeepAlive(subdiv);
@@ -1125,7 +1125,7 @@ namespace OpenCvSharp
         {
             if (scanner == null)
             {
-                throw new ArgumentNullException("scanner");
+                throw new ArgumentNullException(nameof(scanner));
             }
             IntPtr result = NativeMethods.cvFindNextContour(scanner.CvPtr);
             KeepAlive(scanner);
@@ -1192,11 +1192,11 @@ namespace OpenCvSharp
         public static void FindStereoCorrespondence(CvArr leftImage, CvArr rightImage, DisparityMode mode, CvArr depthImage, int maxDisparity, double param1, double param2, double param3, double param4, double param5)
         {
             if (leftImage == null)
-                throw new ArgumentNullException("leftImage");
+                throw new ArgumentNullException(nameof(leftImage));
             if (rightImage == null)
-                throw new ArgumentNullException("rightImage");
+                throw new ArgumentNullException(nameof(rightImage));
             if (depthImage == null)
-                throw new ArgumentNullException("depthImage");
+                throw new ArgumentNullException(nameof(depthImage));
             NativeMethods.cvFindStereoCorrespondence(leftImage.CvPtr, rightImage.CvPtr, mode, depthImage.CvPtr, maxDisparity, param1, param2, param3, param4, param5);
             KeepAlive(leftImage, rightImage, depthImage);
         }
@@ -1223,13 +1223,13 @@ namespace OpenCvSharp
         public static void FindStereoCorrespondenceBM(CvArr left, CvArr right, CvArr disparity, CvStereoBMState state)
         {
             if (left == null)
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             if (right == null)
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             if (disparity == null)
-                throw new ArgumentNullException("disparity");
+                throw new ArgumentNullException(nameof(disparity));
             if (state == null)
-                throw new ArgumentNullException("state");
+                throw new ArgumentNullException(nameof(state));
             NativeMethods.cvFindStereoCorrespondenceBM(left.CvPtr, right.CvPtr, disparity.CvPtr, state.CvPtr);
             KeepAlive(left, right, disparity, state);
         }
@@ -1284,15 +1284,15 @@ namespace OpenCvSharp
         public static void FindStereoCorrespondenceGC(CvArr left, CvArr right, CvArr dispLeft, CvArr dispRight, CvStereoGCState state, bool useDisparityGuess)
         {
             if (left == null)
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             if (right == null)
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             if (dispLeft == null)
-                throw new ArgumentNullException("dispLeft");
+                throw new ArgumentNullException(nameof(dispLeft));
             if (dispRight == null)
-                throw new ArgumentNullException("dispRight");
+                throw new ArgumentNullException(nameof(dispRight));
             if (state == null)
-                throw new ArgumentNullException("state");
+                throw new ArgumentNullException(nameof(state));
             NativeMethods.cvFindStereoCorrespondenceGC(left.CvPtr, right.CvPtr, dispLeft.CvPtr, dispRight.CvPtr, state.CvPtr, useDisparityGuess);
             KeepAlive(left, right, dispLeft, dispRight, state);
         }
@@ -1316,7 +1316,7 @@ namespace OpenCvSharp
         {
             if (string.IsNullOrEmpty(typeName))
             {
-                throw new ArgumentNullException("typeName");
+                throw new ArgumentNullException(nameof(typeName));
             }
             IntPtr result = NativeMethods.cvFindType(typeName);
             if (result == IntPtr.Zero)
@@ -1382,7 +1382,7 @@ namespace OpenCvSharp
         public static CvBox2D FitEllipse2(IEnumerable<CvPoint2D32f> points)
         {
             if(points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
 
             CvPoint2D32f[] pointsArray = ToArray(points); // points.ToArray(); in .NET4
             using (CvMat pointsMat = new CvMat(pointsArray.Length, 1, MatrixType.F32C2, pointsArray, true))
@@ -1416,9 +1416,9 @@ namespace OpenCvSharp
         public static void FitLine(CvArr points, DistanceType distType, double param, double reps, double aeps, float[] line)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             if (line == null)
-                throw new ArgumentNullException("line");
+                throw new ArgumentNullException(nameof(line));
             //line = new float[2 * points.ElemChannels]; // 4 or 6
             NativeMethods.cvFitLine(points.CvPtr, distType, param, reps, aeps, line);
             KeepAlive(points);
@@ -1450,7 +1450,7 @@ namespace OpenCvSharp
         public static CvLine2D FitLine2D(IEnumerable<CvPoint> points, DistanceType distType, double param, double reps, double aeps)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
 
             float[] lineVals = new float[4];
             using (CvMemStorage storage = new CvMemStorage(0))
@@ -1485,7 +1485,7 @@ namespace OpenCvSharp
         public static CvLine2D FitLine2D(IEnumerable<CvPoint2D32f> points, DistanceType distType, double param, double reps, double aeps)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
 
             float[] lineVals = new float[4];
             using (CvMemStorage storage = new CvMemStorage(0))
@@ -1522,7 +1522,7 @@ namespace OpenCvSharp
         public static CvLine3D FitLine3D(IEnumerable<CvPoint3D32f> points, DistanceType distType, double param, double reps, double aeps)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
 
             float[] lineVals = new float[6];
             using (CvMemStorage storage = new CvMemStorage(0))
@@ -1585,7 +1585,7 @@ namespace OpenCvSharp
         public static void Flip(CvArr src, CvArr dst, FlipMode flipMode)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
 
             NativeMethods.cvFlip(src.CvPtr, ToPtr(dst), flipMode);
             KeepAlive(src, dst);
@@ -1797,7 +1797,7 @@ namespace OpenCvSharp
             CvScalar loDiff, CvScalar upDiff, out CvConnectedComp comp, FloodFillFlag flags, CvArr mask)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
 
             comp = new CvConnectedComp();
             NativeMethods.cvFloodFill(image.CvPtr, seedPoint, newVal, loDiff, upDiff, comp.CvPtr, (int)flags, ToPtr(mask));
@@ -1838,7 +1838,7 @@ namespace OpenCvSharp
         public static void FlushSeqWriter(CvSeqWriter writer)
         {
             if (writer == null)
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException(nameof(writer));
             
             NativeMethods.cvFlushSeqWriter(writer.CvPtr);
             KeepAlive(writer);

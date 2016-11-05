@@ -84,9 +84,9 @@ namespace OpenCvSharp.Blob
         public static int Perform(IplImage img, CvBlobs blobs)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             if (img.Depth != BitDepth.U8 || img.NChannels != 1)
                 throw new ArgumentException("'img' must be a 1-channel U8 image.");
             

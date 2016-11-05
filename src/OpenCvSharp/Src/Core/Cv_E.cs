@@ -28,13 +28,13 @@ namespace OpenCvSharp
         public static void EigenDecomposite(IplImage obj, IplImage[] eigInput, IplImage avg, float[] coeffs)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj");
+                throw new ArgumentNullException(nameof(obj));
             if (eigInput == null)
-                throw new ArgumentNullException("eigInput");
+                throw new ArgumentNullException(nameof(eigInput));
             if (eigInput.Length == 0)
-                throw new ArgumentException("", "eigInput");
+                throw new ArgumentException("", nameof(eigInput));
             if (avg == null)
-                throw new ArgumentNullException("avg");
+                throw new ArgumentNullException(nameof(avg));
 
             int eigenvecCount = eigInput.Length;
             IntPtr[] eigInputPtr = EnumerableEx.SelectPtrs(eigInput);
@@ -73,9 +73,9 @@ namespace OpenCvSharp
         public static void EigenDecomposite(IplImage obj, int eigenvecCount, CvCallback eigInput, EigenObjectsIOFlag ioFlags, IntPtr userData, IplImage avg, float[] coeffs)
         {
             if (obj == null)
-                throw new ArgumentNullException("obj");
+                throw new ArgumentNullException(nameof(obj));
             if (avg == null)
-                throw new ArgumentNullException("avg");
+                throw new ArgumentNullException(nameof(avg));
 
             using (var eigInputhandle = ScopedGCHandle.Alloc(eigInput, GCHandleType.Normal))
             {
@@ -109,13 +109,13 @@ namespace OpenCvSharp
         public static void EigenProjection(IplImage[] inputVecs, int eigenvecCount, float[] coeffs, IplImage avg, IplImage proj)
         {
             if (inputVecs == null)
-                throw new ArgumentNullException("inputVecs");
+                throw new ArgumentNullException(nameof(inputVecs));
             if (inputVecs.Length == 0)
-                throw new ArgumentException("", "inputVecs");
+                throw new ArgumentException("", nameof(inputVecs));
             if (avg == null)
-                throw new ArgumentNullException("avg");
+                throw new ArgumentNullException(nameof(avg));
             if (proj == null)
-                throw new ArgumentNullException("proj");
+                throw new ArgumentNullException(nameof(proj));
 
             IntPtr[] inputVecsPtr = EnumerableEx.SelectPtrs(inputVecs);
 
@@ -153,9 +153,9 @@ namespace OpenCvSharp
         public static void EigenProjection(CvCallback inputVecs, int eigenvecCount, EigenObjectsIOFlag ioFlags, IntPtr userdata, float[] coeffs, IplImage avg, IplImage proj)
         {
             if (avg == null)
-                throw new ArgumentNullException("avg");
+                throw new ArgumentNullException(nameof(avg));
             if (proj == null)
-                throw new ArgumentNullException("proj");
+                throw new ArgumentNullException(nameof(proj));
 
             using (var inputVecsHandle = ScopedGCHandle.Alloc(inputVecs, GCHandleType.Normal))
             {
@@ -256,11 +256,11 @@ namespace OpenCvSharp
         public static void EigenVV(CvArr mat, CvArr evects, CvArr evals, double eps, int lowindex, int highindex)
         {
             if (mat == null)
-                throw new ArgumentNullException("mat");
+                throw new ArgumentNullException(nameof(mat));
             if (evects == null)
-                throw new ArgumentNullException("evects");
+                throw new ArgumentNullException(nameof(evects));
             if (evals == null)
-                throw new ArgumentNullException("evals");
+                throw new ArgumentNullException(nameof(evals));
             NativeMethods.cvEigenVV(mat.CvPtr, evects.CvPtr, evals.CvPtr, eps, lowindex, highindex);
             KeepAlive(mat, evects, evals);
         }
@@ -386,7 +386,7 @@ namespace OpenCvSharp
         public static void Ellipse(CvArr img, CvPoint center, CvSize axes, double angle, double startAngle, double endAngle, CvScalar color, int thickness, LineType lineType, int shift)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             
             NativeMethods.cvEllipse(img.CvPtr, center, axes, angle, startAngle, endAngle, color, thickness, lineType, shift);
             GC.KeepAlive(img);
@@ -601,7 +601,7 @@ namespace OpenCvSharp
         {
             if (img == null)
             {
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             }
 
             CvSize axes = new CvSize
@@ -669,9 +669,9 @@ namespace OpenCvSharp
         public static CvMat EncodeImage(string ext, CvArr image, int[] prms)
         {
             if (string.IsNullOrEmpty(ext))
-                throw new ArgumentNullException("ext");
+                throw new ArgumentNullException(nameof(ext));
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             IntPtr ptr = NativeMethods.cvEncodeImage(ext, image.CvPtr, prms);
             GC.KeepAlive(image);
             if (ptr == IntPtr.Zero)
@@ -732,7 +732,7 @@ namespace OpenCvSharp
         {
             if (scanner == null)
             {
-                throw new ArgumentNullException("scanner");
+                throw new ArgumentNullException(nameof(scanner));
             }
 
             return scanner.EndFindContours();
@@ -755,7 +755,7 @@ namespace OpenCvSharp
         public static CvSeq EndWriteSeq(CvSeqWriter writer)
         {
             if (writer == null)
-                throw new ArgumentNullException("writer");
+                throw new ArgumentNullException(nameof(writer));
 
             return writer.EndWriteSeq();
         }
@@ -775,7 +775,7 @@ namespace OpenCvSharp
         public static void EndWriteStruct(CvFileStorage fs)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             
             NativeMethods.cvEndWriteStruct(fs.CvPtr);
             GC.KeepAlive(fs);
@@ -798,9 +798,9 @@ namespace OpenCvSharp
         public static void EqualizeHist(CvArr src, CvArr dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvEqualizeHist(src.CvPtr, dst.CvPtr);
             KeepAlive(src, dst);
         }
@@ -868,9 +868,9 @@ namespace OpenCvSharp
         public static void Erode(CvArr src, CvArr dst, IplConvKernel element, int iterations)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvErode(src.CvPtr, dst.CvPtr, ToPtr(element), iterations);
             KeepAlive(src, dst, element);
         }
@@ -898,11 +898,11 @@ namespace OpenCvSharp
         public static void Error(CvStatus status, string funcName, string errMsg, string fileName, int line)
         {
             if (string.IsNullOrEmpty(funcName))
-                throw new ArgumentNullException("funcName");
+                throw new ArgumentNullException(nameof(funcName));
             if (string.IsNullOrEmpty(errMsg))
-                throw new ArgumentNullException("errMsg");
+                throw new ArgumentNullException(nameof(errMsg));
             if (string.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             NativeMethods.cvError(status, funcName, errMsg, fileName, line);
         }
         #endregion
@@ -948,11 +948,11 @@ namespace OpenCvSharp
         public static int EstimateRigidTransform(CvArr a, CvArr b, CvMat m, bool fullAffine)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             var ret = NativeMethods.cvEstimateRigidTransform(a.CvPtr, b.CvPtr, m.CvPtr, fullAffine);
             KeepAlive(a, b, m);
@@ -976,9 +976,9 @@ namespace OpenCvSharp
         public static void Exp(CvArr src, CvArr dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvExp(src.CvPtr, dst.CvPtr);
             KeepAlive(src, dst);
         }
@@ -1006,9 +1006,9 @@ namespace OpenCvSharp
         public static void ExtractMSER(CvArr img, CvArr mask, out CvContour[] contours, CvMemStorage storage, CvMSERParams @params)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 
             IntPtr contoursPtr = IntPtr.Zero;
             NativeMethods.cvExtractMSER(img.CvPtr, ToPtr(mask), ref contoursPtr, storage.CvPtr, @params.Struct);
@@ -1072,11 +1072,11 @@ namespace OpenCvSharp
         public static void ExtractSURF(CvArr image, CvArr mask, ref CvSeq<CvSURFPoint> keypoints, out CvSeq<IntPtr> descriptors, CvMemStorage storage, CvSURFParams param, bool useProvidedKeyPts)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
             if (param == null)
-                throw new ArgumentNullException("param");
+                throw new ArgumentNullException(nameof(param));
 
             IntPtr maskPtr = (mask == null) ? IntPtr.Zero : mask.CvPtr;
             IntPtr descriptorsPtr = IntPtr.Zero;
@@ -1120,9 +1120,9 @@ namespace OpenCvSharp
         public static void ExtractSURF(CvArr image, CvArr mask, out CvSURFPoint[] keypoints, out float[][] descriptors, CvSURFParams param)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (param == null)
-                throw new ArgumentNullException("param");
+                throw new ArgumentNullException(nameof(param));
 
             using (CvMemStorage storage = new CvMemStorage(0))
             {
@@ -1169,11 +1169,11 @@ namespace OpenCvSharp
             }
 
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (param == null)
-                throw new ArgumentNullException("param");
+                throw new ArgumentNullException(nameof(param));
             if (keypoints == null)
-                throw new ArgumentNullException("keypoints");
+                throw new ArgumentNullException(nameof(keypoints));
 
             using (CvMemStorage storage = new CvMemStorage(0))
             using (CvSeq <CvSURFPoint> keypointsSeqIn = CvSeq<CvSURFPoint>.FromArray(keypoints, SeqType.Zero, storage))

@@ -22,7 +22,7 @@ namespace OpenCvSharp.CPlusPlus
             : base(new Mat())
         {
             if (list == null)
-                throw new ArgumentNullException("list");
+                throw new ArgumentNullException(nameof(list));
             this.list = list;
         }
 

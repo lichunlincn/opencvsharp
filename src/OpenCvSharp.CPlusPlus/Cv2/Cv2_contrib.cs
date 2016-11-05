@@ -43,9 +43,9 @@ namespace OpenCvSharp.CPlusPlus
                                   double orientationWeight = 0.5, double truncate = 20)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (templ == null)
-                throw new ArgumentNullException("templ");
+                throw new ArgumentNullException(nameof(templ));
             img.ThrowIfDisposed();
             templ.ThrowIfDisposed();
             
@@ -75,9 +75,9 @@ namespace OpenCvSharp.CPlusPlus
         public static void ApplyColorMap(InputArray src, OutputArray dst, ColorMapMode colormap)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.contrib_applyColorMap(src.CvPtr, dst.CvPtr, (int)colormap);

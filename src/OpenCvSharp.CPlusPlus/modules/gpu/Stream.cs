@@ -71,7 +71,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfNotAvailable();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             ptr = NativeMethods.gpu_Stream_new2(m.CvPtr);
         }
 
@@ -191,9 +191,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -209,9 +209,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -228,9 +228,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null) 
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -247,9 +247,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -265,9 +265,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -283,7 +283,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             src.ThrowIfDisposed();
 
             NativeMethods.gpu_Stream_enqueueMemSet(ptr, src.CvPtr, val);
@@ -298,7 +298,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             src.ThrowIfDisposed();
 
             NativeMethods.gpu_Stream_enqueueMemSet_WithMask(ptr, src.CvPtr, val, Cv2.ToPtr(mask));
@@ -316,9 +316,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -335,7 +335,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (callback == null)
-                throw new ArgumentNullException("callback");
+                throw new ArgumentNullException(nameof(callback));
 
             if (callbackHandle.IsAllocated)
                 callbackHandle.Free();

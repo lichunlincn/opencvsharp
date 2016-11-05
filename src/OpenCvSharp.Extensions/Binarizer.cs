@@ -33,9 +33,9 @@ namespace OpenCvSharp.Extensions
         public static void Niblack(IplImage src, IplImage dst, int kernelSize, double k)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             // グレースケールのみ
             if (src.NChannels != 1)
@@ -45,9 +45,9 @@ namespace OpenCvSharp.Extensions
 
             // サイズのチェック
             if (kernelSize < 3)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be 3 and above");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be 3 and above");
             if (kernelSize % 2 == 0)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be odd number");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be odd number");
 
             CvRect roi = src.ROI;
             int width = roi.Width;
@@ -101,9 +101,9 @@ namespace OpenCvSharp.Extensions
         public static void NiblackFast(IplImage src, IplImage dst, int kernelSize, double k)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             // グレースケールのみ
             if (src.NChannels != 1)
@@ -113,9 +113,9 @@ namespace OpenCvSharp.Extensions
 
             // サイズのチェック
             if (kernelSize < 3)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be 3 and above");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be 3 and above");
             if (kernelSize % 2 == 0)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be odd number");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be odd number");
 
             int borderSize = kernelSize / 2;
             CvRect roi = src.ROI;
@@ -195,9 +195,9 @@ namespace OpenCvSharp.Extensions
         public static void Sauvola(IplImage src, IplImage dst, int kernelSize, double k, double r)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             // グレースケールのみ
             if (src.NChannels != 1)
@@ -207,9 +207,9 @@ namespace OpenCvSharp.Extensions
 
             // サイズのチェック
             if (kernelSize < 3)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be 3 and above");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be 3 and above");
             if (kernelSize % 2 == 0)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be odd number");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be odd number");
 
             CvRect roi = src.ROI;
             int width = roi.Width;
@@ -269,9 +269,9 @@ namespace OpenCvSharp.Extensions
         public static void SauvolaFast(IplImage src, IplImage dst, int kernelSize, double k, double r)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             // グレースケールのみ
             if (src.NChannels != 1)
@@ -281,11 +281,11 @@ namespace OpenCvSharp.Extensions
 
             // サイズのチェック
             if (kernelSize < 3)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be 3 and above");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be 3 and above");
             if (kernelSize % 2 == 0)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be odd number");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be odd number");
             if (r == 0)
-                throw new ArgumentOutOfRangeException("r", "r == 0");
+                throw new ArgumentOutOfRangeException(nameof(r), "r == 0");
 
             int borderSize = kernelSize / 2;
             CvRect roi = src.ROI;
@@ -365,9 +365,9 @@ namespace OpenCvSharp.Extensions
         public static void Bernsen(IplImage src, IplImage dst, int kernelSize, byte constrastMin, byte bgThreshold)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             // グレースケールのみ
             if (src.NChannels != 1)
@@ -377,9 +377,9 @@ namespace OpenCvSharp.Extensions
 
             // サイズのチェック
             if (kernelSize < 3)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be 3 and above");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be 3 and above");
             if (kernelSize % 2 == 0)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be odd number");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be odd number");
 
             CvRect roi = src.ROI;
             int width = roi.Width;
@@ -437,9 +437,9 @@ namespace OpenCvSharp.Extensions
         public static void Nick(IplImage src, IplImage dst, int kernelSize, double k)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
 
             // グレースケールのみ
             if (src.NChannels != 1)
@@ -449,9 +449,9 @@ namespace OpenCvSharp.Extensions
 
             // サイズのチェック
             if (kernelSize < 3)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be 3 and above");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be 3 and above");
             if (kernelSize % 2 == 0)
-                throw new ArgumentOutOfRangeException("kernelSize", "size must be odd number");
+                throw new ArgumentOutOfRangeException(nameof(kernelSize), "size must be odd number");
 
             int borderSize = kernelSize / 2;
             CvRect roi = src.ROI;

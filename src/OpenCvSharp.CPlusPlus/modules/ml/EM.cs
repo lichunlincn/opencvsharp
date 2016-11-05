@@ -203,7 +203,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("EM");
             if (samples == null)
-                throw new ArgumentNullException("samples");
+                throw new ArgumentNullException(nameof(samples));
             samples.ThrowIfDisposed();
             if (logLikelihoods != null)
                 logLikelihoods.ThrowIfNotReady();
@@ -264,9 +264,9 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("EM");
             if (samples == null)
-                throw new ArgumentNullException("samples");
+                throw new ArgumentNullException(nameof(samples));
             if (means0 == null)
-                throw new ArgumentNullException("means0");
+                throw new ArgumentNullException(nameof(means0));
             samples.ThrowIfDisposed();
             means0.ThrowIfDisposed();
 
@@ -330,9 +330,9 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("EM");
             if (samples == null)
-                throw new ArgumentNullException("samples");
+                throw new ArgumentNullException(nameof(samples));
             if (probs0 == null)
-                throw new ArgumentNullException("probs0");
+                throw new ArgumentNullException(nameof(probs0));
             samples.ThrowIfDisposed();
             probs0.ThrowIfDisposed();
 
@@ -379,7 +379,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("EM");
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             sample.ThrowIfDisposed();
             if(probs != null)
                 probs.ThrowIfNotReady();

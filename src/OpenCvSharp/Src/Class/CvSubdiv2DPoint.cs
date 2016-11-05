@@ -64,7 +64,7 @@ namespace OpenCvSharp
         {
             if (ptr == IntPtr.Zero)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             return new CvSubdiv2DPoint(ptr);
         }
@@ -85,7 +85,7 @@ namespace OpenCvSharp
         {
             if (ptr == IntPtr.Zero)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             return new CvSubdiv2DPoint(ptr);
         }

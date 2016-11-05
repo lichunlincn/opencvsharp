@@ -66,7 +66,7 @@ namespace OpenCvSharp.Blob
         public CvBlobs(IplImage img)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (img.IsDisposed)
                 throw new ArgumentException("img is disposed");
             if (img.Depth != BitDepth.U8 || img.NChannels != 1)
@@ -87,9 +87,9 @@ namespace OpenCvSharp.Blob
         public CvScalar BlobMeanColor(CvBlob targetBlob, IplImage originalImage)
         {
             if (targetBlob == null)
-                throw new ArgumentNullException("targetBlob");
+                throw new ArgumentNullException(nameof(targetBlob));
             if (originalImage == null)
-                throw new ArgumentNullException("originalImage");
+                throw new ArgumentNullException(nameof(originalImage));
             if (originalImage.Depth != BitDepth.U8)
                 throw new ArgumentException("imgOut.Depth != BitDepth.U8");
             if (originalImage.NChannels != 3)
@@ -189,7 +189,7 @@ namespace OpenCvSharp.Blob
         public void FilterLabels(IplImage imgOut)
         {
             if (imgOut == null)
-                throw new ArgumentNullException("imgOut");
+                throw new ArgumentNullException(nameof(imgOut));
             if (imgOut.Depth != BitDepth.U8)
                 throw new ArgumentException("imgOut.Depth != BitDepth.U8");
             if (imgOut.NChannels != 1)
@@ -292,7 +292,7 @@ namespace OpenCvSharp.Blob
         public int Label(IplImage img)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
 
             Labels = new LabelData(img.Height, img.Width, img.ROI);
             return Labeller.Perform(img, this);
@@ -374,7 +374,7 @@ namespace OpenCvSharp.Blob
         public void UpdateTracks(CvTracks tracks, double thDistance, int thInactive, int thActive)
         {
             if (tracks == null)
-                throw new ArgumentNullException("tracks");
+                throw new ArgumentNullException(nameof(tracks));
 
             int nBlobs = this.Count;
             int nTracks = tracks.Count;

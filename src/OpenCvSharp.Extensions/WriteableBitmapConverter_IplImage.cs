@@ -183,7 +183,7 @@ namespace OpenCvSharp.Extensions
         {
             if (src == null)
             {
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             }
 
             int w = src.PixelWidth;
@@ -211,9 +211,9 @@ namespace OpenCvSharp.Extensions
         public static void ToIplImage(this WriteableBitmap src, IplImage dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (src.PixelWidth != dst.Width || src.PixelHeight != dst.Height)
                 throw new ArgumentException("size of src must be equal to size of dst");
             //if (dst.Depth != BitDepth.U8)
@@ -225,7 +225,7 @@ namespace OpenCvSharp.Extensions
             int channels = GetOptimumChannels(src.Format);            
             if (dst.NChannels != channels)
             {
-                throw new ArgumentException("nChannels of dst is invalid", "dst");
+                throw new ArgumentException("nChannels of dst is invalid", nameof(dst));
             }
 
             unsafe
@@ -314,7 +314,7 @@ namespace OpenCvSharp.Extensions
         {
             if (wb == null)
             {
-                throw new ArgumentNullException("wb");
+                throw new ArgumentNullException(nameof(wb));
             }
             ToIplImage(wb, ipl);
         }
@@ -343,7 +343,7 @@ namespace OpenCvSharp.Extensions
                         case 4:
                             return PixelFormats.Bgra32;
                         default:
-                            throw new ArgumentOutOfRangeException("c", "Not supported BitDepth and/or NChannels"); 
+                            throw new ArgumentOutOfRangeException(nameof(c), "Not supported BitDepth and/or NChannels"); 
                     }
                 case BitDepth.U16:
                 case BitDepth.S16:
@@ -356,7 +356,7 @@ namespace OpenCvSharp.Extensions
                         case 4:
                             return PixelFormats.Rgba64;
                         default:
-                            throw new ArgumentOutOfRangeException("c", "Not supported BitDepth and/or NChannels"); 
+                            throw new ArgumentOutOfRangeException(nameof(c), "Not supported BitDepth and/or NChannels"); 
                     }
                 case BitDepth.S32:
                     switch (c)
@@ -364,7 +364,7 @@ namespace OpenCvSharp.Extensions
                         case 4:
                             return PixelFormats.Prgba64;
                         default:
-                            throw new ArgumentOutOfRangeException("c", "Not supported BitDepth and/or NChannels");
+                            throw new ArgumentOutOfRangeException(nameof(c), "Not supported BitDepth and/or NChannels");
                     }
                 case BitDepth.F32:
                     switch (c)
@@ -376,11 +376,11 @@ namespace OpenCvSharp.Extensions
                         case 4:
                             return PixelFormats.Rgba128Float;
                         default:
-                            throw new ArgumentOutOfRangeException("c", "Not supported BitDepth and/or NChannels");
+                            throw new ArgumentOutOfRangeException(nameof(c), "Not supported BitDepth and/or NChannels");
                     }
                 case BitDepth.F64:
                 default:
-                    throw new ArgumentOutOfRangeException("c", "Not supported BitDepth");
+                    throw new ArgumentOutOfRangeException(nameof(c), "Not supported BitDepth");
             }
         }
 
@@ -415,7 +415,7 @@ namespace OpenCvSharp.Extensions
             if (type == MatType.CV_32FC4)
                 return PixelFormats.Rgba128Float;
 
-            throw new ArgumentOutOfRangeException("type", "Not supported MatType");
+            throw new ArgumentOutOfRangeException(nameof(type), "Not supported MatType");
         }
 
 #if LANG_JP
@@ -444,7 +444,7 @@ namespace OpenCvSharp.Extensions
         {
             if (src == null)
             {
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             }
             var wb = new WriteableBitmap(src.Width, src.Height, dpiX, dpiY, pf, bp);
             ToWriteableBitmap(src, wb);
@@ -506,9 +506,9 @@ namespace OpenCvSharp.Extensions
         public static void ToWriteableBitmap(IplImage src, WriteableBitmap dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (src.Width != dst.PixelWidth || src.Height != dst.PixelHeight)
                 throw new ArgumentException("size of src must be equal to size of dst");
             //if (src.Depth != BitDepth.U8)
@@ -521,7 +521,7 @@ namespace OpenCvSharp.Extensions
             int channels = GetOptimumChannels(dst.Format);   
             if (src.NChannels != channels)
             {
-                throw new ArgumentException("PixelFormat of dst is invalid", "dst");
+                throw new ArgumentException("PixelFormat of dst is invalid", nameof(dst));
             }
 
             // 左下原点の場合は上下反転する

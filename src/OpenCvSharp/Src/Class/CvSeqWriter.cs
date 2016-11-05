@@ -51,7 +51,7 @@ namespace OpenCvSharp
         {
             if (seq == null)
             {
-                throw new ArgumentNullException("seq");
+                throw new ArgumentNullException(nameof(seq));
             }
             NativeMethods.cvStartAppendToSeq(seq.CvPtr, ptr);
         }
@@ -76,7 +76,7 @@ namespace OpenCvSharp
             : this()
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
            
             NativeMethods.cvStartWriteSeq(seqFlags, headerSize, elemSize, storage.CvPtr, ptr);
         }

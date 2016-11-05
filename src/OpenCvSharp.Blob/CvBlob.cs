@@ -206,9 +206,9 @@ namespace OpenCvSharp.Blob
         public void SaveImage(string fileName, IplImage img)
         {
             if (String.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             CvRect roi = Cv.GetImageROI(img);
             SetImageRoiToBlob(img);
             Cv.SaveImage(fileName, img);
@@ -223,7 +223,7 @@ namespace OpenCvSharp.Blob
         public void SetImageRoiToBlob(IplImage img)
         {
             if(img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ROI = Rect;
         }
         #endregion

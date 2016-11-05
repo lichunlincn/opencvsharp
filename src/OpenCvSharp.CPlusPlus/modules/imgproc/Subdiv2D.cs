@@ -174,7 +174,7 @@ namespace OpenCvSharp.CPlusPlus
             if(disposed)
                 throw new ObjectDisposedException("Subdiv2D", "");
             if(ptvec == null)
-                throw new ArgumentNullException("ptvec");
+                throw new ArgumentNullException(nameof(ptvec));
             NativeMethods.imgproc_Subdiv2D_insert(ptr, ptvec, ptvec.Length);
         }
         /// <summary>
@@ -184,7 +184,7 @@ namespace OpenCvSharp.CPlusPlus
         public void Insert(IEnumerable<Point2f> ptvec)
         {
             if (ptvec == null)
-                throw new ArgumentNullException("ptvec");
+                throw new ArgumentNullException(nameof(ptvec));
             Insert(new List<Point2f>(ptvec).ToArray());
         }
         #endregion

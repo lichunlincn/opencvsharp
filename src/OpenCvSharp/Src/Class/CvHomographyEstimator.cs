@@ -75,7 +75,7 @@ namespace OpenCvSharp
             : base(modelPoints, new CvSize(3, 3), 1)
         {
             if (modelPoints != 4 && modelPoints != 5)
-                throw new ArgumentOutOfRangeException("modelPoints");
+                throw new ArgumentOutOfRangeException(nameof(modelPoints));
                        
             //base.checkPartialSubsets = false;
         }

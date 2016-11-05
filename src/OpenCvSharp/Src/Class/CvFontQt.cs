@@ -137,7 +137,7 @@ namespace OpenCvSharp
         public CvFontQt(string nameFont, int pointSize, CvScalar color, FontWeight weight, FontStyle style, int spacing)
         {
             if (nameFont == null)
-                throw new ArgumentNullException("nameFont");
+                throw new ArgumentNullException(nameof(nameFont));
 
             ptr = base.AllocMemory(SizeOf);
             WCvFont font = NativeMethods.cvFontQt(nameFont, pointSize, color, weight, style, spacing);

@@ -19,9 +19,9 @@ namespace OpenCvSharp.CPlusPlus
         public static void Rodrigues(InputArray src, OutputArray dst, OutputArray jacobian = null)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.calib3d_Rodrigues(src.CvPtr, dst.CvPtr, ToPtr(jacobian));
@@ -39,7 +39,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void Rodrigues(double[] vector, out double[,] matrix, out double[,] jacobian)
         {
             if (vector == null)
-                throw new ArgumentNullException("vector");
+                throw new ArgumentNullException(nameof(vector));
             if (vector.Length != 3)
                 throw new ArgumentException("vector.Length != 3");
 
@@ -72,7 +72,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void Rodrigues(double[,] matrix, out double[] vector, out double[,] jacobian)
         {
             if (matrix == null)
-                throw new ArgumentNullException("matrix");
+                throw new ArgumentNullException(nameof(matrix));
             if (matrix.GetLength(0) != 3 || matrix.GetLength(1) != 3)
                 throw new ArgumentException("matrix must be double[3,3]");
 
@@ -111,9 +111,9 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray mask = null)
         {
             if (srcPoints == null)
-                throw new ArgumentNullException("srcPoints");
+                throw new ArgumentNullException(nameof(srcPoints));
             if (dstPoints == null)
-                throw new ArgumentNullException("dstPoints");
+                throw new ArgumentNullException(nameof(dstPoints));
             srcPoints.ThrowIfDisposed();
             dstPoints.ThrowIfDisposed();
 
@@ -138,9 +138,9 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray mask = null)
         {
             if (srcPoints == null)
-                throw new ArgumentNullException("srcPoints");
+                throw new ArgumentNullException(nameof(srcPoints));
             if (dstPoints == null)
-                throw new ArgumentNullException("dstPoints");
+                throw new ArgumentNullException(nameof(dstPoints));
 
             Point2d[] srcPointsArray = EnumerableEx.ToArray(srcPoints);
             Point2d[] dstPointsArray = EnumerableEx.ToArray(dstPoints);
@@ -168,11 +168,11 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray qx = null, OutputArray qy = null, OutputArray qz = null)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (mtxR == null)
-                throw new ArgumentNullException("mtxR");
+                throw new ArgumentNullException(nameof(mtxR));
             if (mtxQ == null)
-                throw new ArgumentNullException("mtxQ");
+                throw new ArgumentNullException(nameof(mtxQ));
             src.ThrowIfDisposed();
             mtxR.ThrowIfNotReady();
             mtxQ.ThrowIfNotReady();
@@ -214,7 +214,7 @@ namespace OpenCvSharp.CPlusPlus
             out double[,] qx, out double[,] qy, out double[,] qz)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (src.GetLength(0) != 3 || src.GetLength(1) != 3)
                 throw new ArgumentException("src must be double[3,3]");
 
@@ -260,11 +260,11 @@ namespace OpenCvSharp.CPlusPlus
                                                      OutputArray eulerAngles = null)
         {
             if (projMatrix == null)
-                throw new ArgumentNullException("projMatrix");
+                throw new ArgumentNullException(nameof(projMatrix));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (rotMatrix == null)
-                throw new ArgumentNullException("rotMatrix");
+                throw new ArgumentNullException(nameof(rotMatrix));
             projMatrix.ThrowIfDisposed();
             cameraMatrix.ThrowIfNotReady();
             rotMatrix.ThrowIfNotReady();
@@ -308,7 +308,7 @@ namespace OpenCvSharp.CPlusPlus
                                                      out double[] eulerAngles)
         {
             if (projMatrix == null)
-                throw new ArgumentNullException("projMatrix");
+                throw new ArgumentNullException(nameof(projMatrix));
             int dim0 = projMatrix.GetLength(0);
             int dim1 = projMatrix.GetLength(1);
             if (!((dim0 == 3 && dim1 == 4) || (dim0 == 4 && dim1 == 3)))
@@ -370,13 +370,13 @@ namespace OpenCvSharp.CPlusPlus
                                        OutputArray dABdB)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             if (dABdA == null)
-                throw new ArgumentNullException("dABdA");
+                throw new ArgumentNullException(nameof(dABdA));
             if (dABdB == null)
-                throw new ArgumentNullException("dABdB");
+                throw new ArgumentNullException(nameof(dABdB));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             dABdA.ThrowIfNotReady();
@@ -413,13 +413,13 @@ namespace OpenCvSharp.CPlusPlus
                                      OutputArray dt3dr2 = null, OutputArray dt3dt2 = null)
         {
             if (rvec1 == null)
-                throw new ArgumentNullException("rvec1");
+                throw new ArgumentNullException(nameof(rvec1));
             if (tvec1 == null)
-                throw new ArgumentNullException("tvec1");
+                throw new ArgumentNullException(nameof(tvec1));
             if (rvec2 == null)
-                throw new ArgumentNullException("rvec2");
+                throw new ArgumentNullException(nameof(rvec2));
             if (tvec2 == null)
-                throw new ArgumentNullException("tvec2");
+                throw new ArgumentNullException(nameof(tvec2));
             rvec1.ThrowIfDisposed();
             tvec1.ThrowIfDisposed();
             rvec2.ThrowIfDisposed();
@@ -458,13 +458,13 @@ namespace OpenCvSharp.CPlusPlus
                                      out double[,] dt3dr2, out double[,] dt3dt2)
         {
             if (rvec1 == null)
-                throw new ArgumentNullException("rvec1");
+                throw new ArgumentNullException(nameof(rvec1));
             if (tvec1 == null)
-                throw new ArgumentNullException("tvec1");
+                throw new ArgumentNullException(nameof(tvec1));
             if (rvec2 == null)
-                throw new ArgumentNullException("rvec2");
+                throw new ArgumentNullException(nameof(rvec2));
             if (tvec2 == null)
-                throw new ArgumentNullException("tvec2");
+                throw new ArgumentNullException(nameof(tvec2));
 
             using (var rvec1M = new Mat(3, 1, MatType.CV_64FC1, rvec1))
             using (var tvec1M = new Mat(3, 1, MatType.CV_64FC1, tvec1))
@@ -553,15 +553,15 @@ namespace OpenCvSharp.CPlusPlus
                                          double aspectRatio = 0)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (rvec == null)
-                throw new ArgumentNullException("rvec");
+                throw new ArgumentNullException(nameof(rvec));
             if (tvec == null)
-                throw new ArgumentNullException("tvec");
+                throw new ArgumentNullException(nameof(tvec));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
             objectPoints.ThrowIfDisposed();
             rvec.ThrowIfDisposed();
             tvec.ThrowIfDisposed();
@@ -603,17 +603,17 @@ namespace OpenCvSharp.CPlusPlus
                                          double aspectRatio = 0)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (rvec == null)
-                throw new ArgumentNullException("rvec");
+                throw new ArgumentNullException(nameof(rvec));
             if (rvec.Length != 3)
                 throw new ArgumentException("rvec.Length != 3");
             if (tvec == null)
-                throw new ArgumentNullException("tvec");
+                throw new ArgumentNullException(nameof(tvec));
             if (tvec.Length != 3)
                 throw new ArgumentException("tvec.Length != 3");
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (cameraMatrix.GetLength(0) != 3 || cameraMatrix.GetLength(1) != 3)
                 throw new ArgumentException("cameraMatrix must be double[3,3]");
 
@@ -666,15 +666,15 @@ namespace OpenCvSharp.CPlusPlus
             SolvePnPFlag flags = SolvePnPFlag.Iterative)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (rvec == null)
-                throw new ArgumentNullException("rvec");
+                throw new ArgumentNullException(nameof(rvec));
             if (tvec == null)
-                throw new ArgumentNullException("tvec");
+                throw new ArgumentNullException(nameof(tvec));
             objectPoints.ThrowIfDisposed();
             imagePoints.ThrowIfDisposed();
             cameraMatrix.ThrowIfDisposed();
@@ -715,11 +715,11 @@ namespace OpenCvSharp.CPlusPlus
             SolvePnPFlag flags = SolvePnPFlag.Iterative)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (cameraMatrix.GetLength(0) != 3 || cameraMatrix.GetLength(1) != 3)
                 throw new ArgumentException("");
 
@@ -774,15 +774,15 @@ namespace OpenCvSharp.CPlusPlus
             SolvePnPFlag flags = SolvePnPFlag.Iterative)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (rvec == null)
-                throw new ArgumentNullException("rvec");
+                throw new ArgumentNullException(nameof(rvec));
             if (tvec == null)
-                throw new ArgumentNullException("tvec");
+                throw new ArgumentNullException(nameof(tvec));
             objectPoints.ThrowIfDisposed();
             imagePoints.ThrowIfDisposed();
             cameraMatrix.ThrowIfDisposed();
@@ -860,11 +860,11 @@ namespace OpenCvSharp.CPlusPlus
             SolvePnPFlag flags = SolvePnPFlag.Iterative)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
 
             if (cameraMatrix.GetLength(0) != 3 || cameraMatrix.GetLength(1) != 3)
                 throw new ArgumentException("");
@@ -904,9 +904,9 @@ namespace OpenCvSharp.CPlusPlus
             double aspectRatio = 1.0)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
 
             IntPtr[] objectPointsPtrs = EnumerableEx.SelectPtrs(objectPoints);
             IntPtr[] imagePointsPtrs = EnumerableEx.SelectPtrs(imagePoints);
@@ -930,9 +930,9 @@ namespace OpenCvSharp.CPlusPlus
             double aspectRatio = 1.0)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints == null)
-                throw new ArgumentNullException("imagePoints");
+                throw new ArgumentNullException(nameof(imagePoints));
 
             using (var opArray = new ArrayAddress2<Point3d>(objectPoints))
             using (var ipArray = new ArrayAddress2<Point2d>(imagePoints))
@@ -963,9 +963,9 @@ namespace OpenCvSharp.CPlusPlus
             ChessboardFlag flags = ChessboardFlag.AdaptiveThresh | ChessboardFlag.NormalizeImage)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
             image.ThrowIfDisposed();
             corners.ThrowIfNotReady();
 
@@ -991,7 +991,7 @@ namespace OpenCvSharp.CPlusPlus
             ChessboardFlag flags = ChessboardFlag.AdaptiveThresh | ChessboardFlag.NormalizeImage)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
 
             using (var cornersVec = new VectorOfPoint2f())
@@ -1014,9 +1014,9 @@ namespace OpenCvSharp.CPlusPlus
         public static bool Find4QuadCornerSubpix(InputArray img, InputOutputArray corners, Size regionSize)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
             img.ThrowIfDisposed();
             corners.ThrowIfNotReady();
 
@@ -1035,9 +1035,9 @@ namespace OpenCvSharp.CPlusPlus
         public static bool Find4QuadCornerSubpix(InputArray img, [In, Out] Point2f[] corners, Size regionSize)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
             img.ThrowIfDisposed();
 
             using (var cornersVec = new VectorOfPoint2f(corners))
@@ -1067,9 +1067,9 @@ namespace OpenCvSharp.CPlusPlus
             InputArray corners, bool patternWasFound)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
             image.ThrowIfNotReady();
             corners.ThrowIfDisposed();
 
@@ -1088,9 +1088,9 @@ namespace OpenCvSharp.CPlusPlus
             IEnumerable<Point2f> corners, bool patternWasFound)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
             image.ThrowIfNotReady();
 
             Point2f[] cornersArray = EnumerableEx.ToArray(corners);
@@ -1118,9 +1118,9 @@ namespace OpenCvSharp.CPlusPlus
             FeatureDetector blobDetector = null)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (centers == null)
-                throw new ArgumentNullException("centers");
+                throw new ArgumentNullException(nameof(centers));
             image.ThrowIfDisposed();
             centers.ThrowIfNotReady();
 
@@ -1149,7 +1149,7 @@ namespace OpenCvSharp.CPlusPlus
             FeatureDetector blobDetector = null)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
             
             using (var centersVec = new VectorOfPoint2f())
@@ -1201,13 +1201,13 @@ namespace OpenCvSharp.CPlusPlus
             TermCriteria? criteria = null)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (distCoeffs == null)
-                throw new ArgumentNullException("distCoeffs");
+                throw new ArgumentNullException(nameof(distCoeffs));
             cameraMatrix.ThrowIfNotReady();
             distCoeffs.ThrowIfNotReady();
 
@@ -1271,13 +1271,13 @@ namespace OpenCvSharp.CPlusPlus
             TermCriteria? criteria = null)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (distCoeffs == null)
-                throw new ArgumentNullException("distCoeffs");
+                throw new ArgumentNullException(nameof(distCoeffs));
 
             TermCriteria criteria0 = criteria.GetValueOrDefault(
                 new TermCriteria(CriteriaType.Iteration | CriteriaType.Epsilon, 30, Double.Epsilon));
@@ -1320,7 +1320,7 @@ namespace OpenCvSharp.CPlusPlus
             out Point2d principalPoint, out double aspectRatio)
         {
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             cameraMatrix.ThrowIfDisposed();
 
             NativeMethods.calib3d_calibrationMatrixValues_InputArray(cameraMatrix.CvPtr,
@@ -1346,7 +1346,7 @@ namespace OpenCvSharp.CPlusPlus
             out Point2d principalPoint, out double aspectRatio)
         {
             if (cameraMatrix == null)
-                throw new ArgumentNullException("cameraMatrix");
+                throw new ArgumentNullException(nameof(cameraMatrix));
             if (cameraMatrix.GetLength(0) != 3 || cameraMatrix.GetLength(1) != 3)
                 throw new ArgumentException("cameraMatrix must be 3x3");
 
@@ -1387,19 +1387,19 @@ namespace OpenCvSharp.CPlusPlus
                                              CalibrationFlag flags = CalibrationFlag.FixIntrinsic)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints1 == null)
-                throw new ArgumentNullException("imagePoints1");
+                throw new ArgumentNullException(nameof(imagePoints1));
             if (imagePoints2 == null)
-                throw new ArgumentNullException("imagePoints2");
+                throw new ArgumentNullException(nameof(imagePoints2));
             if (cameraMatrix1 == null)
-                throw new ArgumentNullException("cameraMatrix1");
+                throw new ArgumentNullException(nameof(cameraMatrix1));
             if (distCoeffs1 == null)
-                throw new ArgumentNullException("distCoeffs1");
+                throw new ArgumentNullException(nameof(distCoeffs1));
             if (cameraMatrix2 == null)
-                throw new ArgumentNullException("cameraMatrix2");
+                throw new ArgumentNullException(nameof(cameraMatrix2));
             if (distCoeffs2 == null)
-                throw new ArgumentNullException("distCoeffs2");
+                throw new ArgumentNullException(nameof(distCoeffs2));
             cameraMatrix1.ThrowIfDisposed();
             distCoeffs1.ThrowIfDisposed();
             cameraMatrix2.ThrowIfDisposed();
@@ -1472,19 +1472,19 @@ namespace OpenCvSharp.CPlusPlus
                                              CalibrationFlag flags = CalibrationFlag.FixIntrinsic)
         {
             if (objectPoints == null)
-                throw new ArgumentNullException("objectPoints");
+                throw new ArgumentNullException(nameof(objectPoints));
             if (imagePoints1 == null)
-                throw new ArgumentNullException("imagePoints1");
+                throw new ArgumentNullException(nameof(imagePoints1));
             if (imagePoints2 == null)
-                throw new ArgumentNullException("imagePoints2");
+                throw new ArgumentNullException(nameof(imagePoints2));
             if (cameraMatrix1 == null)
-                throw new ArgumentNullException("cameraMatrix1");
+                throw new ArgumentNullException(nameof(cameraMatrix1));
             if (distCoeffs1 == null)
-                throw new ArgumentNullException("distCoeffs1");
+                throw new ArgumentNullException(nameof(distCoeffs1));
             if (cameraMatrix2 == null)
-                throw new ArgumentNullException("cameraMatrix2");
+                throw new ArgumentNullException(nameof(cameraMatrix2));
             if (distCoeffs2 == null)
-                throw new ArgumentNullException("distCoeffs2");
+                throw new ArgumentNullException(nameof(distCoeffs2));
 
             TermCriteria criteria0 = criteria.GetValueOrDefault(
                 new TermCriteria(CriteriaType.Iteration | CriteriaType.Epsilon, 30, 1e-6));
@@ -1586,27 +1586,27 @@ namespace OpenCvSharp.CPlusPlus
                                          out Rect validPixROI1, out Rect validPixROI2)
         {
             if (cameraMatrix1 == null)
-                throw new ArgumentNullException("cameraMatrix1");
+                throw new ArgumentNullException(nameof(cameraMatrix1));
             if (distCoeffs1 == null)
-                throw new ArgumentNullException("distCoeffs1");
+                throw new ArgumentNullException(nameof(distCoeffs1));
             if (cameraMatrix2 == null)
-                throw new ArgumentNullException("cameraMatrix2");
+                throw new ArgumentNullException(nameof(cameraMatrix2));
             if (distCoeffs2 == null)
-                throw new ArgumentNullException("distCoeffs2");
+                throw new ArgumentNullException(nameof(distCoeffs2));
             if (R == null)
-                throw new ArgumentNullException("R");
+                throw new ArgumentNullException(nameof(R));
             if (T == null)
-                throw new ArgumentNullException("T");
+                throw new ArgumentNullException(nameof(T));
             if (R1 == null)
-                throw new ArgumentNullException("R1");
+                throw new ArgumentNullException(nameof(R1));
             if (R2 == null)
-                throw new ArgumentNullException("R2");
+                throw new ArgumentNullException(nameof(R2));
             if (P1 == null)
-                throw new ArgumentNullException("P1");
+                throw new ArgumentNullException(nameof(P1));
             if (P2 == null)
-                throw new ArgumentNullException("P2");
+                throw new ArgumentNullException(nameof(P2));
             if (Q == null)
-                throw new ArgumentNullException("Q");
+                throw new ArgumentNullException(nameof(Q));
             cameraMatrix1.ThrowIfDisposed();
             distCoeffs1.ThrowIfDisposed();
             cameraMatrix2.ThrowIfDisposed();
@@ -1720,17 +1720,17 @@ namespace OpenCvSharp.CPlusPlus
                                          out Rect validPixROI1, out Rect validPixROI2)
         {
             if (cameraMatrix1 == null)
-                throw new ArgumentNullException("cameraMatrix1");
+                throw new ArgumentNullException(nameof(cameraMatrix1));
             if (distCoeffs1 == null)
-                throw new ArgumentNullException("distCoeffs1");
+                throw new ArgumentNullException(nameof(distCoeffs1));
             if (cameraMatrix2 == null)
-                throw new ArgumentNullException("cameraMatrix2");
+                throw new ArgumentNullException(nameof(cameraMatrix2));
             if (distCoeffs2 == null)
-                throw new ArgumentNullException("distCoeffs2");
+                throw new ArgumentNullException(nameof(distCoeffs2));
             if (R == null)
-                throw new ArgumentNullException("R");
+                throw new ArgumentNullException(nameof(R));
             if (T == null)
-                throw new ArgumentNullException("T");
+                throw new ArgumentNullException(nameof(T));
             
             R1 = new double[3, 3];
             R2 = new double[3, 3];
@@ -1774,15 +1774,15 @@ namespace OpenCvSharp.CPlusPlus
                                                      double threshold = 5)
         {
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (H1 == null)
-                throw new ArgumentNullException("H1");
+                throw new ArgumentNullException(nameof(H1));
             if (H2 == null)
-                throw new ArgumentNullException("H2");
+                throw new ArgumentNullException(nameof(H2));
             points1.ThrowIfDisposed();
             points2.ThrowIfDisposed();
             F.ThrowIfDisposed();
@@ -1820,11 +1820,11 @@ namespace OpenCvSharp.CPlusPlus
             )
         {
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (F.GetLength(0) != 3 || F.GetLength(1) != 3)
                 throw new ArgumentException("F != double[3,3]");
 
@@ -1884,43 +1884,43 @@ namespace OpenCvSharp.CPlusPlus
                                               out Rect roi1, out Rect roi2, StereoRectificationFlag flags)
         {
             if (cameraMatrix1 == null)
-                throw new ArgumentNullException("cameraMatrix1");
+                throw new ArgumentNullException(nameof(cameraMatrix1));
             if (distCoeffs1 == null)
-                throw new ArgumentNullException("distCoeffs1");
+                throw new ArgumentNullException(nameof(distCoeffs1));
             if (cameraMatrix2 == null)
-                throw new ArgumentNullException("cameraMatrix2");
+                throw new ArgumentNullException(nameof(cameraMatrix2));
             if (distCoeffs2 == null)
-                throw new ArgumentNullException("distCoeffs2");
+                throw new ArgumentNullException(nameof(distCoeffs2));
             if (cameraMatrix3 == null)
-                throw new ArgumentNullException("cameraMatrix3");
+                throw new ArgumentNullException(nameof(cameraMatrix3));
             if (distCoeffs3 == null)
-                throw new ArgumentNullException("distCoeffs3");
+                throw new ArgumentNullException(nameof(distCoeffs3));
             if (imgpt1 == null)
-                throw new ArgumentNullException("imgpt1");
+                throw new ArgumentNullException(nameof(imgpt1));
             if (imgpt3 == null)
-                throw new ArgumentNullException("imgpt3");
+                throw new ArgumentNullException(nameof(imgpt3));
             if (R12 == null)
-                throw new ArgumentNullException("R12");
+                throw new ArgumentNullException(nameof(R12));
             if (T12 == null)
-                throw new ArgumentNullException("T12");
+                throw new ArgumentNullException(nameof(T12));
             if (R13 == null)
-                throw new ArgumentNullException("R13");
+                throw new ArgumentNullException(nameof(R13));
             if (T13 == null)
-                throw new ArgumentNullException("T13");
+                throw new ArgumentNullException(nameof(T13));
             if (R1 == null)
-                throw new ArgumentNullException("R1");
+                throw new ArgumentNullException(nameof(R1));
             if (R2 == null)
-                throw new ArgumentNullException("R2");
+                throw new ArgumentNullException(nameof(R2));
             if (R3 == null)
-                throw new ArgumentNullException("R3");
+                throw new ArgumentNullException(nameof(R3));
             if (P1 == null)
-                throw new ArgumentNullException("P1");
+                throw new ArgumentNullException(nameof(P1));
             if (P2 == null)
-                throw new ArgumentNullException("P2");
+                throw new ArgumentNullException(nameof(P2));
             if (P3 == null)
-                throw new ArgumentNullException("P3");
+                throw new ArgumentNullException(nameof(P3));
             if (Q == null)
-                throw new ArgumentNullException("Q");
+                throw new ArgumentNullException(nameof(Q));
             cameraMatrix1.ThrowIfDisposed();
             distCoeffs1.ThrowIfDisposed();
             cameraMatrix2.ThrowIfDisposed();
@@ -2034,9 +2034,9 @@ namespace OpenCvSharp.CPlusPlus
         public static void ConvertPointsToHomogeneous(InputArray src, OutputArray dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.calib3d_convertPointsToHomogeneous_InputArray(src.CvPtr, dst.CvPtr);
@@ -2050,7 +2050,7 @@ namespace OpenCvSharp.CPlusPlus
         public static Vec3f[] ConvertPointsToHomogeneous(IEnumerable<Vec2f> src)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
 
             Vec2f[] srcA = EnumerableEx.ToArray(src);
             Vec3f[] dstA = new Vec3f[srcA.Length];
@@ -2065,7 +2065,7 @@ namespace OpenCvSharp.CPlusPlus
         public static Vec4f[] ConvertPointsToHomogeneous(IEnumerable<Vec3f> src)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
 
             Vec3f[] srcA = EnumerableEx.ToArray(src);
             Vec4f[] dstA = new Vec4f[srcA.Length];
@@ -2081,9 +2081,9 @@ namespace OpenCvSharp.CPlusPlus
         public static void ConvertPointsFromHomogeneous(InputArray src, OutputArray dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.calib3d_convertPointsFromHomogeneous_InputArray(src.CvPtr, dst.CvPtr);
@@ -2097,7 +2097,7 @@ namespace OpenCvSharp.CPlusPlus
         public static Vec2f[] ConvertPointsFromHomogeneous(IEnumerable<Vec3f> src)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
 
             Vec3f[] srcA = EnumerableEx.ToArray(src);
             Vec2f[] dstA = new Vec2f[srcA.Length];
@@ -2112,7 +2112,7 @@ namespace OpenCvSharp.CPlusPlus
         public static Vec3f[] ConvertPointsFromHomogeneous(IEnumerable<Vec4f> src)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
 
             Vec4f[] srcA = EnumerableEx.ToArray(src);
             Vec3f[] dstA = new Vec3f[srcA.Length];
@@ -2128,9 +2128,9 @@ namespace OpenCvSharp.CPlusPlus
         public static void ConvertPointsHomogeneous(InputArray src, OutputArray dst)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.calib3d_convertPointsHomogeneous(src.CvPtr, dst.CvPtr);
@@ -2161,9 +2161,9 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray mask = null)
         {
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
             points1.ThrowIfDisposed();
             points2.ThrowIfDisposed();
 
@@ -2197,9 +2197,9 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray mask = null)
         {
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
 
             Point2d[] points1Array = EnumerableEx.ToArray(points1);
             Point2d[] points2Array = EnumerableEx.ToArray(points2);
@@ -2228,11 +2228,11 @@ namespace OpenCvSharp.CPlusPlus
                                                      OutputArray lines)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (lines == null)
-                throw new ArgumentNullException("lines");
+                throw new ArgumentNullException(nameof(lines));
             points.ThrowIfDisposed();
             F.ThrowIfDisposed();
             lines.ThrowIfNotReady();
@@ -2253,9 +2253,9 @@ namespace OpenCvSharp.CPlusPlus
                                                      int whichImage, double[,] F)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (F.GetLength(0) != 3 && F.GetLength(1) != 3)
                 throw new ArgumentException("F != double[3,3]");
 
@@ -2280,9 +2280,9 @@ namespace OpenCvSharp.CPlusPlus
                                                      int whichImage, double[,] F)
         {
             if (points == null)
-                throw new ArgumentNullException("points");
+                throw new ArgumentNullException(nameof(points));
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (F.GetLength(0) != 3 && F.GetLength(1) != 3)
                 throw new ArgumentException("F != double[3,3]");
 
@@ -2313,15 +2313,15 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray points4D)
         {
             if (projMatr1 == null)
-                throw new ArgumentNullException("projMatr1");
+                throw new ArgumentNullException(nameof(projMatr1));
             if (projMatr2 == null)
-                throw new ArgumentNullException("projMatr2");
+                throw new ArgumentNullException(nameof(projMatr2));
             if (projPoints1 == null)
-                throw new ArgumentNullException("projPoints1");
+                throw new ArgumentNullException(nameof(projPoints1));
             if (projPoints2 == null)
-                throw new ArgumentNullException("projPoints2");
+                throw new ArgumentNullException(nameof(projPoints2));
             if (points4D == null)
-                throw new ArgumentNullException("points4D");
+                throw new ArgumentNullException(nameof(points4D));
             projMatr1.ThrowIfDisposed();
             projMatr2.ThrowIfDisposed();
             projPoints1.ThrowIfDisposed();
@@ -2349,13 +2349,13 @@ namespace OpenCvSharp.CPlusPlus
             IEnumerable<Point2d> projPoints1, IEnumerable<Point2d> projPoints2)
         {
             if (projMatr1 == null)
-                throw new ArgumentNullException("projMatr1");
+                throw new ArgumentNullException(nameof(projMatr1));
             if (projMatr2 == null)
-                throw new ArgumentNullException("projMatr2");
+                throw new ArgumentNullException(nameof(projMatr2));
             if (projPoints1 == null)
-                throw new ArgumentNullException("projPoints1");
+                throw new ArgumentNullException(nameof(projPoints1));
             if (projPoints2 == null)
-                throw new ArgumentNullException("projPoints2");
+                throw new ArgumentNullException(nameof(projPoints2));
             if (projMatr1.GetLength(0) != 3 && projMatr1.GetLength(1) != 4)
                 throw new ArgumentException("projMatr1 != double[3,4]");
             if (projMatr2.GetLength(0) != 3 && projMatr2.GetLength(1) != 4)
@@ -2388,15 +2388,15 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray newPoints1, OutputArray newPoints2)
         {
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
             if (newPoints1 == null)
-                throw new ArgumentNullException("newPoints1");
+                throw new ArgumentNullException(nameof(newPoints1));
             if (newPoints2 == null)
-                throw new ArgumentNullException("newPoints2");
+                throw new ArgumentNullException(nameof(newPoints2));
             F.ThrowIfDisposed();
             points1.ThrowIfDisposed();
             points2.ThrowIfDisposed();
@@ -2423,11 +2423,11 @@ namespace OpenCvSharp.CPlusPlus
             out Point2d[] newPoints1, out Point2d[] newPoints2)
         {
             if (F == null)
-                throw new ArgumentNullException("F");
+                throw new ArgumentNullException(nameof(F));
             if (points1 == null)
-                throw new ArgumentNullException("points1");
+                throw new ArgumentNullException(nameof(points1));
             if (points2 == null)
-                throw new ArgumentNullException("points2");
+                throw new ArgumentNullException(nameof(points2));
 
             Point2d[] points1Array = EnumerableEx.ToArray(points1);
             Point2d[] points2Array = EnumerableEx.ToArray(points2);
@@ -2455,7 +2455,7 @@ namespace OpenCvSharp.CPlusPlus
             InputOutputArray buf = null)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfNotReady();
 
             NativeMethods.calib3d_filterSpeckles(img.CvPtr, newVal, maxSpeckleSize, maxDiff, ToPtr(buf));
@@ -2490,9 +2490,9 @@ namespace OpenCvSharp.CPlusPlus
             int minDisparity, int numberOfDisparities, int disp12MaxDisp = 1)
         {
             if (disparity == null)
-                throw new ArgumentNullException("disparity");
+                throw new ArgumentNullException(nameof(disparity));
             if (cost == null)
-                throw new ArgumentNullException("cost");
+                throw new ArgumentNullException(nameof(cost));
             disparity.ThrowIfNotReady();
             cost.ThrowIfDisposed();
 
@@ -2518,11 +2518,11 @@ namespace OpenCvSharp.CPlusPlus
             bool handleMissingValues = false, int ddepth = -1)
         {
             if (disparity == null)
-                throw new ArgumentNullException("disparity");
+                throw new ArgumentNullException(nameof(disparity));
             if (_3dImage == null)
-                throw new ArgumentNullException("_3dImage");
+                throw new ArgumentNullException(nameof(_3dImage));
             if (Q == null)
-                throw new ArgumentNullException("Q");
+                throw new ArgumentNullException(nameof(Q));
             disparity.ThrowIfDisposed();
             _3dImage.ThrowIfNotReady();
             Q.ThrowIfDisposed();
@@ -2550,13 +2550,13 @@ namespace OpenCvSharp.CPlusPlus
             double ransacThreshold = 3, double confidence = 0.99)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (outVal == null)
-                throw new ArgumentNullException("outVal");
+                throw new ArgumentNullException(nameof(outVal));
             if (inliers == null)
-                throw new ArgumentNullException("inliers");
+                throw new ArgumentNullException(nameof(inliers));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             outVal.ThrowIfNotReady();

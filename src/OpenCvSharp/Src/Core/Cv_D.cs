@@ -20,7 +20,7 @@ namespace OpenCvSharp
         {
             if (arr == null)
             {
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             }
             unsafe
             {
@@ -61,7 +61,7 @@ namespace OpenCvSharp
         public static double Det(CvArr mat)
         {
             if (mat == null)
-                throw new ArgumentNullException("mat");
+                throw new ArgumentNullException(nameof(mat));
             var ret = NativeMethods.cvDet(mat.CvPtr);
             GC.KeepAlive(mat);
             return ret;
@@ -86,9 +86,9 @@ namespace OpenCvSharp
         public static void DCT(CvArr src, CvArr dst, DCTFlag flags)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvDCT(src.CvPtr, dst.CvPtr, flags);
             KeepAlive(src, dst);
         }
@@ -112,7 +112,7 @@ namespace OpenCvSharp
         public static IplImage DecodeImage(CvMat buf, LoadMode iscolor)
         {
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             IntPtr ptr = NativeMethods.cvDecodeImage(buf.CvPtr, iscolor);
             GC.KeepAlive(buf);
             if (ptr == IntPtr.Zero)
@@ -138,7 +138,7 @@ namespace OpenCvSharp
         public static CvMat DecodeImageM(CvMat buf, LoadMode iscolor)
         {
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             IntPtr ptr = NativeMethods.cvDecodeImageM(buf.CvPtr, iscolor);
             GC.KeepAlive(buf);
             if (ptr == IntPtr.Zero)
@@ -228,13 +228,13 @@ namespace OpenCvSharp
             CvMat rotMatrX, CvMat rotMatrY, CvMat rotMatrZ, out CvPoint3D64f eulerAngles)
         {
             if (projMatr == null)
-                throw new ArgumentNullException("projMatr");
+                throw new ArgumentNullException(nameof(projMatr));
             if (calibMatr == null)
-                throw new ArgumentNullException("calibMatr");
+                throw new ArgumentNullException(nameof(calibMatr));
             if (rotMatr == null)
-                throw new ArgumentNullException("rotMatr");
+                throw new ArgumentNullException(nameof(rotMatr));
             if (posVect == null)
-                throw new ArgumentNullException("posVect");
+                throw new ArgumentNullException(nameof(posVect));
 
             IntPtr rotMatrXPtr = (rotMatrX == null) ? IntPtr.Zero : rotMatrX.CvPtr;
             IntPtr rotMatrYPtr = (rotMatrY == null) ? IntPtr.Zero : rotMatrY.CvPtr;
@@ -295,7 +295,7 @@ namespace OpenCvSharp
         public static void DestroyWindow(string name)
         {
             if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
 
             //NativeMethods.cvDestroyWindow(name);
             CvWindow window = CvWindow.GetWindowByName(name);
@@ -349,9 +349,9 @@ namespace OpenCvSharp
         public static void DFT(CvArr src, CvArr dst, DFTFlag flags, int nonzeroRows)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvDFT(src.CvPtr, dst.CvPtr, flags, nonzeroRows);
             KeepAlive(src, dst);
         }
@@ -459,9 +459,9 @@ namespace OpenCvSharp
         public static void Dilate(CvArr src, CvArr dst, IplConvKernel element, int iterations)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvDilate(src.CvPtr, dst.CvPtr, ToPtr(element), iterations);
             KeepAlive(src, dst, element);
         }
@@ -485,9 +485,9 @@ namespace OpenCvSharp
         public static void DisplayOverlay(string name, string text, int delayms)
         {
             if (name == null)
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             if (text == null)
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             NativeMethods.cvDisplayOverlay(name, text, delayms);
         }
         #endregion
@@ -510,9 +510,9 @@ namespace OpenCvSharp
         public static void DisplayStatusBar(string name, string text, int delayms)
         {
             if (name == null)
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             if (text == null)
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             NativeMethods.cvDisplayStatusBar(name, text, delayms);
         }
         #endregion
@@ -648,9 +648,9 @@ namespace OpenCvSharp
         public static void DistTransform(CvArr src, CvArr dst, DistanceType distanceType, int maskSize, float[] mask, CvArr labels, DistTransformLabelType labelType)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvDistTransform(src.CvPtr, dst.CvPtr, distanceType, maskSize, mask, ToPtr(labels), labelType);
             KeepAlive(src, dst, mask, labels);
         }
@@ -699,9 +699,9 @@ namespace OpenCvSharp
         public static void Div(CvArr src1, CvArr src2, CvArr dst, double scale)
         {
             if (src2 == null)
-                throw new ArgumentNullException("src2");
+                throw new ArgumentNullException(nameof(src2));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             NativeMethods.cvDiv(ToPtr(src1), src2.CvPtr, dst.CvPtr, scale);
             KeepAlive(src1, src2, dst);
         }
@@ -726,9 +726,9 @@ namespace OpenCvSharp
         public static double DotProduct(CvArr src1, CvArr src2)
         {
             if (src1 == null)
-                throw new ArgumentNullException("src1");
+                throw new ArgumentNullException(nameof(src1));
             if (src2 == null)
-                throw new ArgumentNullException("src2");
+                throw new ArgumentNullException(nameof(src2));
             var ret = NativeMethods.cvDotProduct(src1.CvPtr, src2.CvPtr);
             KeepAlive(src1, src2);
             return ret;
@@ -756,9 +756,9 @@ namespace OpenCvSharp
         public static void DrawChessboardCorners(CvArr image, CvSize patternSize, CvPoint2D32f[] corners, bool patternWasFound)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (corners == null)
-                throw new ArgumentNullException("corners");
+                throw new ArgumentNullException(nameof(corners));
             NativeMethods.cvDrawChessboardCorners(image.CvPtr, patternSize, corners, corners.Length, patternWasFound);
             KeepAlive(image);
         }
@@ -867,9 +867,9 @@ namespace OpenCvSharp
         public static void DrawContours(CvArr img, CvSeq<CvPoint> contour, CvScalar externalColor, CvScalar holeColor, int maxLevel, int thickness, LineType lineType, CvPoint offset)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (contour == null)
-                throw new ArgumentNullException("contour");
+                throw new ArgumentNullException(nameof(contour));
             NativeMethods.cvDrawContours(img.CvPtr, contour.CvPtr, externalColor, holeColor, maxLevel, thickness, lineType, offset);
             KeepAlive(img, contour);
         }

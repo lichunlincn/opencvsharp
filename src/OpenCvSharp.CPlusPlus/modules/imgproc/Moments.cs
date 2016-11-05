@@ -66,7 +66,7 @@ namespace OpenCvSharp.CPlusPlus
         public Moments(InputArray array, bool binaryImage = false)
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             array.ThrowIfDisposed();
             InitializeFromInputArray(array, binaryImage);
         }
@@ -81,7 +81,7 @@ namespace OpenCvSharp.CPlusPlus
         public Moments(byte[,] array, bool binaryImage = false)
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             int rows = array.GetLength(0);
             int cols = array.GetLength(1);
             using (var arrayMat = new Mat(rows, cols, MatType.CV_8UC1, array))
@@ -100,7 +100,7 @@ namespace OpenCvSharp.CPlusPlus
         public Moments(float[,] array, bool binaryImage = false)
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             int rows = array.GetLength(0);
             int cols = array.GetLength(1);
             using (var arrayMat = new Mat(rows, cols, MatType.CV_32FC1, array))
@@ -119,7 +119,7 @@ namespace OpenCvSharp.CPlusPlus
         public Moments(IEnumerable<Point> array, bool binaryImage = false)
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             Point[] points = EnumerableEx.ToArray(array);
             using (var pointsMat = new Mat(points.Length, 1, MatType.CV_32SC2, points))
             {
@@ -137,7 +137,7 @@ namespace OpenCvSharp.CPlusPlus
         public Moments(IEnumerable<Point2f> array, bool binaryImage = false)
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             Point2f[] points = EnumerableEx.ToArray(array);
             using (var pointsMat = new Mat(points.Length, 1, MatType.CV_32FC2, points))
             {
@@ -228,7 +228,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator CvMoments(Moments self)
         {
             if (self == null)
-                throw new ArgumentNullException("self");
+                throw new ArgumentNullException(nameof(self));
             double am00 = Math.Abs(self.M00);
             return new CvMoments
                 {
@@ -261,7 +261,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator Moments(CvMoments m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             return new Moments(
                 m.M00, m.M10, m.M01, m.M20, m.M11, m.M02, m.M30, m.M21, m.M12, m.M03);
         }

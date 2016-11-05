@@ -77,7 +77,7 @@ namespace OpenCvSharp
         {
             if (first == IntPtr.Zero)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
             NativeMethods.cvInitTreeNodeIterator(this, first, max_level);
         }
@@ -90,7 +90,7 @@ namespace OpenCvSharp
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
             NativeMethods.cvInitTreeNodeIterator(this, first.CvPtr, max_level);
         }

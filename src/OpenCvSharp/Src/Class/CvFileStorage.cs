@@ -63,7 +63,7 @@ namespace OpenCvSharp
         public CvFileStorage(string filename, CvMemStorage memstorage, FileStorageMode flags, string encoding)
         {
             if (string.IsNullOrEmpty(filename))
-                throw new ArgumentNullException("filename");
+                throw new ArgumentNullException(nameof(filename));
 
             IntPtr memstoragePtr = (memstorage == null) ? IntPtr.Zero : memstorage.CvPtr;
 

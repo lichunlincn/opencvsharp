@@ -46,7 +46,7 @@ namespace OpenCvSharp
         {
             if (arr == null)
             {
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             }
             NativeMethods.cvMoments(arr.CvPtr, this, binary);
         }

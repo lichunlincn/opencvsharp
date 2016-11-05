@@ -33,7 +33,7 @@ namespace OpenCvSharp.CPlusPlus
         public CascadeClassifier(string fileName)
         {
             if (String.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             if (!File.Exists(fileName))
                 throw new FileNotFoundException("\""+ fileName + "\"not found", fileName);
             ptr = NativeMethods.objdetect_CascadeClassifier_newFromFile(fileName);  
@@ -104,7 +104,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CascadeClassifier");
             if (String.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             if (!File.Exists(fileName))
                 throw new FileNotFoundException("\"" + fileName + "\"not found", fileName);
             return NativeMethods.objdetect_CascadeClassifier_load(ptr, fileName) != 0;
@@ -134,7 +134,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CascadeClassifier");
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
 
             Size minSize0 = minSize.GetValueOrDefault(new Size());
@@ -177,7 +177,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CascadeClassifier");
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
 
             Size minSize0 = minSize.GetValueOrDefault(new Size());
@@ -240,7 +240,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CascadeClassifier");
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfDisposed();
             return NativeMethods.objdetect_CascadeClassifier_setImage(ptr, img.CvPtr) != 0;
         }

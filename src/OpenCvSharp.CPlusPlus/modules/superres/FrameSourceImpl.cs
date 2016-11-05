@@ -112,7 +112,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (frame == null)
-                throw new ArgumentNullException("frame");
+                throw new ArgumentNullException(nameof(frame));
             frame.ThrowIfNotReady();
             NativeMethods.superres_FrameSource_nextFrame(ptr, frame.CvPtr);
             frame.Fix();

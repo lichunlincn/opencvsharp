@@ -170,7 +170,7 @@ namespace OpenCvSharp
         public void StartReadChainPoints(CvChain target)
         {
             if (target == null)
-                throw new ArgumentNullException("target");
+                throw new ArgumentNullException(nameof(target));
             
             chain = target;            
             NativeMethods.cvStartReadChainPoints(chain.CvPtr, CvPtr);

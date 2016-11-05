@@ -38,7 +38,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfKeyPoint(int size)
         {
             if (size < 0)
-                throw new ArgumentOutOfRangeException("size");
+                throw new ArgumentOutOfRangeException(nameof(size));
             ptr = NativeMethods.vector_KeyPoint_new2(new IntPtr(size));
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfKeyPoint(IEnumerable<KeyPoint> data)
         {
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             KeyPoint[] array = Util.ToArray(data);
             ptr = NativeMethods.vector_KeyPoint_new3(array, new IntPtr(array.Length));
         }

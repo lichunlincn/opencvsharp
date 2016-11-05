@@ -37,7 +37,7 @@ namespace OpenCvSharp
         {
             if (ptr == IntPtr.Zero)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             this.ptr = ptr;
         }

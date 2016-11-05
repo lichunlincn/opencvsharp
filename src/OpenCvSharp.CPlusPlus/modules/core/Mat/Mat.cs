@@ -62,7 +62,7 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(string fileName, LoadMode flags = LoadMode.Color)
         {
             if (string.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             if (!File.Exists(fileName))
                 throw new FileNotFoundException("", fileName);
             ptr = NativeMethods.highgui_imread(fileName, (int) flags);
@@ -360,9 +360,9 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(IEnumerable<int> sizes, MatType type, IntPtr data, IEnumerable<long> steps = null)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
             if (data == IntPtr.Zero)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             int[] sizesArray = EnumerableEx.ToArray(sizes);
             if (steps == null)
             {
@@ -410,9 +410,9 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(IEnumerable<int> sizes, MatType type, Array data, IEnumerable<long> steps = null)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
 
             GCHandle handle = AllocGCHandle(data);
             int[] sizesArray = EnumerableEx.ToArray(sizes);
@@ -450,7 +450,7 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(IEnumerable<int> sizes, MatType type)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
 
             int[] sizesArray = EnumerableEx.ToArray(sizes);
             ptr = NativeMethods.core_Mat_new10(sizesArray.Length, sizesArray, type);
@@ -478,7 +478,7 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(IEnumerable<int> sizes, MatType type, Scalar s)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
             int[] sizesArray = EnumerableEx.ToArray(sizes);
             ptr = NativeMethods.core_Mat_new11(sizesArray.Length, sizesArray, type, s);
         }
@@ -508,7 +508,7 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(CvMat m, bool copyData = false)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             m.ThrowIfDisposed();
             ptr = NativeMethods.core_Mat_new_FromCvMat(m.CvPtr, copyData ? 1 : 0);
             if (ptr == IntPtr.Zero)
@@ -540,7 +540,7 @@ namespace OpenCvSharp.CPlusPlus
         public Mat(IplImage img, bool copyData = false)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfDisposed();
             ptr = NativeMethods.core_Mat_new_FromIplImage(img.CvPtr, copyData ? 1 : 0);
             if (ptr == IntPtr.Zero)
@@ -625,7 +625,7 @@ namespace OpenCvSharp.CPlusPlus
         public static Mat FromStream(Stream stream, LoadMode mode)
         {
             if (stream == null)
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             if (stream.Length > Int32.MaxValue)
                 throw new ArgumentException("Not supported stream (too long)");
 
@@ -657,7 +657,7 @@ namespace OpenCvSharp.CPlusPlus
         public static Mat ImDecode(byte[] imageBytes, LoadMode mode = LoadMode.Color)
         {
             if (imageBytes == null)
-                throw new ArgumentNullException("imageBytes");
+                throw new ArgumentNullException(nameof(imageBytes));
             return Cv2.ImDecode(imageBytes, mode);
         }
 
@@ -771,7 +771,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr Ones(MatType type, params int[] sizes)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
 
             IntPtr retPtr = NativeMethods.core_Mat_ones(sizes.Length, sizes, type);
             MatExpr retVal = new MatExpr(retPtr);
@@ -816,7 +816,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr Zeros(MatType type, params int[] sizes)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
 
             IntPtr retPtr = NativeMethods.core_Mat_zeros(sizes.Length, sizes, type);
             MatExpr retVal = new MatExpr(retPtr);
@@ -930,9 +930,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator +(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
 
@@ -949,7 +949,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator +(Mat a, Scalar s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
 
             IntPtr retPtr = NativeMethods.core_Mat_operatorAdd_MatScalar(a.CvPtr, s);
@@ -965,7 +965,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator +(Scalar s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorAdd_ScalarMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -984,9 +984,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator -(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorSubtract_MatMat(a.CvPtr, b.CvPtr);
@@ -1002,7 +1002,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator -(Mat a, Scalar s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorSubtract_MatScalar(a.CvPtr, s);
             return new MatExpr(retPtr);
@@ -1017,7 +1017,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator -(Scalar s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorSubtract_ScalarMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -1036,9 +1036,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator *(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorMultiply_MatMat(a.CvPtr, b.CvPtr);
@@ -1054,7 +1054,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator *(Mat a, double s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorMultiply_MatDouble(a.CvPtr, s);
             return new MatExpr(retPtr);
@@ -1069,7 +1069,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator *(double s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorMultiply_DoubleMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -1088,9 +1088,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator /(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorDivide_MatMat(a.CvPtr, b.CvPtr);
@@ -1106,7 +1106,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator /(Mat a, double s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorDivide_MatDouble(a.CvPtr, s);
             return new MatExpr(retPtr);
@@ -1121,7 +1121,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator /(double s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorDivide_DoubleMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -1140,9 +1140,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator &(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorAnd_MatMat(a.CvPtr, b.CvPtr);
@@ -1158,7 +1158,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator &(Mat a, double s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorAnd_MatDouble(a.CvPtr, s);
             return new MatExpr(retPtr);
@@ -1173,7 +1173,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator &(double s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorAnd_DoubleMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -1192,9 +1192,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator |(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorOr_MatMat(a.CvPtr, b.CvPtr);
@@ -1210,7 +1210,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator |(Mat a, double s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorOr_MatDouble(a.CvPtr, s);
             return new MatExpr(retPtr);
@@ -1225,7 +1225,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator |(double s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorOr_DoubleMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -1244,9 +1244,9 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator ^(Mat a, Mat b)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             if (b == null)
-                throw new ArgumentNullException("b");
+                throw new ArgumentNullException(nameof(b));
             a.ThrowIfDisposed();
             b.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorXor_MatMat(a.CvPtr, b.CvPtr);
@@ -1262,7 +1262,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator ^(Mat a, double s)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorXor_MatDouble(a.CvPtr, s);
             return new MatExpr(retPtr);
@@ -1277,7 +1277,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator ^(double s, Mat a)
         {
             if (a == null)
-                throw new ArgumentNullException("a");
+                throw new ArgumentNullException(nameof(a));
             a.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorXor_DoubleMat(s, a.CvPtr);
             return new MatExpr(retPtr);
@@ -1295,7 +1295,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatExpr operator ~(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             m.ThrowIfDisposed();
             IntPtr retPtr = NativeMethods.core_Mat_operatorNot(m.CvPtr);
             return new MatExpr(retPtr);
@@ -1319,7 +1319,7 @@ namespace OpenCvSharp.CPlusPlus
         public MatExpr LessThan(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             IntPtr expr = NativeMethods.core_Mat_operatorLT_MatMat(ptr, m.CvPtr);
             MatExpr ret = new MatExpr(expr);
@@ -1349,7 +1349,7 @@ namespace OpenCvSharp.CPlusPlus
         public MatExpr LessThanOrEqual(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             IntPtr expr = NativeMethods.core_Mat_operatorLE_MatMat(ptr, m.CvPtr);
             MatExpr ret = new MatExpr(expr);
@@ -1379,7 +1379,7 @@ namespace OpenCvSharp.CPlusPlus
         public MatExpr Equals(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             IntPtr expr = NativeMethods.core_Mat_operatorEQ_MatMat(ptr, m.CvPtr);
             MatExpr ret = new MatExpr(expr);
@@ -1409,7 +1409,7 @@ namespace OpenCvSharp.CPlusPlus
         public MatExpr NotEquals(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             IntPtr expr = NativeMethods.core_Mat_operatorNE_MatMat(ptr, m.CvPtr);
             MatExpr ret = new MatExpr(expr);
@@ -1439,7 +1439,7 @@ namespace OpenCvSharp.CPlusPlus
         public MatExpr GreaterThan(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             IntPtr expr = NativeMethods.core_Mat_operatorGT_MatMat(ptr, m.CvPtr);
             MatExpr ret = new MatExpr(expr);
@@ -1469,7 +1469,7 @@ namespace OpenCvSharp.CPlusPlus
         public MatExpr GreaterThanOrEqual(Mat m)
         {
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
 
             IntPtr expr = NativeMethods.core_Mat_operatorGE_MatMat(ptr, m.CvPtr);
             MatExpr ret = new MatExpr(expr);
@@ -1511,7 +1511,7 @@ namespace OpenCvSharp.CPlusPlus
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 value.ThrowIfDisposed();
                 //if (Type() != value.Type())
                 //    throw new ArgumentException("Mat type mismatch");
@@ -1539,7 +1539,7 @@ namespace OpenCvSharp.CPlusPlus
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 value.ThrowIfDisposed();
                 //if (Type() != value.Type())
                 //    throw new ArgumentException("Mat type mismatch");
@@ -1564,7 +1564,7 @@ namespace OpenCvSharp.CPlusPlus
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 value.ThrowIfDisposed();
                 //if (Type() != value.Type())
                 //    throw new ArgumentException("Mat type mismatch");
@@ -1589,7 +1589,7 @@ namespace OpenCvSharp.CPlusPlus
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 value.ThrowIfDisposed();
                 //if (Type() != value.Type())
                 //    throw new ArgumentException("Mat type mismatch");
@@ -1643,7 +1643,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     Mat submat = parent.SubMat(rowStart, rowEnd, colStart, colEnd);
                     NativeMethods.core_Mat_assignment_FromMatExpr(submat.CvPtr, value.CvPtr);
                 }
@@ -1663,7 +1663,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     Mat submat = parent.SubMat(rowRange, colRange);
                     NativeMethods.core_Mat_assignment_FromMatExpr(submat.CvPtr, value.CvPtr);
                 }
@@ -1680,7 +1680,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     Mat submat = parent.SubMat(roi);
                     NativeMethods.core_Mat_assignment_FromMatExpr(submat.CvPtr, value.CvPtr);
                 }
@@ -1697,7 +1697,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     Mat submat = parent.SubMat(ranges);
                     NativeMethods.core_Mat_assignment_FromMatExpr(submat.CvPtr, value.CvPtr);
                 }
@@ -1750,7 +1750,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     parent.ThrowIfDisposed();
                     IntPtr colMatPtr = NativeMethods.core_Mat_col_toMat(parent.ptr, x);
                     NativeMethods.core_Mat_assignment_FromMatExpr(colMatPtr, value.CvPtr);
@@ -1776,7 +1776,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     parent.ThrowIfDisposed();
                     IntPtr colMatPtr = NativeMethods.core_Mat_colRange_toMat(parent.ptr, startCol, endCol);
                     NativeMethods.core_Mat_assignment_FromMatExpr(colMatPtr, value.CvPtr);
@@ -1831,7 +1831,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     parent.ThrowIfDisposed();
                     IntPtr rowMatPtr = NativeMethods.core_Mat_row_toMat(parent.ptr, y);
                     NativeMethods.core_Mat_assignment_FromMatExpr(rowMatPtr, value.CvPtr);
@@ -1857,7 +1857,7 @@ namespace OpenCvSharp.CPlusPlus
                 set
                 {
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     parent.ThrowIfDisposed();
                     IntPtr rowMatPtr = NativeMethods.core_Mat_rowRange_toMat(parent.ptr, startRow, endRow);
                     NativeMethods.core_Mat_assignment_FromMatExpr(rowMatPtr, value.CvPtr);
@@ -1911,7 +1911,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             NativeMethods.core_Mat_assignTo(ptr, m.CvPtr, type);
         }
 
@@ -2083,7 +2083,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             NativeMethods.core_Mat_convertTo(ptr, m.CvPtr, rtype, alpha, beta);
         }
 
@@ -2109,7 +2109,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             IntPtr maskPtr = Cv2.ToPtr(mask);
             NativeMethods.core_Mat_copyTo(ptr, m.CvPtr, maskPtr);
         }
@@ -2148,7 +2148,7 @@ namespace OpenCvSharp.CPlusPlus
         public void Create(MatType type, params int[] sizes)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
             if (sizes.Length < 2)
                 throw new ArgumentException("sizes.Length < 2");
             NativeMethods.core_Mat_create(ptr, sizes.Length, sizes, type);
@@ -2167,7 +2167,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             IntPtr retPtr = NativeMethods.core_Mat_cross(ptr, m.CvPtr);
             Mat retVal = new Mat(retPtr);
             return retVal;
@@ -2283,7 +2283,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             return NativeMethods.core_Mat_dot(ptr, m.CvPtr);
         }
 
@@ -2460,7 +2460,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (newDims == null)
-                throw new ArgumentNullException("newDims");
+                throw new ArgumentNullException(nameof(newDims));
             IntPtr retPtr = NativeMethods.core_Mat_reshape(ptr, cn, newDims.Length, newDims);
             Mat retVal = new Mat(retPtr);
             return retVal;
@@ -2534,7 +2534,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (value == null)
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             value.ThrowIfDisposed();
             IntPtr maskPtr = Cv2.ToPtr(mask);
             IntPtr retPtr = NativeMethods.core_Mat_setTo(ptr, value.CvPtr, maskPtr);
@@ -3130,7 +3130,7 @@ namespace OpenCvSharp.CPlusPlus
                 {
                     parent.ThrowIfDisposed();
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     value.ThrowIfDisposed();
                     if (parent.Dims() != value.Dims())
                         throw new ArgumentException("Dimension mismatch");
@@ -3162,7 +3162,7 @@ namespace OpenCvSharp.CPlusPlus
                 {
                     parent.ThrowIfDisposed();
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     value.ThrowIfDisposed();
                     if (parent.Dims() != value.Dims())
                         throw new ArgumentException("Dimension mismatch");
@@ -3260,7 +3260,7 @@ namespace OpenCvSharp.CPlusPlus
                 {
                     parent.ThrowIfDisposed();
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     value.ThrowIfDisposed();
                     if (parent.Dims() != value.Dims())
                         throw new ArgumentException("Dimension mismatch");
@@ -3292,7 +3292,7 @@ namespace OpenCvSharp.CPlusPlus
                 {
                     parent.ThrowIfDisposed();
                     if (value == null)
-                        throw new ArgumentNullException("value");
+                        throw new ArgumentNullException(nameof(value));
                     value.ThrowIfDisposed();
                     if (parent.Dims() != value.Dims())
                         throw new ArgumentException("Dimension mismatch");
@@ -3394,11 +3394,11 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (row < 0 || row >= Rows)
-                throw new ArgumentOutOfRangeException("row");
+                throw new ArgumentOutOfRangeException(nameof(row));
             if (col < 0 || col >= Cols)
-                throw new ArgumentOutOfRangeException("col");
+                throw new ArgumentOutOfRangeException(nameof(col));
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
 
             MatType t = Type();
             if (data == null || data.Length%t.Channels != 0)
@@ -3571,9 +3571,9 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (row < 0 || row >= Rows)
-                throw new ArgumentOutOfRangeException("row");
+                throw new ArgumentOutOfRangeException(nameof(row));
             if (col < 0 || col >= Cols)
-                throw new ArgumentOutOfRangeException("col");
+                throw new ArgumentOutOfRangeException(nameof(col));
 
             double[] ret = new double[Channels()];
             NativeMethods.core_Mat_nGetD(ptr, row, col, ret, ret.Length);
@@ -4503,7 +4503,7 @@ namespace OpenCvSharp.CPlusPlus
         public void WriteToStream(Stream stream, string ext = ".png", params ImageEncodingParam[] prms)
         {
             if (stream == null)
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             byte[] imageBytes = ToBytes(ext, prms);
             stream.Write(imageBytes, 0, imageBytes.Length);
         }

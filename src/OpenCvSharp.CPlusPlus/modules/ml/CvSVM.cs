@@ -85,9 +85,9 @@ namespace OpenCvSharp.CPlusPlus
             CvSVMParams param = null)
 	    {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
 
 			if(param == null)
 				param = new CvSVMParams();
@@ -130,9 +130,9 @@ namespace OpenCvSharp.CPlusPlus
             CvSVMParams param = null)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -313,9 +313,9 @@ namespace OpenCvSharp.CPlusPlus
             CvSVMParams param = null)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -357,9 +357,9 @@ namespace OpenCvSharp.CPlusPlus
             CvSVMParams param = null)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -428,13 +428,13 @@ namespace OpenCvSharp.CPlusPlus
             bool balanced = false)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             if (varIdx == null)
-                throw new ArgumentNullException("varIdx");
+                throw new ArgumentNullException(nameof(varIdx));
             if (sampleIdx == null)
-                throw new ArgumentNullException("sampleIdx");
+                throw new ArgumentNullException(nameof(sampleIdx));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
             varIdx.ThrowIfDisposed();
@@ -520,13 +520,13 @@ namespace OpenCvSharp.CPlusPlus
             bool balanced = false)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             if (varIdx == null)
-                throw new ArgumentNullException("varIdx");
+                throw new ArgumentNullException(nameof(varIdx));
             if (sampleIdx == null)
-                throw new ArgumentNullException("sampleIdx");
+                throw new ArgumentNullException(nameof(sampleIdx));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
             varIdx.ThrowIfDisposed();
@@ -577,7 +577,7 @@ namespace OpenCvSharp.CPlusPlus
         public virtual float Predict(CvMat sample, bool returnDfVal = false)
         {
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             sample.ThrowIfDisposed();
             return NativeMethods.ml_CvSVM_predict_CvMat1(ptr, sample.CvPtr, returnDfVal ? 1 : 0);
         }
@@ -599,9 +599,9 @@ namespace OpenCvSharp.CPlusPlus
         public virtual float Predict(CvMat sample, CvMat results)
         {
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             if (results == null)
-                throw new ArgumentNullException("results");
+                throw new ArgumentNullException(nameof(results));
             sample.ThrowIfDisposed();
             results.ThrowIfDisposed();
             return NativeMethods.ml_CvSVM_predict_CvMat2(ptr, sample.CvPtr, results.CvPtr);
@@ -624,7 +624,7 @@ namespace OpenCvSharp.CPlusPlus
         public virtual float Predict(Mat sample, bool returnDfVal = false)
         {
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             sample.ThrowIfDisposed();
             return NativeMethods.ml_CvSVM_predict_CvMat1(ptr, sample.CvPtr, returnDfVal ? 1 : 0);
         }
@@ -646,9 +646,9 @@ namespace OpenCvSharp.CPlusPlus
         public virtual float Predict(InputArray sample, OutputArray results)
         {
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
             if (results == null)
-                throw new ArgumentNullException("results");
+                throw new ArgumentNullException(nameof(results));
             sample.ThrowIfDisposed();
             results.ThrowIfNotReady();
             float ret = NativeMethods.ml_CvSVM_predict_CvMat2(ptr, sample.CvPtr, results.CvPtr);
@@ -688,9 +688,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Write(CvFileStorage storage, String name) 
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 			if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
 
             NativeMethods.ml_CvSVM_write(ptr, storage.CvPtr, name);
         }
@@ -711,9 +711,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Read(CvFileStorage storage, CvFileNode node) 
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
 
             NativeMethods.ml_CvSVM_read(ptr, storage.CvPtr, node.CvPtr);
         }

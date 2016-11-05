@@ -464,9 +464,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Write(CvFileStorage storage, String name) 
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 			if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
 
             NativeMethods.ml_CvRTrees_write(ptr, storage.CvPtr, name);
         }
@@ -487,9 +487,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Read(CvFileStorage fs, CvFileNode node) 
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             NativeMethods.ml_CvRTrees_read(ptr, fs.CvPtr, node.CvPtr);
         }
 		#endregion

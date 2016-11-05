@@ -108,7 +108,7 @@ namespace OpenCvSharp.CPlusPlus
         public virtual void Compute(Mat image, ref KeyPoint[] keypoints, Mat descriptors)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             using (var keypointsVec = new VectorOfKeyPoint(keypoints))
             {
                 NativeMethods.features2d_Feature2D_compute(ptr, image.CvPtr, keypointsVec.CvPtr, descriptors.CvPtr);
@@ -126,9 +126,9 @@ namespace OpenCvSharp.CPlusPlus
         public virtual void Compute(IEnumerable<Mat> images, ref KeyPoint[][] keypoints, IEnumerable<Mat> descriptors)
         {
             if (images == null)
-                throw new ArgumentNullException("images");
+                throw new ArgumentNullException(nameof(images));
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
 
             IntPtr[] imagesPtrs = EnumerableEx.SelectPtrs(images);
             IntPtr[] descriptorsPtrs = EnumerableEx.SelectPtrs(descriptors);

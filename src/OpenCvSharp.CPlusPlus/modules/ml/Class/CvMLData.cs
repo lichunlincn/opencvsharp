@@ -183,7 +183,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("CvMLData");
             if (spl == null)
-                throw new ArgumentNullException("spl");
+                throw new ArgumentNullException(nameof(spl));
             NativeMethods.ml_CvMLData_set_train_test_split(ptr, spl.CvPtr);
         }
         /// <summary>

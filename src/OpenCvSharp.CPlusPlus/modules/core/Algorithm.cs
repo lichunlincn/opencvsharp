@@ -70,7 +70,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             IntPtr info = InfoPtr;
             int value = 0;
             NativeMethods.core_AlgorithmInfo_getInt(
@@ -87,7 +87,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             IntPtr info = InfoPtr;
             double value = 0;
             NativeMethods.core_AlgorithmInfo_getDouble(
@@ -105,7 +105,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             IntPtr info = InfoPtr;
             int valueInt = 0;
             NativeMethods.core_AlgorithmInfo_getBool(
@@ -122,7 +122,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             IntPtr info = InfoPtr;
             StringBuilder buf = new StringBuilder(1 << 16);
             NativeMethods.core_AlgorithmInfo_getString(
@@ -139,7 +139,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             IntPtr info = InfoPtr;
             Mat value = new Mat();
             NativeMethods.core_AlgorithmInfo_getMat(
@@ -236,7 +236,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (value == null)
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             value.ThrowIfDisposed();
 
             IntPtr info = InfoPtr;
@@ -282,7 +282,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             return Info.ParamHelp(name);
         }
         /// <summary>
@@ -295,7 +295,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("Algorithm");
             if (String.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             return Info.ParamType(name);
         }
 

@@ -86,9 +86,9 @@ namespace OpenCvSharp.CPlusPlus
             CvBoostParams param = null)
 		{    
 			if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -143,9 +143,9 @@ namespace OpenCvSharp.CPlusPlus
             CvBoostParams param = null)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -239,9 +239,9 @@ namespace OpenCvSharp.CPlusPlus
             bool update = false )
 		{    
 			if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 			
@@ -303,9 +303,9 @@ namespace OpenCvSharp.CPlusPlus
             bool update = false)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (responses == null)
-                throw new ArgumentNullException("responses");
+                throw new ArgumentNullException(nameof(responses));
             trainData.ThrowIfDisposed();
             responses.ThrowIfDisposed();
 
@@ -360,7 +360,7 @@ namespace OpenCvSharp.CPlusPlus
             bool returnSum = false)
 		{
 			if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
 
 	        CvSlice slice0 = slice.GetValueOrDefault(CvSlice.WholeSeq);
 			return NativeMethods.ml_Boost_predict_CvMat(
@@ -402,7 +402,7 @@ namespace OpenCvSharp.CPlusPlus
             bool returnSum = false)
         {
             if (sample == null)
-                throw new ArgumentNullException("sample");
+                throw new ArgumentNullException(nameof(sample));
 
             CvSlice slice0 = slice.GetValueOrDefault(CvSlice.WholeSeq);
             return NativeMethods.ml_Boost_predict_Mat(
@@ -553,9 +553,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Write(CvFileStorage storage, string name) 
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 			if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
 
             NativeMethods.ml_Boost_write(ptr, storage.CvPtr, name);
         }
@@ -576,9 +576,9 @@ namespace OpenCvSharp.CPlusPlus
         public override void Read(CvFileStorage storage, CvFileNode node) 
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
 
             NativeMethods.ml_Boost_read(ptr, storage.CvPtr, node.CvPtr);
         }

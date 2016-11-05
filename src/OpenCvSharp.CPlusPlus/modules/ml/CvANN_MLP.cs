@@ -71,7 +71,7 @@ namespace OpenCvSharp.CPlusPlus
             double fParam1 = 0, double fParam2 = 0)
 		{
             if (layerSizes == null)
-                throw new ArgumentNullException("layerSizes");
+                throw new ArgumentNullException(nameof(layerSizes));
 
             ptr = NativeMethods.ml_CvANN_MLP_new2_CvMat(
                 layerSizes.CvPtr, (int)activFunc, fParam1, fParam2);
@@ -100,7 +100,7 @@ namespace OpenCvSharp.CPlusPlus
             double fParam1 = 0, double fParam2 = 0)
         {
             if (layerSizes == null)
-                throw new ArgumentNullException("layerSizes");
+                throw new ArgumentNullException(nameof(layerSizes));
 
             ptr = NativeMethods.ml_CvANN_MLP_new2_Mat(
                 layerSizes.CvPtr, (int)activFunc, fParam1, fParam2);
@@ -165,7 +165,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("StatModel");
 			if (layerSizes == null)
-                throw new ArgumentNullException("layerSizes");
+                throw new ArgumentNullException(nameof(layerSizes));
             layerSizes.ThrowIfDisposed();
 
             NativeMethods.ml_CvANN_MLP_create_CvMat(
@@ -196,7 +196,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("StatModel");
             if (layerSizes == null)
-                throw new ArgumentNullException("layerSizes");
+                throw new ArgumentNullException(nameof(layerSizes));
             layerSizes.ThrowIfDisposed();
 
             NativeMethods.ml_CvANN_MLP_create_Mat(
@@ -234,9 +234,9 @@ namespace OpenCvSharp.CPlusPlus
             MLPTrainingFlag flags = MLPTrainingFlag.Zero )
 		{    
 			if (inputs == null)
-                throw new ArgumentNullException("inputs");
+                throw new ArgumentNullException(nameof(inputs));
             if (outputs == null)
-                throw new ArgumentNullException("outputs");
+                throw new ArgumentNullException(nameof(outputs));
             inputs.ThrowIfDisposed();
             outputs.ThrowIfDisposed();
 
@@ -283,9 +283,9 @@ namespace OpenCvSharp.CPlusPlus
             MLPTrainingFlag flags = MLPTrainingFlag.Zero)
         {
             if (inputs == null)
-                throw new ArgumentNullException("inputs");
+                throw new ArgumentNullException(nameof(inputs));
             if (outputs == null)
-                throw new ArgumentNullException("outputs");
+                throw new ArgumentNullException(nameof(outputs));
             inputs.ThrowIfDisposed();
             outputs.ThrowIfDisposed();
 
@@ -323,9 +323,9 @@ namespace OpenCvSharp.CPlusPlus
 		public float Predict(CvMat inputs, CvMat outputs)
 		{
 			if (inputs == null)
-                throw new ArgumentNullException("inputs");
+                throw new ArgumentNullException(nameof(inputs));
 			if (outputs == null)
-                throw new ArgumentNullException("outputs");
+                throw new ArgumentNullException(nameof(outputs));
             inputs.ThrowIfDisposed();
             outputs.ThrowIfDisposed();
 
@@ -349,9 +349,9 @@ namespace OpenCvSharp.CPlusPlus
         public float Predict(Mat inputs, Mat outputs)
         {
             if (inputs == null)
-                throw new ArgumentNullException("inputs");
+                throw new ArgumentNullException(nameof(inputs));
             if (outputs == null)
-                throw new ArgumentNullException("outputs");
+                throw new ArgumentNullException(nameof(outputs));
             inputs.ThrowIfDisposed();
             outputs.ThrowIfDisposed();
 
@@ -424,9 +424,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Write(CvFileStorage storage, string name) 
         {
             if (storage == null)
-                throw new ArgumentNullException("storage");
+                throw new ArgumentNullException(nameof(storage));
 			if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
 
             NativeMethods.ml_CvANN_MLP_write(ptr, storage.CvPtr, name);
         }
@@ -447,9 +447,9 @@ namespace OpenCvSharp.CPlusPlus
 		public override void Read(CvFileStorage fs, CvFileNode node)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
 
             NativeMethods.ml_CvANN_MLP_read(ptr, fs.CvPtr, node.CvPtr);
         }

@@ -142,7 +142,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (descriptors == null)
-                throw new ArgumentNullException("descriptors");
+                throw new ArgumentNullException(nameof(descriptors));
 
             Mat[] descriptorsArray = EnumerableEx.ToArray(descriptors);
             if (descriptorsArray.Length == 0)

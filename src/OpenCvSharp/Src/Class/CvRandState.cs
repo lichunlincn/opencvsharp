@@ -127,7 +127,7 @@ namespace OpenCvSharp
         {
             if (ptr == null)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             CvRandState s = (CvRandState)Marshal.PtrToStructure(ptr, typeof(CvRandState));
             this._disttype = s._disttype;

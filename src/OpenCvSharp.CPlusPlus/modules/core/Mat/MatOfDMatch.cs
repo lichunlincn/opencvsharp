@@ -381,7 +381,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfDMatch FromArray(params DMatch[] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 
@@ -404,7 +404,7 @@ namespace OpenCvSharp.CPlusPlus
         public static MatOfDMatch FromArray(DMatch[,] arr)
         {
             if (arr == null)
-                throw new ArgumentNullException("arr");
+                throw new ArgumentNullException(nameof(arr));
             if (arr.Length == 0)
                 throw new ArgumentException("arr.Length == 0");
 

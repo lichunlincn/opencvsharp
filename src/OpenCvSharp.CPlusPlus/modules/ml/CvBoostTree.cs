@@ -108,9 +108,9 @@ namespace OpenCvSharp.CPlusPlus
 		public virtual bool Train(CvDTreeTrainData trainData, CvMat subsampleIdx, CvBoost ensemble)
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (subsampleIdx == null)
-                throw new ArgumentNullException("subsampleIdx");
+                throw new ArgumentNullException(nameof(subsampleIdx));
 
 			return NativeMethods.ml_CvBoostTree_train(
                 ptr, trainData.CvPtr, subsampleIdx.CvPtr, Cv2.ToPtr(ensemble)) != 0;
@@ -152,13 +152,13 @@ namespace OpenCvSharp.CPlusPlus
 		public virtual void Read(CvFileStorage fs, CvFileNode node, CvBoost ensemble, CvDTreeTrainData data)
         {
 			if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
 			if (ensemble == null)
-                throw new ArgumentNullException("ensemble");
+                throw new ArgumentNullException(nameof(ensemble));
 			if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
 
             NativeMethods.ml_CvBoostTree_read(
                 ptr, fs.CvPtr, node.CvPtr, ensemble.CvPtr, data.CvPtr);

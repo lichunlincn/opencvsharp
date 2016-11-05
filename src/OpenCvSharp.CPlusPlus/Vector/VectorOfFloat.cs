@@ -30,7 +30,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfFloat(int size)
         {
             if (size < 0)
-                throw new ArgumentOutOfRangeException("size");
+                throw new ArgumentOutOfRangeException(nameof(size));
             ptr = NativeMethods.vector_float_new2(new IntPtr(size));
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfFloat(IEnumerable<float> data)
         {
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             float[] array = Util.ToArray(data);
             ptr = NativeMethods.vector_float_new3(array, new IntPtr(array.Length));
         }

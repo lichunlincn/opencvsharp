@@ -28,9 +28,9 @@ namespace OpenCvSharp
         public CvFaceTracker(IplImage imgGray, CvRect[] pRects)
         {
             if (imgGray == null)
-                throw new ArgumentNullException("imgGray");
+                throw new ArgumentNullException(nameof(imgGray));
             if (pRects == null)
-                throw new ArgumentNullException("pRects");
+                throw new ArgumentNullException(nameof(pRects));
             if (pRects.Length != 3)
                 throw new ArgumentException("pRects.Length must be 3");
 
@@ -54,7 +54,7 @@ namespace OpenCvSharp
         {
             if (ptr == IntPtr.Zero)
             {
-                throw new ArgumentNullException("ptr");
+                throw new ArgumentNullException(nameof(ptr));
             }
             this.ptr = ptr;
         }

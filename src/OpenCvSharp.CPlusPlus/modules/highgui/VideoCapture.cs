@@ -214,7 +214,7 @@ namespace OpenCvSharp.CPlusPlus
         public VideoCapture(string fileName)
         {
             if (string.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             /*if (!File.Exists(fileName))
                 throw new FileNotFoundException("File not found", fileName);*/
 
@@ -1903,7 +1903,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
             return NativeMethods.highgui_VideoCapture_retrieve(ptr, image.CvPtr, channel) != 0;
         }
@@ -1929,7 +1929,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
             return NativeMethods.highgui_VideoCapture_retrieve(ptr, image.CvPtr, (int)streamIdx) != 0;
         }

@@ -111,11 +111,11 @@ namespace OpenCvSharp.CPlusPlus
         public virtual bool Train( CvDTreeTrainData trainData, CvMat subsampleIdx, CvRTrees forest )
         {
             if (trainData == null)
-                throw new ArgumentNullException("trainData");
+                throw new ArgumentNullException(nameof(trainData));
             if (subsampleIdx == null)
-                throw new ArgumentNullException("subsampleIdx");
+                throw new ArgumentNullException(nameof(subsampleIdx));
             if (forest == null)
-                throw new ArgumentNullException("forest");
+                throw new ArgumentNullException(nameof(forest));
 
             return NativeMethods.ml_CvForestTree_train(
                 ptr, trainData.CvPtr, subsampleIdx.CvPtr, forest.CvPtr) != 0;
@@ -157,13 +157,13 @@ namespace OpenCvSharp.CPlusPlus
         public virtual void Read(CvFileStorage fs, CvFileNode node, CvRTrees forest, CvDTreeTrainData data)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             if (forest == null)
-                throw new ArgumentNullException("forest");
+                throw new ArgumentNullException(nameof(forest));
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
 
             NativeMethods.ml_CvForestTree_read(
                 ptr, fs.CvPtr, node.CvPtr, forest.CvPtr, data.CvPtr);

@@ -30,9 +30,9 @@ namespace OpenCvSharp.CPlusPlus
         public FileNode(CvFileStorage fs, CvFileNode node)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             NativeMethods.core_FileNode_new2(fs.CvPtr, node.CvPtr);
         }
 
@@ -43,7 +43,7 @@ namespace OpenCvSharp.CPlusPlus
         public FileNode(FileNode node)
         {
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             NativeMethods.core_FileNode_new3(node.CvPtr);
         }
 
@@ -95,7 +95,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator int(FileNode node)
         {
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             return NativeMethods.core_FileNode_toInt(node.CvPtr);
         }
 
@@ -107,7 +107,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator float(FileNode node)
         {
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             return NativeMethods.core_FileNode_toFloat(node.CvPtr);
         }
 
@@ -119,7 +119,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator double(FileNode node)
         {
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             return NativeMethods.core_FileNode_toDouble(node.CvPtr);
         }
 
@@ -131,7 +131,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator string(FileNode node)
         {
             if (node == null)
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException(nameof(node));
             var buf = new StringBuilder(1 << 16);
             NativeMethods.core_FileNode_toString(node.CvPtr, buf, buf.Capacity);
             return buf.ToString();
@@ -151,7 +151,7 @@ namespace OpenCvSharp.CPlusPlus
                 if (disposed)
                     throw new ObjectDisposedException("FileNode");
                 if (nodeName == null)
-                    throw new ArgumentNullException("nodeName");
+                    throw new ArgumentNullException(nameof(nodeName));
                 IntPtr node = NativeMethods.core_FileNode_operatorThis_byString(ptr, nodeName);
                 if (node == IntPtr.Zero)
                     return null;
@@ -337,7 +337,7 @@ namespace OpenCvSharp.CPlusPlus
         public static explicit operator CvFileNode(FileNode fs)
         {
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             return fs.ToLegacy();
         }
 
@@ -363,7 +363,7 @@ namespace OpenCvSharp.CPlusPlus
             if (disposed)
                 throw new ObjectDisposedException("FileNode");
             if (fmt == null)
-                throw new ArgumentNullException("fmt");
+                throw new ArgumentNullException(nameof(fmt));
             NativeMethods.core_FileNode_readRaw(ptr, fmt, vec, new IntPtr(len));
         }
 

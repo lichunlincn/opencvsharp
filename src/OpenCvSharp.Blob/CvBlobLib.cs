@@ -27,7 +27,7 @@ namespace OpenCvSharp.Blob
         public static double CalcAngle(CvBlob blob)
         {
             if (blob == null)
-                throw new ArgumentNullException("blob");
+                throw new ArgumentNullException(nameof(blob));
             return blob.Angle();
         }
         #endregion
@@ -41,7 +41,7 @@ namespace OpenCvSharp.Blob
         public static CvPoint2D64f CalcCentroid(CvBlob blob)
         {
             if (blob == null)
-                throw new ArgumentNullException("blob");
+                throw new ArgumentNullException(nameof(blob));
             return blob.CalcCentroid();
         }
         #endregion
@@ -54,7 +54,7 @@ namespace OpenCvSharp.Blob
         public static double ContourPolygonArea(CvContourPolygon polygon)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             return polygon.Area();
         }
         #endregion
@@ -67,7 +67,7 @@ namespace OpenCvSharp.Blob
         public static double ContourPolygonCircularity(CvContourPolygon polygon)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             return polygon.Circularity();
         }
         #endregion
@@ -80,7 +80,7 @@ namespace OpenCvSharp.Blob
         public static double ContourPolygonPerimeter(CvContourPolygon polygon)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             return polygon.Perimeter();
         }
         #endregion
@@ -93,7 +93,7 @@ namespace OpenCvSharp.Blob
         public static double ContourChainCodePerimeter(CvContourChainCode cc)
         {
             if (cc == null)
-                throw new ArgumentNullException("cc");
+                throw new ArgumentNullException(nameof(cc));
             return cc.Perimeter();
         }
         #endregion
@@ -106,7 +106,7 @@ namespace OpenCvSharp.Blob
         public static CvContourPolygon ConvertChainCodesToPolygon(CvContourChainCode cc)
         {
             if (cc == null)
-                throw new ArgumentNullException("cc");
+                throw new ArgumentNullException(nameof(cc));
             return cc.ConvertToPolygon();
         }
         #endregion
@@ -121,7 +121,7 @@ namespace OpenCvSharp.Blob
         public static void FilterByArea(CvBlobs blobs, int minArea, int maxArea)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             blobs.FilterByArea(minArea, maxArea);
         }
         #endregion
@@ -135,7 +135,7 @@ namespace OpenCvSharp.Blob
         public static void FilterByLabel(CvBlobs blobs, int label)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             blobs.FilterByLabel(label);
         }
         #endregion
@@ -148,7 +148,7 @@ namespace OpenCvSharp.Blob
         public static void FilterLabels(CvBlobs blobs, IplImage imgOut)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             blobs.FilterLabels(imgOut);
         }
         #endregion
@@ -163,7 +163,7 @@ namespace OpenCvSharp.Blob
         public static int GetLabel(CvBlobs blobs, int x, int y)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             return blobs.GetLabel(x, y);
         }
         #endregion
@@ -176,7 +176,7 @@ namespace OpenCvSharp.Blob
         public static CvBlob GreaterBlob(CvBlobs blobs)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             return blobs.GreaterBlob();
         }
 
@@ -188,7 +188,7 @@ namespace OpenCvSharp.Blob
         public static CvBlob LargestBlob(CvBlobs blobs)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             return blobs.LargestBlob();
         }
         #endregion
@@ -202,9 +202,9 @@ namespace OpenCvSharp.Blob
         public static int Label(IplImage img, CvBlobs blobs)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
 
             return blobs.Label(img);
         }
@@ -220,7 +220,7 @@ namespace OpenCvSharp.Blob
         public static CvScalar BlobMeanColor(CvBlobs blobs, CvBlob targetBlob, IplImage originalImage)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             return blobs.BlobMeanColor(targetBlob, originalImage);
         }
         #endregion
@@ -234,7 +234,7 @@ namespace OpenCvSharp.Blob
         public static CvContourPolygon PolygonContourConvexHull(CvContourPolygon polygon)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             return polygon.ContourConvexHull();
         }
         #endregion
@@ -288,13 +288,13 @@ namespace OpenCvSharp.Blob
         public static void RenderBlob(LabelData labels, CvBlob blob, IplImage imgSource, IplImage imgDest, RenderBlobsMode mode, CvScalar color, double alpha)
         {
             if (labels == null)
-                throw new ArgumentNullException("labels");
+                throw new ArgumentNullException(nameof(labels));
             if (blob == null)
-                throw new ArgumentNullException("blob");
+                throw new ArgumentNullException(nameof(blob));
             if (imgSource == null)
-                throw new ArgumentNullException("imgSource");
+                throw new ArgumentNullException(nameof(imgSource));
             if (imgDest == null)
-                throw new ArgumentNullException("imgDest");
+                throw new ArgumentNullException(nameof(imgDest));
 
             BlobRenderer.PerformOne(labels, blob, imgSource, imgDest, mode, color, alpha);
         }
@@ -332,11 +332,11 @@ namespace OpenCvSharp.Blob
         public static void RenderBlobs(CvBlobs blobs, IplImage imgSource, IplImage imgDest, RenderBlobsMode mode, double alpha)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             if (imgSource == null)
-                throw new ArgumentNullException("imgSource");
+                throw new ArgumentNullException(nameof(imgSource));
             if (imgDest == null)
-                throw new ArgumentNullException("imgDest");
+                throw new ArgumentNullException(nameof(imgDest));
 
             BlobRenderer.PerformMany(blobs, imgSource, imgDest, mode, alpha);
         }
@@ -350,7 +350,7 @@ namespace OpenCvSharp.Blob
         public static void RenderContourChainCode(CvContourChainCode contour, IplImage img)
         {
             if (contour == null)
-                throw new ArgumentNullException("contour");
+                throw new ArgumentNullException(nameof(contour));
             contour.Render(img);
         }
         /// <summary>
@@ -362,7 +362,7 @@ namespace OpenCvSharp.Blob
         public static void RenderContourChainCode(CvContourChainCode contour, IplImage img, CvScalar color)
         {
             if (contour == null)
-                throw new ArgumentNullException("contour");
+                throw new ArgumentNullException(nameof(contour));
             contour.Render(img, color);
         }
         #endregion
@@ -375,7 +375,7 @@ namespace OpenCvSharp.Blob
         public static void RenderContourPolygon(CvContourPolygon contour, IplImage img)
         {
             if (contour == null)
-                throw new ArgumentNullException("contour");
+                throw new ArgumentNullException(nameof(contour));
             contour.Render(img);
         }
         /// <summary>
@@ -387,7 +387,7 @@ namespace OpenCvSharp.Blob
         public static void RenderContourPolygon(CvContourPolygon contour, IplImage img, CvScalar color)
         {
             if (contour == null)
-                throw new ArgumentNullException("contour");
+                throw new ArgumentNullException(nameof(contour));
             contour.Render(img, color);
         }
         #endregion
@@ -401,7 +401,7 @@ namespace OpenCvSharp.Blob
         public static void RenderTracks(CvTracks tracks, IplImage imgSource, IplImage imgDest)
         {
             if (tracks == null)
-                throw new ArgumentNullException("tracks");
+                throw new ArgumentNullException(nameof(tracks));
             tracks.Render(imgSource, imgDest);
         }
         /// <summary>
@@ -414,7 +414,7 @@ namespace OpenCvSharp.Blob
         public static void RenderTracks(CvTracks tracks, IplImage imgSource, IplImage imgDest, RenderTracksMode mode)
         {
             if (tracks == null)
-                throw new ArgumentNullException("tracks");
+                throw new ArgumentNullException(nameof(tracks));
             tracks.Render(imgSource, imgDest, mode);
         }
         /// <summary>
@@ -428,7 +428,7 @@ namespace OpenCvSharp.Blob
         public static void RenderTracks(CvTracks tracks, IplImage imgSource, IplImage imgDest, RenderTracksMode mode, CvFont font)
         {
             if (tracks == null)
-                throw new ArgumentNullException("tracks");
+                throw new ArgumentNullException(nameof(tracks));
             tracks.Render(imgSource, imgDest, mode, font);
         }
         #endregion
@@ -444,9 +444,9 @@ namespace OpenCvSharp.Blob
         public static void SaveImageBlob(string fileName, IplImage img, CvBlob blob)
         {
             if(String.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             if(blob == null)
-                throw new ArgumentNullException("blob");
+                throw new ArgumentNullException(nameof(blob));
             blob.SaveImage(fileName, img);
         }
         #endregion
@@ -459,7 +459,7 @@ namespace OpenCvSharp.Blob
         public static void SetImageRoItoBlob(IplImage img, CvBlob blob)
         {
             if (blob == null)
-                throw new ArgumentNullException("blob");
+                throw new ArgumentNullException(nameof(blob));
             blob.SetImageRoiToBlob(img);
         }
         #endregion
@@ -484,7 +484,7 @@ namespace OpenCvSharp.Blob
         public static CvContourPolygon SimplifyPolygon(CvContourPolygon polygon, double delta)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             return polygon.Simplify(delta);
         }
         #endregion
@@ -499,7 +499,7 @@ namespace OpenCvSharp.Blob
         public static void UpdateTracks(CvBlobs blobs, CvTracks tracks, double thDistance, int thInactive)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             blobs.UpdateTracks(tracks, thDistance, thInactive);
         }
         /// <summary>
@@ -520,7 +520,7 @@ namespace OpenCvSharp.Blob
         public static void UpdateTracks(CvBlobs blobs, CvTracks tracks, double thDistance, int thInactive, int thActive)
         {
             if (blobs == null)
-                throw new ArgumentNullException("blobs");
+                throw new ArgumentNullException(nameof(blobs));
             blobs.UpdateTracks(tracks, thDistance, thInactive, thActive);
         }
         #endregion
@@ -533,7 +533,7 @@ namespace OpenCvSharp.Blob
         public static void WriteContourPolygonCsv(CvContourPolygon polygon, string filename)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             polygon.WriteAsCsv(filename);
         }
         #endregion
@@ -557,7 +557,7 @@ namespace OpenCvSharp.Blob
         public static void WriteContourPolygonSvg(CvContourPolygon polygon, string fileName, CvScalar stroke, CvScalar fill)
         {
             if (polygon == null)
-                throw new ArgumentNullException("polygon");
+                throw new ArgumentNullException(nameof(polygon));
             polygon.WriteAsSvg(fileName, stroke, fill);
         }
         #endregion

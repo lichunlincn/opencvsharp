@@ -112,7 +112,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             NativeMethods.gpu_registerPageLocked(m.CvPtr);
         }
 
@@ -124,7 +124,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             NativeMethods.gpu_unregisterPageLocked(m.CvPtr);
         }
 
@@ -143,7 +143,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             NativeMethods.gpu_createContinuous1(rows, cols, type, m.CvPtr);
         }
 
@@ -197,7 +197,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             NativeMethods.gpu_ensureSizeIsEnough(rows, cols, type, m.CvPtr);
         }
 
@@ -226,7 +226,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (mat == null)
-                throw new ArgumentNullException("mat");
+                throw new ArgumentNullException(nameof(mat));
             IntPtr ret = NativeMethods.gpu_allocMatFromBuf(rows, cols, type, mat.CvPtr);
             return new GpuMat(ret);
         }
@@ -253,9 +253,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -292,11 +292,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -323,13 +323,13 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -355,11 +355,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -386,13 +386,13 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -418,11 +418,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -450,15 +450,15 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             if (buf1 == null)
-                throw new ArgumentNullException("buf1");
+                throw new ArgumentNullException(nameof(buf1));
             if (buf2 == null)
-                throw new ArgumentNullException("buf2");
+                throw new ArgumentNullException(nameof(buf2));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -489,11 +489,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernel == null)
-                throw new ArgumentNullException("kernel");
+                throw new ArgumentNullException(nameof(kernel));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernel.ThrowIfDisposed();
@@ -523,13 +523,13 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernelX == null)
-                throw new ArgumentNullException("kernelX");
+                throw new ArgumentNullException(nameof(kernelX));
             if (kernelY == null)
-                throw new ArgumentNullException("kernelY");
+                throw new ArgumentNullException(nameof(kernelY));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernelX.ThrowIfDisposed();
@@ -563,15 +563,15 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (kernelX == null)
-                throw new ArgumentNullException("kernelX");
+                throw new ArgumentNullException(nameof(kernelX));
             if (kernelY == null)
-                throw new ArgumentNullException("kernelY");
+                throw new ArgumentNullException(nameof(kernelY));
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             kernelX.ThrowIfDisposed();
@@ -602,9 +602,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -635,11 +635,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             buf.ThrowIfDisposed();
@@ -668,9 +668,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -700,11 +700,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             buf.ThrowIfDisposed();
@@ -730,9 +730,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -767,11 +767,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             if (buf == null)
-                throw new ArgumentNullException("buf");
+                throw new ArgumentNullException(nameof(buf));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
             buf.ThrowIfDisposed();
@@ -798,9 +798,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -825,7 +825,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null) 
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             src.ThrowIfDisposed();
             NativeMethods.gpu_minMaxLoc1(
                 src.CvPtr, out minVal, out maxVal, out minLoc, out maxLoc, Cv2.ToPtr(mask));
@@ -850,11 +850,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (src == null) 
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (valbuf == null)
-                throw new ArgumentNullException("valbuf");
+                throw new ArgumentNullException(nameof(valbuf));
             if (locbuf == null)
-                throw new ArgumentNullException("locbuf");
+                throw new ArgumentNullException(nameof(locbuf));
             src.ThrowIfDisposed();
             valbuf.ThrowIfDisposed();
             locbuf.ThrowIfDisposed();
@@ -877,11 +877,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfGpuNotAvailable();
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (templ == null)
-                throw new ArgumentNullException("templ");
+                throw new ArgumentNullException(nameof(templ));
             if (result == null)
-                throw new ArgumentNullException("result");
+                throw new ArgumentNullException(nameof(result));
             image.ThrowIfDisposed();
             templ.ThrowIfDisposed();
             result.ThrowIfDisposed();

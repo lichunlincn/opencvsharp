@@ -313,7 +313,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (String.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
 
             FileName = fileName;
             Fps = fps;
@@ -362,7 +362,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if(image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
             NativeMethods.highgui_VideoWriter_write(ptr, image.CvPtr);
         }

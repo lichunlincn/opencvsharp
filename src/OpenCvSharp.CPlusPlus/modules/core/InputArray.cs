@@ -30,7 +30,7 @@ namespace OpenCvSharp.CPlusPlus
         internal InputArray(Mat mat)
         {
             if(mat == null)
-                throw new ArgumentNullException("mat");
+                throw new ArgumentNullException(nameof(mat));
             ptr = NativeMethods.core_InputArray_new_byMat(mat.CvPtr);
             obj = mat;
         }
@@ -42,7 +42,7 @@ namespace OpenCvSharp.CPlusPlus
         internal InputArray(MatExpr expr)
         {
             if (expr == null)
-                throw new ArgumentNullException("expr");
+                throw new ArgumentNullException(nameof(expr));
             ptr = NativeMethods.core_InputArray_new_byMatExpr(expr.CvPtr);
             obj = null;
         }
@@ -72,7 +72,7 @@ namespace OpenCvSharp.CPlusPlus
         internal InputArray(GpuMat mat)
         {
             if (mat == null)
-                throw new ArgumentNullException("mat");
+                throw new ArgumentNullException(nameof(mat));
             ptr = NativeMethods.core_InputArray_new_byGpuMat(mat.CvPtr);
             obj = mat;
         }
@@ -84,7 +84,7 @@ namespace OpenCvSharp.CPlusPlus
         internal InputArray(IEnumerable<Mat> mat)
         {
             if (mat == null)
-                throw new ArgumentNullException("mat");
+                throw new ArgumentNullException(nameof(mat));
             using (var matVector = new VectorOfMat(mat))
             {
                 ptr = NativeMethods.core_InputArray_new_byVectorOfMat(matVector.CvPtr);
@@ -278,7 +278,7 @@ namespace OpenCvSharp.CPlusPlus
             where T : struct
         {
             if (enumerable == null)
-                throw new ArgumentNullException("enumerable");
+                throw new ArgumentNullException(nameof(enumerable));
             List<T> list = new List<T>(enumerable);
             return Create(list.ToArray());
         }
@@ -293,7 +293,7 @@ namespace OpenCvSharp.CPlusPlus
             where T : struct
         {
             if (enumerable == null)
-                throw new ArgumentNullException("enumerable");
+                throw new ArgumentNullException(nameof(enumerable));
             List<T> list = new List<T>(enumerable);
             return Create(list.ToArray(), type);
         }
@@ -320,7 +320,7 @@ namespace OpenCvSharp.CPlusPlus
             where T : struct
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             if (array.Length == 0)
                 throw new ArgumentException("array.Length == 0");
 
@@ -351,7 +351,7 @@ namespace OpenCvSharp.CPlusPlus
             where T : struct
         {
             if (array == null)
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException(nameof(array));
             int rows = array.GetLength(0);
             int cols = array.GetLength(1);
             if (rows == 0)

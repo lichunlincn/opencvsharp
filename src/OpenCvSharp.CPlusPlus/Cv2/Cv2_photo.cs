@@ -21,11 +21,11 @@ namespace OpenCvSharp.CPlusPlus
             OutputArray dst, double inpaintRadius, InpaintMethod flags)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (inpaintMask == null)
-                throw new ArgumentNullException("inpaintMask");
+                throw new ArgumentNullException(nameof(inpaintMask));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             inpaintMask.ThrowIfDisposed();
             dst.ThrowIfNotReady();
@@ -53,9 +53,9 @@ namespace OpenCvSharp.CPlusPlus
             int templateWindowSize = 7, int searchWindowSize = 21)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.photo_fastNlMeansDenoising(src.CvPtr, dst.CvPtr, h, templateWindowSize, searchWindowSize);
@@ -83,9 +83,9 @@ namespace OpenCvSharp.CPlusPlus
             int templateWindowSize = 7, int searchWindowSize = 21)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
             NativeMethods.photo_fastNlMeansDenoisingColored(src.CvPtr, dst.CvPtr, h, hColor, templateWindowSize, searchWindowSize);
@@ -113,9 +113,9 @@ namespace OpenCvSharp.CPlusPlus
             float h = 3, int templateWindowSize = 7, int searchWindowSize = 21)
         {
             if (srcImgs == null)
-                throw new ArgumentNullException("srcImgs");
+                throw new ArgumentNullException(nameof(srcImgs));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             dst.ThrowIfNotReady();
             IntPtr[] srcImgPtrs = EnumerableEx.SelectPtrs(srcImgs);
 
@@ -168,9 +168,9 @@ namespace OpenCvSharp.CPlusPlus
             int templateWindowSize = 7, int searchWindowSize = 21)
         {
             if (srcImgs == null)
-                throw new ArgumentNullException("srcImgs");
+                throw new ArgumentNullException(nameof(srcImgs));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             dst.ThrowIfNotReady();
             IntPtr[] srcImgPtrs = EnumerableEx.SelectPtrs(srcImgs);
 

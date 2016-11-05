@@ -56,7 +56,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfNotAvailable();
             if (m == null)
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             ptr = NativeMethods.gpu_CudaMem_new2(m.CvPtr);
         }
 
@@ -420,7 +420,7 @@ namespace OpenCvSharp.CPlusPlus.Gpu
         {
             ThrowIfDisposed();
             if (target == null)
-                throw new ArgumentNullException("target");
+                throw new ArgumentNullException(nameof(target));
             NativeMethods.gpu_CudaMem_opAssign(target.CvPtr, ptr);
         }
 

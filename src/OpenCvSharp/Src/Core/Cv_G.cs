@@ -3058,7 +3058,7 @@ namespace OpenCvSharp
         public static int GraphVtxIdx(CvGraph graph, CvGraphVtx vtx)
         {
             if (graph == null)
-                throw new ArgumentNullException("graph");
+                throw new ArgumentNullException(nameof(graph));
             if (vtx == null)
                 throw new ArgumentNullException("vtx");
             return ((int)vtx.Flags & CvConst.CV_SET_ELEM_IDX_MASK);

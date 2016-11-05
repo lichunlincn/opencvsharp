@@ -140,9 +140,9 @@ namespace OpenCvSharp.CPlusPlus
         public override void Run(InputArray image, OutputArray fgmask, double learningRate = -1.0)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (fgmask == null)
-                throw new ArgumentNullException("fgmask");
+                throw new ArgumentNullException(nameof(fgmask));
             image.ThrowIfDisposed();
             fgmask.ThrowIfNotReady();
             NativeMethods.video_BackgroundSubtractorMOG2_operator(ptr, image.CvPtr, fgmask.CvPtr, learningRate);
@@ -156,7 +156,7 @@ namespace OpenCvSharp.CPlusPlus
         public override void GetBackgroundImage(OutputArray backgroundImage)
         {
             if (backgroundImage == null)
-                throw new ArgumentNullException("backgroundImage");
+                throw new ArgumentNullException(nameof(backgroundImage));
             backgroundImage.ThrowIfNotReady();
             NativeMethods.video_BackgroundSubtractorMOG2_getBackgroundImage(ptr, backgroundImage.CvPtr);
             backgroundImage.Fix();

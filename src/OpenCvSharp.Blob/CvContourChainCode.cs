@@ -116,7 +116,7 @@ namespace OpenCvSharp.Blob
         public void Render(IplImage img, CvScalar color)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (img.Depth != BitDepth.U8 || img.NChannels != 3)
                 throw new ArgumentException("Invalid img format (U8 3-channels)");
 

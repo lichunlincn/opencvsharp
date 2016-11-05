@@ -131,7 +131,7 @@ namespace OpenCvSharp.CPlusPlus
         public KeyPoint[] Detect(Mat image, Mat mask = null)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             using (var keypoints = new VectorOfKeyPoint())
             {
                 NativeMethods.features2d_FeatureDetector_detect(ptr, image.CvPtr, keypoints.CvPtr, Cv2.ToPtr(mask));
@@ -148,7 +148,7 @@ namespace OpenCvSharp.CPlusPlus
         public KeyPoint[][] Detect(IEnumerable<Mat> images, IEnumerable<Mat> masks = null)
         {
             if (images == null)
-                throw new ArgumentNullException("images");
+                throw new ArgumentNullException(nameof(images));
 
             Mat[] imagesArray = Util.ToArray(images);
             IntPtr[] imagesPtr = new IntPtr[imagesArray.Length];

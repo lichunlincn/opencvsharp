@@ -130,7 +130,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (fs == null)
-                throw new ArgumentNullException("fs");
+                throw new ArgumentNullException(nameof(fs));
             NativeMethods.superres_SuperResolution_setInput(ptr, fs.CvPtr);
         }
         /// <summary>
@@ -141,7 +141,7 @@ namespace OpenCvSharp.CPlusPlus
         {
             ThrowIfDisposed();
             if (frame == null)
-                throw new ArgumentNullException("frame");
+                throw new ArgumentNullException(nameof(frame));
             frame.ThrowIfNotReady();
             NativeMethods.superres_SuperResolution_nextFrame(ptr, frame.CvPtr);
             frame.Fix();

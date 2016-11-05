@@ -186,7 +186,7 @@ namespace OpenCvSharp
         {
             if (m == null)
             {
-                throw new ArgumentNullException("m");
+                throw new ArgumentNullException(nameof(m));
             }
             mat = m;
             IntPtr result = NativeMethods.cvInitSparseMatIterator(mat.CvPtr, CvPtr);

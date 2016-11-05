@@ -30,7 +30,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfVec2f(int size)
         {
             if (size < 0)
-                throw new ArgumentOutOfRangeException("size");
+                throw new ArgumentOutOfRangeException(nameof(size));
             ptr = NativeMethods.vector_Vec2f_new2(new IntPtr(size));
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfVec2f(IEnumerable<Vec2f> data)
         {
             if (data == null)
-                throw new ArgumentNullException("data");
+                throw new ArgumentNullException(nameof(data));
             Vec2f[] array = Util.ToArray(data);
             ptr = NativeMethods.vector_Vec2f_new3(array, new IntPtr(array.Length));
         }

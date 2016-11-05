@@ -147,9 +147,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (objectsBuf == null)
-                throw new ArgumentNullException("objectsBuf");
+                throw new ArgumentNullException(nameof(objectsBuf));
 
             CvSize minSizeVal = minSize.GetValueOrDefault(new Size());
 
@@ -178,9 +178,9 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException(GetType().Name);
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (objectsBuf == null)
-                throw new ArgumentNullException("objectsBuf");
+                throw new ArgumentNullException(nameof(objectsBuf));
 
             CvSize minSizeVal = minSize.GetValueOrDefault(new Size());
 

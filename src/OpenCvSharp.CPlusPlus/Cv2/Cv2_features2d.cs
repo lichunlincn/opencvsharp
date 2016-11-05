@@ -19,7 +19,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void FAST(InputArray image, out KeyPoint[] keypoints, int threshold, bool nonmaxSupression = true)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
             using (var kp = new VectorOfKeyPoint())
             {
@@ -39,7 +39,7 @@ namespace OpenCvSharp.CPlusPlus
         public static void FASTX(InputArray image, out KeyPoint[] keypoints, int threshold, bool nonmaxSupression, int type)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             image.ThrowIfDisposed();
             using (var kp = new VectorOfKeyPoint())
             {
@@ -61,11 +61,11 @@ namespace OpenCvSharp.CPlusPlus
             Scalar? color = null, DrawMatchesFlags flags = DrawMatchesFlags.Default)
         {
             if (image == null)
-                throw new ArgumentNullException("image");
+                throw new ArgumentNullException(nameof(image));
             if (outImage == null)
-                throw new ArgumentNullException("outImage");
+                throw new ArgumentNullException(nameof(outImage));
             if (keypoints == null)
-                throw new ArgumentNullException("keypoints");
+                throw new ArgumentNullException(nameof(keypoints));
             image.ThrowIfDisposed();
             outImage.ThrowIfDisposed();
 
@@ -95,17 +95,17 @@ namespace OpenCvSharp.CPlusPlus
             IEnumerable<byte> matchesMask = null, DrawMatchesFlags flags = DrawMatchesFlags.Default)
         {
             if (img1 == null)
-                throw new ArgumentNullException("img1");
+                throw new ArgumentNullException(nameof(img1));
             if (img2 == null)
-                throw new ArgumentNullException("img2");
+                throw new ArgumentNullException(nameof(img2));
             if (outImg == null)
-                throw new ArgumentNullException("outImg");
+                throw new ArgumentNullException(nameof(outImg));
             if (keypoints1 == null)
-                throw new ArgumentNullException("keypoints1");
+                throw new ArgumentNullException(nameof(keypoints1));
             if (keypoints2 == null)
-                throw new ArgumentNullException("keypoints2");
+                throw new ArgumentNullException(nameof(keypoints2));
             if (matches1To2 == null)
-                throw new ArgumentNullException("matches1To2");
+                throw new ArgumentNullException(nameof(matches1To2));
             img1.ThrowIfDisposed();
             img2.ThrowIfDisposed();
             outImg.ThrowIfDisposed();
@@ -151,17 +151,17 @@ namespace OpenCvSharp.CPlusPlus
             DrawMatchesFlags flags = DrawMatchesFlags.Default)
         {
             if (img1 == null)
-                throw new ArgumentNullException("img1");
+                throw new ArgumentNullException(nameof(img1));
             if (img2 == null)
-                throw new ArgumentNullException("img2");
+                throw new ArgumentNullException(nameof(img2));
             if (outImg == null)
-                throw new ArgumentNullException("outImg");
+                throw new ArgumentNullException(nameof(outImg));
             if (keypoints1 == null)
-                throw new ArgumentNullException("keypoints1");
+                throw new ArgumentNullException(nameof(keypoints1));
             if (keypoints2 == null)
-                throw new ArgumentNullException("keypoints2");
+                throw new ArgumentNullException(nameof(keypoints2));
             if (matches1To2 == null)
-                throw new ArgumentNullException("matches1To2");
+                throw new ArgumentNullException(nameof(matches1To2));
             img1.ThrowIfDisposed();
             img2.ThrowIfDisposed();
             outImg.ThrowIfDisposed();

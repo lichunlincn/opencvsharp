@@ -26,9 +26,9 @@ namespace OpenCvSharp.CPlusPlus
             double timestamp, double duration)
         {
             if (silhouette == null)
-                throw new ArgumentNullException("silhouette");
+                throw new ArgumentNullException(nameof(silhouette));
             if (mhi == null)
-                throw new ArgumentNullException("mhi");
+                throw new ArgumentNullException(nameof(mhi));
             silhouette.ThrowIfDisposed();
             mhi.ThrowIfNotReady();
             NativeMethods.video_updateMotionHistory(
@@ -55,11 +55,11 @@ namespace OpenCvSharp.CPlusPlus
             double delta1, double delta2, int apertureSize = 3)
         {
             if (mhi == null)
-                throw new ArgumentNullException("mhi");
+                throw new ArgumentNullException(nameof(mhi));
             if (mask == null)
-                throw new ArgumentNullException("mask");
+                throw new ArgumentNullException(nameof(mask));
             if (orientation == null)
-                throw new ArgumentNullException("orientation");
+                throw new ArgumentNullException(nameof(orientation));
             mhi.ThrowIfDisposed();
             mask.ThrowIfNotReady();
             orientation.ThrowIfNotReady();
@@ -86,11 +86,11 @@ namespace OpenCvSharp.CPlusPlus
             double timestamp, double duration)
         {
             if (orientation == null)
-                throw new ArgumentNullException("orientation");
+                throw new ArgumentNullException(nameof(orientation));
             if (mask == null)
-                throw new ArgumentNullException("mask");
+                throw new ArgumentNullException(nameof(mask));
             if (mhi == null)
-                throw new ArgumentNullException("mhi");
+                throw new ArgumentNullException(nameof(mhi));
             orientation.ThrowIfDisposed();
             mask.ThrowIfDisposed();
             mhi.ThrowIfDisposed();
@@ -114,9 +114,9 @@ namespace OpenCvSharp.CPlusPlus
             double timestamp, double segThresh)
         {
             if (mhi == null)
-                throw new ArgumentNullException("mhi");
+                throw new ArgumentNullException(nameof(mhi));
             if (segmask == null)
-                throw new ArgumentNullException("segmask");
+                throw new ArgumentNullException(nameof(segmask));
             mhi.ThrowIfDisposed();
             segmask.ThrowIfNotReady();
 
@@ -140,7 +140,7 @@ namespace OpenCvSharp.CPlusPlus
             InputArray probImage, ref Rect window, TermCriteria criteria)
         {
             if (probImage == null)
-                throw new ArgumentNullException("probImage");
+                throw new ArgumentNullException(nameof(probImage));
             probImage.ThrowIfDisposed();
 
             CvRect window0 = window;
@@ -161,7 +161,7 @@ namespace OpenCvSharp.CPlusPlus
             InputArray probImage, ref Rect window, TermCriteria criteria)
         {
             if (probImage == null)
-                throw new ArgumentNullException("probImage");
+                throw new ArgumentNullException(nameof(probImage));
             probImage.ThrowIfDisposed();
 
             CvRect window0 = window;
@@ -197,9 +197,9 @@ namespace OpenCvSharp.CPlusPlus
             bool tryReuseInputImage = true)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             if (pyramid == null)
-                throw new ArgumentNullException("pyramid");
+                throw new ArgumentNullException(nameof(pyramid));
             img.ThrowIfDisposed();
             pyramid.ThrowIfNotReady();
 
@@ -236,7 +236,7 @@ namespace OpenCvSharp.CPlusPlus
             bool tryReuseInputImage = true)
         {
             if (img == null)
-                throw new ArgumentNullException("img");
+                throw new ArgumentNullException(nameof(img));
             img.ThrowIfDisposed();
 
             using (var pyramidVec = new VectorOfMat())
@@ -274,17 +274,17 @@ namespace OpenCvSharp.CPlusPlus
             double minEigThreshold = 1e-4)
         {
             if (prevImg == null)
-                throw new ArgumentNullException("prevImg");
+                throw new ArgumentNullException(nameof(prevImg));
             if (nextImg == null)
-                throw new ArgumentNullException("nextImg");
+                throw new ArgumentNullException(nameof(nextImg));
             if (prevPts == null)
-                throw new ArgumentNullException("prevPts");
+                throw new ArgumentNullException(nameof(prevPts));
             if (nextPts == null)
-                throw new ArgumentNullException("nextPts");
+                throw new ArgumentNullException(nameof(nextPts));
             if (status == null)
-                throw new ArgumentNullException("status");
+                throw new ArgumentNullException(nameof(status));
             if (err == null)
-                throw new ArgumentNullException("err");
+                throw new ArgumentNullException(nameof(err));
             prevImg.ThrowIfDisposed();
             nextImg.ThrowIfDisposed();
             prevPts.ThrowIfDisposed();
@@ -330,13 +330,13 @@ namespace OpenCvSharp.CPlusPlus
             double minEigThreshold = 1e-4)
         {
             if (prevImg == null)
-                throw new ArgumentNullException("prevImg");
+                throw new ArgumentNullException(nameof(prevImg));
             if (nextImg == null)
-                throw new ArgumentNullException("nextImg");
+                throw new ArgumentNullException(nameof(nextImg));
             if (prevPts == null)
-                throw new ArgumentNullException("prevPts");
+                throw new ArgumentNullException(nameof(prevPts));
             if (nextPts == null)
-                throw new ArgumentNullException("nextPts");
+                throw new ArgumentNullException(nameof(nextPts));
             prevImg.ThrowIfDisposed();
             nextImg.ThrowIfDisposed();
 
@@ -383,11 +383,11 @@ namespace OpenCvSharp.CPlusPlus
             int iterations, int polyN, double polySigma, OpticalFlowFlags flags)
         {
             if (prev == null)
-                throw new ArgumentNullException("prev");
+                throw new ArgumentNullException(nameof(prev));
             if (next == null)
-                throw new ArgumentNullException("next");
+                throw new ArgumentNullException(nameof(next));
             if (flow == null)
-                throw new ArgumentNullException("flow");
+                throw new ArgumentNullException(nameof(flow));
             prev.ThrowIfDisposed();
             next.ThrowIfDisposed();
             flow.ThrowIfNotReady();
@@ -412,9 +412,9 @@ namespace OpenCvSharp.CPlusPlus
             InputArray src, InputArray dst, bool fullAffine)
         {
             if (src == null)
-                throw new ArgumentNullException("src");
+                throw new ArgumentNullException(nameof(src));
             if (dst == null)
-                throw new ArgumentNullException("dst");
+                throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfDisposed();
 
@@ -441,11 +441,11 @@ namespace OpenCvSharp.CPlusPlus
             int maxFlow)
         {
             if (from == null)
-                throw new ArgumentNullException("from");
+                throw new ArgumentNullException(nameof(@from));
             if (to == null)
-                throw new ArgumentNullException("to");
+                throw new ArgumentNullException(nameof(to));
             if (flow == null)
-                throw new ArgumentNullException("flow");
+                throw new ArgumentNullException(nameof(flow));
             from.ThrowIfDisposed();
             to.ThrowIfDisposed();
             flow.ThrowIfDisposed();
@@ -493,11 +493,11 @@ namespace OpenCvSharp.CPlusPlus
             double speedUpThr)
         {
             if (from == null)
-                throw new ArgumentNullException("from");
+                throw new ArgumentNullException(nameof(@from));
             if (to == null)
-                throw new ArgumentNullException("to");
+                throw new ArgumentNullException(nameof(to));
             if (flow == null)
-                throw new ArgumentNullException("flow");
+                throw new ArgumentNullException(nameof(flow));
             from.ThrowIfDisposed();
             to.ThrowIfDisposed();
             flow.ThrowIfDisposed();

@@ -111,7 +111,7 @@ namespace OpenCvSharp
         public CvHistogram(int[] sizes, HistogramFormat type, float[][] ranges, bool uniform)
         {
             if (sizes == null)
-                throw new ArgumentNullException("sizes");
+                throw new ArgumentNullException(nameof(sizes));
 
             if (ranges == null)
             {
@@ -778,7 +778,7 @@ namespace OpenCvSharp
         {
             if (hist == null)
             {
-                throw new ArgumentNullException("hist");
+                throw new ArgumentNullException(nameof(hist));
             }
             return NativeMethods.cvCompareHist(ptr, hist.CvPtr, method);
         }

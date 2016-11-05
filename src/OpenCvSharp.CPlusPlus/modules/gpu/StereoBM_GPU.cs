@@ -288,11 +288,11 @@ namespace OpenCvSharp.CPlusPlus.Gpu
             if (disposed)
                 throw new ObjectDisposedException("StereoBM_GPU");
             if(left == null)
-                throw new ArgumentNullException("left");
+                throw new ArgumentNullException(nameof(left));
             if(right == null)
-                throw new ArgumentNullException("right");
+                throw new ArgumentNullException(nameof(right));
             if (disparity == null)
-                throw new ArgumentNullException("disparity");
+                throw new ArgumentNullException(nameof(disparity));
 
             NativeMethods.gpu_StereoBM_GPU_run1(ptr, left.CvPtr, right.CvPtr, disparity.CvPtr);
         }

@@ -31,7 +31,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfMat(int size)
         {
             if (size < 0)
-                throw new ArgumentOutOfRangeException("size");
+                throw new ArgumentOutOfRangeException(nameof(size));
             ptr = NativeMethods.vector_Mat_new2(new IntPtr(size));
         }
 
@@ -42,7 +42,7 @@ namespace OpenCvSharp.CPlusPlus
         public VectorOfMat(IEnumerable<Mat> mats)
         {
             if (mats == null)
-                throw new ArgumentNullException("mats");
+                throw new ArgumentNullException(nameof(mats));
 
             var matPointers = EnumerableEx.SelectPtrs(mats);
             using (var matPointersPointer = new ArrayAddress1<IntPtr>(matPointers))
