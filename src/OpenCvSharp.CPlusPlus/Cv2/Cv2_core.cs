@@ -3254,6 +3254,241 @@ namespace OpenCvSharp.CPlusPlus
         }
         #endregion
         #endregion
-        
+
+        #region Write
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, int value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, float value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, double value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, string value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, Mat value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, SparseMat value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public static void Write(FileStorage fs, string name, IEnumerable<KeyPoint> value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.Write(name, value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="value"></param>
+        public static void WriteScalar(FileStorage fs, int value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.WriteScalar(value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="value"></param>
+        public static void WriteScalar(FileStorage fs, float value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.WriteScalar(value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="value"></param>
+        public static void WriteScalar(FileStorage fs, double value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.WriteScalar(value);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
+        /// <param name="value"></param>
+        public static void WriteScalar(FileStorage fs, string value)
+        {
+            if (fs == null)
+                throw new ArgumentNullException(nameof(fs));
+            fs.WriteScalar(value);
+        }
+
+        #endregion
+        #region Read
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static int ReadInt(FileNode node, int defaultValue = default(int))
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadInt(defaultValue);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static float ReadFloat(FileNode node, float defaultValue = default(float))
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadFloat(defaultValue);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static double ReadDouble(FileNode node, double defaultValue = default(double))
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadDouble(defaultValue);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static string ReadString(FileNode node, string defaultValue = default(string))
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadString(defaultValue);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="defaultMat"></param>
+        /// <returns></returns>
+        public static Mat ReadMat(FileNode node, Mat defaultMat = null)
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadMat(defaultMat);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="defaultMat"></param>
+        /// <returns></returns>
+        public static SparseMat ReadSparseMat(FileNode node, SparseMat defaultMat = null)
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadSparseMat(defaultMat);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static KeyPoint[] ReadKeyPoints(FileNode node)
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+            return node.ReadKeyPoints();
+        }
+
+        #endregion
     }
 }

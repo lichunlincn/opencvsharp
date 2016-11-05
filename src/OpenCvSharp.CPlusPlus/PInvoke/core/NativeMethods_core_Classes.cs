@@ -231,6 +231,37 @@ namespace OpenCvSharp.CPlusPlus
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
         public static extern int core_FileStorage_state(IntPtr obj);
 
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_int(
+    IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, int value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_float(
+            IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, float value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_double(
+            IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, double value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_String(
+            IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, [MarshalAs(UnmanagedType.LPStr)] string value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_Mat(
+            IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, IntPtr value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_SparseMat(
+            IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, IntPtr value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_write_vectorOfKeyPoint(
+            IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string name, IntPtr value);
+
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_writeScalar_int(IntPtr fs, int value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_writeScalar_float(IntPtr fs, float value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_writeScalar_double(IntPtr fs, double value);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileStorage_writeScalar_String(IntPtr fs, [MarshalAs(UnmanagedType.LPStr)] string value);
+
         #endregion
 
         #region FileNode
@@ -293,6 +324,26 @@ namespace OpenCvSharp.CPlusPlus
             IntPtr obj, [MarshalAs(UnmanagedType.LPStr)] string fmt, IntPtr vec, IntPtr len);
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr core_FileNode_readObj(IntPtr obj);
+
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_toMat(IntPtr obj, IntPtr m);
+
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_int(IntPtr node, out int value, int defaultValue);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_float(IntPtr node, out float value, float defaultValue);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_double(IntPtr node, out double value, double defaultValue);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_String(
+            IntPtr node, [MarshalAs(UnmanagedType.LPStr)] StringBuilder value, int valueCapacity,
+            [MarshalAs(UnmanagedType.LPStr)] string defaultValue);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_Mat(IntPtr node, IntPtr mat, IntPtr defaultMat);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_SparseMat(IntPtr node, IntPtr mat, IntPtr defaultMat);
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void core_FileNode_read_vectorOfKeyPoint(IntPtr node, IntPtr keypoints);
 
         #endregion
 

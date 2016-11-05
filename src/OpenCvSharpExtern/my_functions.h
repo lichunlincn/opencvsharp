@@ -43,6 +43,12 @@ static inline cv::Mat entity(cv::Mat *obj)
       return *obj;
     return cv::Mat();
 }
+static inline cv::SparseMat entity(cv::SparseMat *obj)
+{
+	if (obj != NULL)
+		return *obj;
+	return cv::SparseMat();
+}
 static inline cv::gpu::GpuMat entity(cv::gpu::GpuMat *obj)
 {
     if (obj != NULL) 
