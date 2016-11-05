@@ -16,6 +16,8 @@ namespace OpenCvSharp.CPlusPlus
         /// </summary>
         private Ptr<DescriptorExtractor> extractorPtr;
 
+        internal virtual IntPtr PtrObj => extractorPtr.CvPtr;
+
         /// <summary>
         /// 
         /// </summary>

@@ -17,7 +17,9 @@ namespace OpenCvSharp.CPlusPlus
     public class FREAK : DescriptorExtractor
     {
         private bool disposed;
-        private Ptr<FREAK> detectorPtr;
+        private Ptr<FREAK> extractorPtr;
+
+        internal override IntPtr PtrObj => extractorPtr.CvPtr;
 
         #region Init & Disposal
         /// <summary>
@@ -48,7 +50,7 @@ namespace OpenCvSharp.CPlusPlus
         /// </summary>
         internal FREAK(Ptr<FREAK> detectorPtr)
         {
-            this.detectorPtr = detectorPtr;
+            this.extractorPtr = detectorPtr;
             this.ptr = detectorPtr.Obj;
         }
         /// <summary>
@@ -56,7 +58,7 @@ namespace OpenCvSharp.CPlusPlus
         /// </summary>
         internal FREAK(IntPtr rawPtr)
         {
-            detectorPtr = null;
+            extractorPtr = null;
             ptr = rawPtr;
         }
         /// <summary>
@@ -100,10 +102,10 @@ namespace OpenCvSharp.CPlusPlus
                     {
                     }
                     // releases unmanaged resources
-                    if (detectorPtr != null)
+                    if (extractorPtr != null)
                     {
-                        detectorPtr.Dispose();
-                        detectorPtr = null;
+                        extractorPtr.Dispose();
+                        extractorPtr = null;
                     }
                     else
                     {

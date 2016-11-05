@@ -238,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calib3d.h" />
+    <ClInclude Include="features2d_BOW.h" />
     <ClInclude Include="gpu_FAST_GPU.h" />
     <ClInclude Include="gpu_CascadeClassifier_GPU.h" />
     <ClInclude Include="core.h" />

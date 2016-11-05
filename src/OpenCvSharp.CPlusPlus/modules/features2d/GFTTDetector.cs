@@ -15,6 +15,8 @@ namespace OpenCvSharp.CPlusPlus
         private bool disposed;
         private Ptr<GFTTDetector> detectorPtr;
 
+        internal override IntPtr PtrObj => detectorPtr.CvPtr;
+
         #region Init & Disposal
         /// <summary>
         /// 

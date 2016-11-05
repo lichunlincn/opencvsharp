@@ -23,6 +23,8 @@ namespace OpenCvSharp.CPlusPlus
         /// </summary>
         private Ptr<BriefDescriptorExtractor> extractorPtr;
 
+        internal override IntPtr PtrObj => extractorPtr.CvPtr;
+
         /// <summary>
         /// bytes is a length of descriptor in bytes. It can be equal 16, 32 or 64 bytes.
         /// </summary>

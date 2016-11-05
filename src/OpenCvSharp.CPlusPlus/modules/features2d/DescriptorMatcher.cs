@@ -16,6 +16,8 @@ namespace OpenCvSharp.CPlusPlus
         /// </summary>
         private Ptr<DescriptorMatcher> detectorPtr;
 
+        internal virtual IntPtr PtrObj => detectorPtr.CvPtr;
+
         #region Init & Disposal
 
         /// <summary>

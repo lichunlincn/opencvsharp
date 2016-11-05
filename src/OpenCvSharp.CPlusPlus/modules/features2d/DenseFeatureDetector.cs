@@ -11,6 +11,8 @@ namespace OpenCvSharp.CPlusPlus
         private bool disposed;
         private Ptr<DenseFeatureDetector> detectorPtr;
 
+        internal override IntPtr PtrObj => detectorPtr.CvPtr;
+
         #region Init & Disposal
         /// <summary>
         /// The detector generates several levels (in the amount of featureScaleLevels) of features. 
