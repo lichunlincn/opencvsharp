@@ -54,16 +54,40 @@ namespace OpenCvSharp.Sandbox
             PolygonTest(img, points);
             //*/
 
-            ConvertToBitmapSourceTest();
-
+            FileStorageTest();
+            //ConvertToBitmapSourceTest();
             //CvLoadTest();
-
             //CaptureTest();
 
             //Mat[] mats = StitchingPreprocess(400, 400, 10);
             //Stitching(mats);
             //Track();
             //Run();
+        }
+
+        private static void FileStorageTest()
+        {
+            const string fileName = "foo.yml";
+            using (var fs = new FileStorage(fileName, FileStorageMode.Write | FileStorageMode.FormatYaml))
+            {
+                fs.Write("int", 123);
+                fs.Write("double", Math.PI);
+                using (var tempMat = new Mat("data/lenna.png"))
+                {
+                    fs.Write("mat", tempMat);
+                }
+            }
+
+            using (var fs = new FileStorage(fileName, FileStorageMode.Read))
+            {
+                Console.WriteLine("int: {0}", fs["int"].ReadInt());
+                Console.WriteLine("double: {0}", (double)fs["double"]);
+                using (var window = new Window("mat"))
+                {
+                    window.ShowImage(fs["mat"].ReadMat());
+                    Cv2.WaitKey();
+                }
+            }
         }
 
         private static void ConvertToBitmapSourceTest()
