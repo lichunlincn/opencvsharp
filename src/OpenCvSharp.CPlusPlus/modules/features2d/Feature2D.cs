@@ -28,7 +28,7 @@ namespace OpenCvSharp.CPlusPlus
         /// ptr is disposed when the wrapper disposes. 
         /// </summary>
         /// <param name="ptr"></param>
-        internal static new Feature2D FromPtr(IntPtr ptr)
+        internal new static Feature2D FromPtr(IntPtr ptr)
         {
             if (ptr == IntPtr.Zero)
                 throw new OpenCvSharpException("Invalid cv::Ptr<Feature2D> pointer");
