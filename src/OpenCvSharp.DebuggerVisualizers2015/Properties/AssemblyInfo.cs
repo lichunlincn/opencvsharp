@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -34,3 +35,25 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// OpenCvSharp objects' debugger visualizer
+[assembly: DebuggerVisualizer(
+    typeof(OpenCvSharp.DebuggerVisualizers2015.IplImageDebuggerVisualizer),
+    typeof(OpenCvSharp.DebuggerVisualizers2015.IplImageObjectSource),
+    Target = typeof(OpenCvSharp.IplImage),
+    Description = "IplImage View Visualizer"
+)]
+
+[assembly: DebuggerVisualizer(
+    typeof(OpenCvSharp.DebuggerVisualizers2015.CvMatDebuggerVisualizer),
+    typeof(OpenCvSharp.DebuggerVisualizers2015.CvMatObjectSource),
+    Target = typeof(OpenCvSharp.CvMat),
+    Description = "CvMat View Visualizer"
+)]
+
+[assembly: DebuggerVisualizer(
+    typeof(OpenCvSharp.DebuggerVisualizers2015.MatDebuggerVisualizer),
+    typeof(OpenCvSharp.DebuggerVisualizers2015.MatObjectSource),
+    Target = typeof(OpenCvSharp.CPlusPlus.Mat),
+    Description = "Mat View Visualizer"
+)]

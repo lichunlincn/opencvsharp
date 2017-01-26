@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using OpenCvSharp.CPlusPlus;
 
-namespace OpenCvSharp.Tests.Face
+namespace OpenCvSharp.Tests.Contrib
 {
     [TestFixture]
-    public class LBPHFaceRecognizerTest : TestBase
+    public class FaceRecognizerTest : TestBase
     {
         [Test]
-        public void CreateAndDispose()
+        public void CreateAndDisposeLBPH()
         {
-            var recognizer = FaceRecognizer.CreateLBPHFaceRecognizer(1, 8, 8, 8, 123);
+            var recognizer = FaceRecognizer.CreateLBPHFaceRecognizer();
+            recognizer.Dispose();
+        }
+
+        [Test]
+        public void CreateAndDisposeEigen()
+        {
+            var recognizer = FaceRecognizer.CreateEigenFaceRecognizer();
+            recognizer.Dispose();
+        }
+
+        [Test]
+        public void CreateAndDisposeFisher()
+        {
+            var recognizer = FaceRecognizer.CreateFisherFaceRecognizer();
             recognizer.Dispose();
         }
 
