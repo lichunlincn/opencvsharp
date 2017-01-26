@@ -114,3 +114,4 @@ Help EN
 *.BAK
 /src/OpenCvSharp2.VC.db
 /src/OpenCvSharp.Tests/dll/x86/OpenCvSharpExtern.dll
+/nuget/*.nupkg
