@@ -7,6 +7,7 @@
 #pragma warning(disable: 4996)
 #endif
 #include <opencv2/opencv.hpp>
+#include <opencv2/contrib/contrib.hpp>
 #include <opencv2/legacy/legacy.hpp>
 #include <opencv2/nonfree/nonfree.hpp>
 #include <opencv2/superres/superres.hpp>

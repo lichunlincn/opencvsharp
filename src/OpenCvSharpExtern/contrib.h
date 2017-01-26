@@ -14,28 +14,28 @@ CVAPI(void) contrib_applyColorMap(cv::_InputArray *src, cv::_OutputArray *dst, i
 }
 
 CVAPI(int) contrib_chamerMatching(cv::Mat *img, cv::Mat *templ,
-	std::vector<std::vector<cv::Point> > *results, std::vector<float> *cost,
-	double templScale, int maxMatches, double minMatchDistance, int padX,
-	int padY, int scales, double minScale, double maxScale,
-	double orientationWeight, double truncate)
+                                  std::vector<std::vector<cv::Point> > *results, std::vector<float> *cost,
+                                  double templScale, int maxMatches, double minMatchDistance, int padX,
+                                  int padY, int scales, double minScale, double maxScale,
+                                  double orientationWeight, double truncate)
 {
-	return cv::chamerMatching(*img, *templ, *results, *cost, templScale, maxMatches, minMatchDistance,
-		padX, padY, scales, minScale, maxScale, orientationWeight, truncate);
+    return cv::chamerMatching(*img, *templ, *results, *cost, templScale, maxMatches, minMatchDistance,
+                              padX, padY, scales, minScale, maxScale, orientationWeight, truncate);
 }
 
 
 #pragma region CvAdaptiveSkinDetector
 CVAPI(CvAdaptiveSkinDetector*) contrib_CvAdaptiveSkinDetector_new(int samplingDivider, int morphingMethod)
 {
-	return new CvAdaptiveSkinDetector(samplingDivider, morphingMethod);
+    return new CvAdaptiveSkinDetector(samplingDivider, morphingMethod);
 }
 CVAPI(void) contrib_CvAdaptiveSkinDetector_delete(CvAdaptiveSkinDetector *obj)
 {
-	delete obj;
+    delete obj;
 }
 CVAPI(void) contrib_CvAdaptiveSkinDetector_process(CvAdaptiveSkinDetector *obj, IplImage *inputBGRImage, IplImage *outputHueMask)
 {
-	obj->process(inputBGRImage, outputHueMask);
+    obj->process(inputBGRImage, outputHueMask);
 }
 #pragma endregion
 
@@ -98,16 +98,16 @@ CVAPI(cv::AlgorithmInfo*) contrib_FaceRecognizer_info(cv::FaceRecognizer *obj)
 
 CVAPI(cv::Ptr<cv::FaceRecognizer>*) contrib_createEigenFaceRecognizer(int numComponents, double threshold)
 {
-  return clone(cv::createEigenFaceRecognizer(numComponents, threshold));
+    return clone(cv::createEigenFaceRecognizer(numComponents, threshold));
 }
 CVAPI(cv::Ptr<cv::FaceRecognizer>*) contrib_createFisherFaceRecognizer(int numComponents, double threshold)
 {
-  return clone(cv::createFisherFaceRecognizer(numComponents, threshold));
+    return clone(cv::createFisherFaceRecognizer(numComponents, threshold));
 }
 CVAPI(cv::Ptr<cv::FaceRecognizer>*) contrib_createLBPHFaceRecognizer(
     int radius, int neighbors, int gridX, int gridY, double threshold)
 {
-  return clone(cv::createLBPHFaceRecognizer(radius, neighbors, gridX, gridY, threshold));
+    return clone(cv::createLBPHFaceRecognizer(radius, neighbors, gridX, gridY, threshold));
 }
 
 CVAPI(cv::FaceRecognizer*) contrib_Ptr_FaceRecognizer_obj(cv::Ptr<cv::FaceRecognizer> *obj)

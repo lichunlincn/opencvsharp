@@ -113,3 +113,4 @@ Help EN
 /src/*.opendb
 *.BAK
 /src/OpenCvSharp2.VC.db
+/src/OpenCvSharp.Tests/dll/x86/OpenCvSharpExtern.dll

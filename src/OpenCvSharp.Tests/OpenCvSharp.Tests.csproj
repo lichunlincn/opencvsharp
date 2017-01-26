@@ -82,9 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlobTest.cs" />
+    <Compile Include="core\MatTest.cs" />
     <Compile Include="core\RNG_MT19937Test.cs.cs" />
     <Compile Include="core\RNGTest.cs" />
+    <Compile Include="core\SolveEquationTest.cs" />
+    <Compile Include="face\LBPHFaceRecognizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -162,6 +166,9 @@
     <Content Include="dll\x86\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="dll\x86\OpenCvSharpExtern.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="dll\x86\opencv_calib3d2410.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -219,14 +226,23 @@
     <Content Include="dll\x86\opencv_videostab2410.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Image\Blob\shapes1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="_data\image\blob\shapes1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Image\Blob\shapes2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="_data\image\blob\shapes2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Image\Blob\shapes3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="_data\image\blob\shapes3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_data\image\lenna.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_data\image\tsukuba_left.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_data\image\tsukuba_right.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +262,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -27,7 +27,7 @@ namespace OpenCvSharp.Tests
         [Test]
         public void SimpleTest()
         {
-            using (var src = new IplImage(@"Image\Blob\shapes2.png", LoadMode.GrayScale))
+            using (var src = new IplImage(@"_data\image\Blob\shapes2.png", LoadMode.GrayScale))
             using (var binary = new IplImage(src.Size, BitDepth.U8, 1))
             using (var render = new IplImage(src.Size, BitDepth.U8, 3))
             {
