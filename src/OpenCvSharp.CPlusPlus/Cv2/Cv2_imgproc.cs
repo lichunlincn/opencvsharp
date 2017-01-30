@@ -976,7 +976,10 @@ namespace OpenCvSharp.CPlusPlus
             map2.ThrowIfDisposed();
             CvScalar borderValue0 = borderValue.GetValueOrDefault(CvScalar.ScalarAll(0));
             NativeMethods.imgproc_remap(src.CvPtr, dst.CvPtr, map1.CvPtr, map2.CvPtr, (int)interpolation, (int)borderMode, borderValue0);
+            GC.KeepAlive(src);
             dst.Fix();
+            GC.KeepAlive(map1);
+            GC.KeepAlive(map2);
         }
         #endregion
         #region ConvertMaps
